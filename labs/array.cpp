@@ -35,6 +35,8 @@ int main()
 {
   int rowLength;
   int colLength;
+  int rowSum;
+  int colSum;
 
   cout << endl << endl;
 
@@ -55,11 +57,40 @@ int main()
     }
   }
 
-  // Prints the 2 dim array and the sums of all its rows and cols.
+  cout << endl << endl;
+  cout << "Printing and summing array. Press enter to continue......";
+  cin.ignore();
+  cin.get();
+
+  cout << endl;
+
+  // Prints the 2 dim array
   for(int row = 0; row < rowLength; row++) {
     for(int col = 0; col < colLength; col++) {
       cout << *(arr + row*colLength + col) << SPACE;
     }
+    cout << endl;
+  }
+
+  cout << endl;
+  
+  // Prints the sum of rows
+  for(int row = 0; row < rowLength; row++) {
+    for(int col = 0; col < colLength; col++) {
+      rowSum += *(arr + row*colLength + col);
+    }
+    cout << "Sum of row " << row << " is: " << rowSum;
+    rowSum = 0;
+    cout << endl;
+  }
+
+  // Prints the sum of cols
+  for(int col = 0; col < colLength; col++) {
+    for(int row = 0; row < rowLength; row++) {
+      colSum += *(arr + row*colLength + col);
+    }
+    cout << "Sum of row " << col << " is: " << colSum;
+    colSum = 0;
     cout << endl;
   }
 
