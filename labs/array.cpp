@@ -46,14 +46,16 @@ int main()
   cout << "Please enter a column length: ";
   cin >> colLength;
 
+  int** arr = new int*[rowLength];
+  for(int i = 0; i < rowLength; i++) {
+    arr[i] = new int[colLength];
+  }
 
-
-  int* arr = new int[rowLength * colLength];
-
+  // Filing the array with user given integers
   for(int row = 0; row < rowLength; row++) {
     for(int col = 0; col < colLength; col++) {
         cout << "Input a number at row " << row << ", col " << col << ": ";
-        cin >> *(arr + row*colLength + col);
+        cin >> **(arr + row*colLength + col);
     }
   }
 
@@ -67,17 +69,17 @@ int main()
   // Prints the 2 dim array
   for(int row = 0; row < rowLength; row++) {
     for(int col = 0; col < colLength; col++) {
-      cout << *(arr + row*colLength + col) << SPACE;
+      cout << **(arr + row*colLength + col) << SPACE;
     }
     cout << endl;
   }
 
   cout << endl;
-  
+
   // Prints the sum of rows
   for(int row = 0; row < rowLength; row++) {
     for(int col = 0; col < colLength; col++) {
-      rowSum += *(arr + row*colLength + col);
+      rowSum += **(arr + row*colLength + col);
     }
     cout << "Sum of row " << row << " is: " << rowSum;
     rowSum = 0;
@@ -87,7 +89,7 @@ int main()
   // Prints the sum of cols
   for(int col = 0; col < colLength; col++) {
     for(int row = 0; row < rowLength; row++) {
-      colSum += *(arr + row*colLength + col);
+      colSum += **(arr + row*colLength + col);
     }
     cout << "Sum of row " << col << " is: " << colSum;
     colSum = 0;
@@ -96,6 +98,11 @@ int main()
 
   cout << endl << endl;
 
+  for(int i = 0; i < rowLength; i++) {
+    delete[] arr[i];
+  }
   delete[] arr;
+  arr = nullptr;
+
   return 0;
 }
