@@ -35,8 +35,8 @@ int main()
 {
   int rowLength;
   int colLength;
-  int rowSum;
-  int colSum;
+  int rowSum = 0;
+  int colSum = 0;
 
   cout << endl << endl;
 
@@ -47,7 +47,7 @@ int main()
   cin >> colLength;
 
   int** arr = new int*[rowLength];
-  for(int i = 0; i < rowLength; i++) {
+  for(int i = 0; i < rowLength; ++i) {
     arr[i] = new int[colLength];
   }
 
@@ -91,7 +91,7 @@ int main()
     for(int row = 0; row < rowLength; row++) {
       colSum += arr[row][col];
     }
-    cout << "Sum of row " << col << " is: " << colSum;
+    cout << "Sum of col " << col << " is: " << colSum;
     colSum = 0;
     cout << endl;
   }
