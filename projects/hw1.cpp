@@ -22,10 +22,9 @@ using namespace std;
 struct TeamInfo
 {
   string city;
-  string name;
   string mascot;
   string confDiv;
-  int win;
+  int wins;
   int losses;
   int ties;
   double winningPercent;
@@ -47,13 +46,13 @@ void welcome();
 
 int getMenuChoice();
 
-void readFile(string fileName);
+void readFile(TeamInfo *list, string fileName);
 
 //void printTeam(TeamInfo[] list);
 
 //void sortWinningPercent(TeamInfo[] list);
 
-void printAll(TeamInfo[] list);
+//void printAll(TeamInfo[] list);
 
 //void printDivision(TeamInfo[] list);
 
@@ -61,23 +60,40 @@ void goodbye();
 
 int main()
 {
+  TeamInfo *list = nullptr;
   int menuChoice = 0;
+  int numOfTeams = 0;
 
   welcome();
 
-while(menuChoice != QUIT) {
-  menuChoice = getMenuChoice();
-
-  switch(menuChoice)
-  {
-    case PRINT_ALL :
-    {
-      printAll();
-      menuChoice = getMenuChoice();
-      break;
-    }
+  while (numOfTeams < 1)  {
+  cout << "How many teams? ";
+  cin >> numOfTeams;
   }
-}
+
+  list = new TeamInfo[numOfTeams]; //inializating array for TeamInfo
+//while(menuChoice != QUIT) {
+//  while(menuChoice != PRINT_ALL && menuChoice != SORT_WIN_PERC && menuChoice
+    //  != PRINT_DIV) {
+  menuChoice = getMenuChoice();
+//}
+  readFile(*list, DATA);
+//  switch(menuChoice)
+  //{
+  //  case PRINT_ALL :
+  //  {
+    //  printAll();
+      //menuChoice = getMenuChoice();
+    //  break;
+    //}
+  //}
+//}
+
+  for(int index = 0; index < sizeof(*list); index++) {
+    cout << list[index].city
+          << " " << list[index].mascot;
+    cout << endl;
+  }
 
   goodbye();
   return 0;
@@ -85,7 +101,7 @@ while(menuChoice != QUIT) {
 
 void welcome()
 {
-  cout << endl << endl << "Welcome!" << endl >> endl;
+  cout << endl << endl << "Welcome!" << endl << endl;
 
 }
 
@@ -103,21 +119,30 @@ int getMenuChoice()
   return choice;
 }
 
-bool readFile(string fileName)
+void readFile(string fileName)
 {
   ifstream inFile;
+  int count;
 
   inFile.open(fileName);
 
   if(!inFile.fail()) {
-      // read in the files
+      for(int index = 0; index < count; count++) {
+        inFile >> list[index].city
+               >> list[index].mascot
+               >> list[index].confDiv
+               >> list[index].wins
+               >> list[index].losses
+               >> list[index].ties
+               >> list[index].winningPercent;
+    }
   }
 }
 
-void printAll()
-{
-  cout << " in print all fxn" << endl;
-}
+//void printAll()
+//{
+  //cout << " in print all fxn" << endl;
+//}
 
 void goodbye()
 {
