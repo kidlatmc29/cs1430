@@ -30,7 +30,7 @@ struct TeamInfo
   double winningPercent;
 };
 
-const string DATA = "NFLdata.txt";
+const string DATA_FILE = "NFLdata.txt";
 const string CITY = "City";
 const string TEAM = "TEAM";
 const string CONF = "Conf/Div";
@@ -46,7 +46,7 @@ void welcome();
 
 int getMenuChoice();
 
-void readFile(string fileName, int numOfTeams, TeamInfo *ptr);
+void readFile(string fileName, int numOfTeams, TeamInfo arr[]);
 
 //void printTeam(TeamInfo[] list);
 
@@ -76,7 +76,7 @@ int main()
   menuChoice = getMenuChoice();
   cout << "Your menu choice was " << menuChoice << endl << endl;
 
-  readFile(DATA, numOfTeams, records);
+  readFile(DATA_FILE, numOfTeams, records);
 
   // to print out list
   for(int index = 0; index < numOfTeams; index++) {
@@ -108,7 +108,7 @@ int getMenuChoice()
   return choice;
 }
 
-void readFile(string fileName, int numOfTeams, TeamInfo *ptr)
+void readFile(string fileName, int numOfTeams, TeamInfo arr[])
 {
   ifstream inFile;
   int count = numOfTeams;
@@ -117,7 +117,7 @@ void readFile(string fileName, int numOfTeams, TeamInfo *ptr)
 
   if(!inFile.fail()) {
       for(int index = 0; index < count; index++) {
-        inFile >> records[index].city
+        inFile >> *records[index].city
                >> records[index].mascot
                >> records[index].confDiv
                >> records[index].wins
