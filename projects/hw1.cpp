@@ -46,7 +46,7 @@ void welcome();
 
 int getMenuChoice();
 
-void readFile(string fileName, int numOfTeams, TeamInfo arr[]);
+void readFile(string fileName, int numOfTeams, TeamInfo *arr);
 
 //void printTeam(TeamInfo[] list);
 
@@ -108,7 +108,7 @@ int getMenuChoice()
   return choice;
 }
 
-void readFile(string fileName, int numOfTeams, TeamInfo arr[])
+void readFile(string fileName, int numOfTeams, TeamInfo *arr)
 {
   ifstream inFile;
   int count = numOfTeams;
@@ -117,7 +117,7 @@ void readFile(string fileName, int numOfTeams, TeamInfo arr[])
 
   if(!inFile.fail()) {
       for(int index = 0; index < count; index++) {
-        inFile >> *records[index].city
+        inFile >> records[index].city
                >> records[index].mascot
                >> records[index].confDiv
                >> records[index].wins
