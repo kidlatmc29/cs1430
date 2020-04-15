@@ -42,10 +42,12 @@ const string CONF = "Conf/Div";
 const string WINS = "Wins";
 const string LOSSES = "Losses";
 const string WIN_PERC = "Winning%";
+
 const int PRINT_ALL = 1;
 const int PRINT_DIV = 2;
 const int SORT_WIN_PERC = 3;
 const int QUIT = 4;
+
 const int CITY_SPACES = 12;
 const int TEAM_SPACES = 12;
 const int CONF_SPACES = 10;
@@ -172,15 +174,39 @@ void printDivision(TeamInfo *records, int numOfTeams)
 {
   string conference;
   string division;
+  string confDiv;
+
 
   cout << "What conference would you like? (NFC or AFC)? ";
   cin >> conference;
 
   cout << "What division within the " << conference
-       << " would you like (east, west, south, north)?";
+       << " would you like (east, west, south, north)? ";
   cin >> division;
 
-  cout << "you want division standings for: " << conference << " " << division;
+  confDiv = conference + "_" + division;
+
+  // col labels for table
+  cout << setw(CITY_SPACES) << CITY
+       << setw(TEAM_SPACES) << TEAM
+       << setw(CONF_SPACES) << CONF;
+  cout << right << setw(WINS_SPACES) << WINS
+       << setw(LOSSES_SPACES) << LOSSES
+       << setw(WIN_PERC_SPACES) << WIN_PERC
+       << endl;
+
+  //printing out the teams in the chosen conf and div
+  for(int index = 0; index < numOfTeams; index++) {
+    if(records[index].confDiv == confDiv) {
+      cout << setw(CITY_SPACES) << records[index].city
+           << setw(TEAM_SPACES) << records[index].mascot
+           << setw(CONF_SPACES) << records[index].confDiv;
+      cout << right << setw(WINS_SPACES) << records[index].wins
+           << setw(LOSSES_SPACES) << records[index].losses
+           << setw(WIN_PERC_SPACES) << records[index].winningPercent
+           << endl;
+    }
+  }
   cout << endl << endl;
 }
 
@@ -192,6 +218,7 @@ void clearScreen()
 
 void goodbye()
 {
+  clearScreen();
   //deallocate mem here only for one array
   cout << "Quiting program.... Goodbye!" << endl << endl;
 }

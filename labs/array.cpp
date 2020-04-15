@@ -46,6 +46,7 @@ int main()
   cout << "Please enter a column length: ";
   cin >> colLength;
 
+  // allocating memory for arr
   int** arr = new int*[rowLength];
   for(int i = 0; i < rowLength; ++i) {
     arr[i] = new int[colLength];
@@ -98,6 +99,7 @@ int main()
 
   cout << endl << endl;
 
+  // deallocating arr
   for(int i = 0; i < rowLength; i++) {
     delete[] arr[i];
   }
