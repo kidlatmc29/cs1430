@@ -48,11 +48,11 @@ const int PRINT_DIV = 2;
 const int SORT_WIN_PERC = 3;
 const int QUIT = 4;
 
-const int CITY_SPACES = 12;
+const int CITY_SPACES = 14;
 const int TEAM_SPACES = 12;
 const int CONF_SPACES = 10;
 const int WINS_SPACES = 5;
-const int LOSSES_SPACES = 5;
+const int LOSSES_SPACES = 7;
 const int TIES_SPACES = 3;
 const int WIN_PERC_SPACES = 10;
 const int SCREEN_HEIGHT = 20;
@@ -175,7 +175,7 @@ void printDivision(TeamInfo *records, int numOfTeams)
   string conference;
   string division;
   string confDiv;
-
+  string targetConfDiv;
 
   cout << "What conference would you like? (NFC or AFC)? ";
   cin >> conference;
@@ -184,7 +184,7 @@ void printDivision(TeamInfo *records, int numOfTeams)
        << " would you like (east, west, south, north)? ";
   cin >> division;
 
-  confDiv = conference + "_" + division;
+  targetConfDiv = conference + "_" + division;
 
   // col labels for table
   cout << setw(CITY_SPACES) << CITY
@@ -197,7 +197,8 @@ void printDivision(TeamInfo *records, int numOfTeams)
 
   //printing out the teams in the chosen conf and div
   for(int index = 0; index < numOfTeams; index++) {
-    if(records[index].confDiv == confDiv) {
+    confDiv = records[index].confDiv;
+    if(confDiv == targetConfDiv) {
       cout << setw(CITY_SPACES) << records[index].city
            << setw(TEAM_SPACES) << records[index].mascot
            << setw(CONF_SPACES) << records[index].confDiv;
