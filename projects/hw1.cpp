@@ -56,13 +56,13 @@ int getMenuChoice();
 
 void readFile(string fileName, int numOfTeams, TeamInfo *records);
 
-//void printTeam(TeamInfo[] list);
+//void printTeam(TeamInfo *records, int numOfTeams);
 
-//void sortWinningPercent(TeamInfo[] list);
+//void sortWinningPercent(TeamInfo *records, int numOfTeams);
 
 void printAll(TeamInfo *records, int numOfTeams);
 
-//void printDivision(TeamInfo[] list);
+void printDivision(TeamInfo *records, int numOfTeams);
 
 void clearScreen();
 
@@ -84,16 +84,26 @@ int main()
   records = new TeamInfo[numOfTeams]; //inializating array of TeamInfo
   readFile(DATA_FILE, numOfTeams, records);
 
-  while(menuChoice < PRINT_ALL || menuChoice > QUIT) {
-    menuChoice = getMenuChoice();
+while(menuChoice != QUIT) {
+  while(menuChoice < PRINT_ALL && menuChoice > QUIT) {
     clearScreen();
+    menuChoice = getMenuChoice();
+  }
+
     switch(menuChoice)
     {
       case PRINT_ALL :
       {
+        clearScreen();
         printAll(records, numOfTeams);
         menuChoice = getMenuChoice();
+        break;
+      }
+      case PRINT_DIV :
+      {
         clearScreen();
+        printDivision(records, numOfTeams);
+        menuChoice = getMenuChoice();
         break;
       }
     }
@@ -151,6 +161,22 @@ void printAll(TeamInfo *records, int numOfTeams) {
     cout << right << setw(WIN_PERC_SPACES) << records[index].winningPercent;
     cout << endl;
   }
+}
+
+void printDivision(TeamInfo *records, int numOfTeams)
+{
+  string conference;
+  string division;
+
+  cout << "What confrence would you like? (NFC or AFC)? ";
+  cin >> conference;
+
+  cout << "What division within the " << conference
+       << " would you like (east, west, south, north)?";
+  cin >> division;
+
+  cout << "you want division standings for: " << conference << " " << division;
+  cout << endl << endl;
 }
 
 void clearScreen()
