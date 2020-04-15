@@ -47,7 +47,8 @@ const int CONF_SPACES = 10;
 const int WINS_SPACES = 5;
 const int LOSSES_SPACES = 5;
 const int TIES_SPACES = 3;
-const int WIN_PERC_SPACES = 6;
+const int WIN_PERC_SPACES = 10;
+const int SCREEN_HEIGHT = 20;
 
 void welcome();
 
@@ -62,6 +63,8 @@ void readFile(string fileName, int numOfTeams, TeamInfo *records);
 void printAll(TeamInfo *records, int numOfTeams);
 
 //void printDivision(TeamInfo[] list);
+
+void clearScreen();
 
 void goodbye();
 
@@ -83,12 +86,14 @@ int main()
 
   while(menuChoice < PRINT_ALL || menuChoice > QUIT) {
     menuChoice = getMenuChoice();
+    clearScreen();
     switch(menuChoice)
     {
       case PRINT_ALL :
       {
         printAll(records, numOfTeams);
         menuChoice = getMenuChoice();
+        clearScreen();
         break;
       }
     }
@@ -138,14 +143,20 @@ void readFile(string fileName, int numOfTeams, TeamInfo *records)
 }
 
 void printAll(TeamInfo *records, int numOfTeams) {
-  cout << setw(12) << "Team";
-  cout << right << setw(10) << "Winning%" << endl;
+  cout << setw(CITY_SPACES) << "Team";
+  cout << right << setw(WIN_PERC_SPACES) << "Winning%" << endl;
 
   for(int index = 0; index < numOfTeams; index++) {
-    cout << swetw(CITY_SPACES) << records[index].city;
-    cout << right << setw(10) << records[index].winningPercent;
-          cout << endl;
+    cout << setw(CITY_SPACES) << records[index].mascot;
+    cout << right << setw(WIN_PERC_SPACES) << records[index].winningPercent;
+    cout << endl;
   }
+}
+
+void clearScreen()
+{
+  for(int i = 0; i < SCREEN_HEIGHT; i++)
+    cout << endl;
 }
 
 void goodbye()
