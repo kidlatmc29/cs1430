@@ -2,11 +2,16 @@
 // hw1.cpp
 // 4/19/2020
 
-// Purpose: This program helps analyze NFL standings. The program can
+// Purpose: This program helps analyze NFL standings. The program can do four
+//  different types of analysis: printing the entire record of teams with their
+//  winning percentage, printing an entire confrence and division, with all of
+//  the teams info, and finally sorting the entire records of teams based on
+// their winning percentage.
 
-// Input: Data is given from a text file.
+// Input: Data is given from a text file with various information about a team.
 
-// Processing:
+// Processing: The data read from the text file is placed into a TeamInfo
+//  struct.
 
 // Output:
 
@@ -38,8 +43,8 @@ const string WINS = "Wins";
 const string LOSSES = "Losses";
 const string WIN_PERC = "Winning%";
 const int PRINT_ALL = 1;
-const int SORT_WIN_PERC = 2;
-const int PRINT_DIV = 3;
+const int PRINT_DIV = 2;
+const int SORT_WIN_PERC = 3;
 const int QUIT = 4;
 const int CITY_SPACES = 12;
 const int TEAM_SPACES = 12;
@@ -85,7 +90,7 @@ int main()
   readFile(DATA_FILE, numOfTeams, records);
 
 while(menuChoice != QUIT) {
-  while(menuChoice < PRINT_ALL && menuChoice > QUIT) {
+  while(menuChoice < PRINT_ALL || menuChoice > QUIT) {
     clearScreen();
     menuChoice = getMenuChoice();
   }
@@ -168,7 +173,7 @@ void printDivision(TeamInfo *records, int numOfTeams)
   string conference;
   string division;
 
-  cout << "What confrence would you like? (NFC or AFC)? ";
+  cout << "What conference would you like? (NFC or AFC)? ";
   cin >> conference;
 
   cout << "What division within the " << conference
