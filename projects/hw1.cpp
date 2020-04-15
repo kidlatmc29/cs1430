@@ -2,9 +2,9 @@
 // hw1.cpp
 // 4/19/2020
 
-// Purpose:
+// Purpose: This program helps analyze NFL standings. The program can
 
-// Input:
+// Input: Data is given from a text file.
 
 // Processing:
 
@@ -46,7 +46,7 @@ void welcome();
 
 int getMenuChoice();
 
-void readFile(string fileName, int numOfTeams, TeamInfo *arr);
+void readFile(string fileName, int numOfTeams, TeamInfo *reccords);
 
 //void printTeam(TeamInfo[] list);
 
@@ -108,7 +108,7 @@ int getMenuChoice()
   return choice;
 }
 
-void readFile(string fileName, int numOfTeams, TeamInfo *arr)
+void readFile(string fileName, int numOfTeams, TeamInfo *records)
 {
   ifstream inFile;
   int count = numOfTeams;
@@ -129,10 +129,13 @@ void readFile(string fileName, int numOfTeams, TeamInfo *arr)
   inFile.close();
 }
 
-//void printAll()
-//{
-  //cout << " in print all fxn" << endl;
-//}
+void printAll()
+  for(int index = 0; index < numOfTeams; index++) {
+    cout << records[index].city
+          << " " << records[index].mascot;
+          cout << endl;
+  }
+}
 
 void goodbye()
 {
