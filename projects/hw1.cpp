@@ -32,7 +32,7 @@ struct TeamInfo
 
 const string DATA_FILE = "NFLdata.txt";
 const string CITY = "City";
-const string TEAM = "TEAM";
+const string TEAM = "Team";
 const string CONF = "Conf/Div";
 const string WINS = "Wins";
 const string LOSSES = "Losses";
@@ -41,18 +41,25 @@ const int PRINT_ALL = 1;
 const int SORT_WIN_PERC = 2;
 const int PRINT_DIV = 3;
 const int QUIT = 4;
+const int CITY_SPACES = 12;
+const int TEAM_SPACES = 12;
+const int CONF_SPACES = 10;
+const int WINS_SPACES = 5;
+const int LOSSES_SPACES = 5;
+const int TIES_SPACES = 3;
+const int WIN_PERC_SPACES = 6;
 
 void welcome();
 
 int getMenuChoice();
 
-void readFile(string fileName, int numOfTeams, TeamInfo *reccords);
+void readFile(string fileName, int numOfTeams, TeamInfo *records);
 
 //void printTeam(TeamInfo[] list);
 
 //void sortWinningPercent(TeamInfo[] list);
 
-//void printAll(TeamInfo[] list);
+void printAll(TeamInfo *records, int numOfTeams);
 
 //void printDivision(TeamInfo[] list);
 
@@ -72,19 +79,20 @@ int main()
   }
 
   records = new TeamInfo[numOfTeams]; //inializating array of TeamInfo
-
-  menuChoice = getMenuChoice();
-  cout << "Your menu choice was " << menuChoice << endl << endl;
-
   readFile(DATA_FILE, numOfTeams, records);
 
-  // to print out list
-  for(int index = 0; index < numOfTeams; index++) {
-    cout << records[index].city
-          << " " << records[index].mascot;
-    cout << endl;
+  while(menuChoice < PRINT_ALL || menuChoice > QUIT) {
+    menuChoice = getMenuChoice();
+    switch(menuChoice)
+    {
+      case PRINT_ALL :
+      {
+        printAll(records, numOfTeams);
+        menuChoice = getMenuChoice();
+        break;
+      }
+    }
   }
-
   goodbye();
   return 0;
 }
@@ -129,15 +137,19 @@ void readFile(string fileName, int numOfTeams, TeamInfo *records)
   inFile.close();
 }
 
-void printAll()
+void printAll(TeamInfo *records, int numOfTeams) {
+  cout << setw(12) << "Team";
+  cout << right << setw(10) << "Winning%" << endl;
+
   for(int index = 0; index < numOfTeams; index++) {
-    cout << records[index].city
-          << " " << records[index].mascot;
+    cout << swetw(CITY_SPACES) << records[index].city;
+    cout << right << setw(10) << records[index].winningPercent;
           cout << endl;
   }
 }
 
 void goodbye()
 {
+  //deallocate mem here only for one array
   cout << "Quiting program.... Goodbye!" << endl << endl;
 }
