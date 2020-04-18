@@ -113,6 +113,13 @@ while(menuChoice != QUIT) {
         menuChoice = getMenuChoice();
         break;
       }
+      case SORT_WIN_PERC :
+      {
+        clearScreen();
+        sortWinningPercent(records, numOfTeams);
+        menuChoice = getMenuChoice();
+        break;
+      }
     }
   }
   goodbye();
@@ -223,6 +230,7 @@ void sortWinningPercent(TeamInfo *records, int numOfTeams)
     }
     swapTeam(records, index, indexSwap);
   }
+  cout << "Sorting complete...." << endl;
 }
 
 void swapTeam(TeamInfo *records, int index, int indexSwap) {
