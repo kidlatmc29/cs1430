@@ -124,24 +124,24 @@ while(menuChoice != QUIT) {
       {
         clearScreen();
         printAll(records, numOfTeams);
-        menuChoice = getMenuChoice();
         clearScreen();
+        menuChoice = getMenuChoice();
         break;
       }
       case PRINT_DIV :
       {
         clearScreen();
         printDivision(records, numOfTeams);
-        menuChoice = getMenuChoice();
         clearScreen();
+        menuChoice = getMenuChoice();
         break;
       }
       case SORT_WIN_PERC :
       {
         clearScreen();
         sortWinningPercent(records, numOfTeams);
-        menuChoice = getMenuChoice();
         clearScreen();
+        menuChoice = getMenuChoice();
         break;
       }
     }
@@ -275,9 +275,9 @@ void pause()
 {
   cin.clear();
   cin.ignore();
-  cout << "Press enter to continue....";
+  cout << "Press [enter] to continue back to the menu....";
   cin.get();
-  cout << endl;
+  cout << endl << endl;
 }
 
 void goodbye(TeamInfo *records)
