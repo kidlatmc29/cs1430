@@ -279,6 +279,9 @@ void pause()
 void goodbye()
 {
   clearScreen();
-  //deallocate mem here only for one array
+
+  delete [] records;
+  records = nullptr;
+
   cout << "Quiting program.... Goodbye!" << endl << endl;
 }
