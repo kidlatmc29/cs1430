@@ -68,6 +68,15 @@ const int WIN_PERC_SPACES = 10;
 
 const int SCREEN_HEIGHT = 25;
 
+const string A_W = "afc_west";
+const string A_E = "afc_east";
+const string A_N = "afc_north";
+const string A_S = "afc_south";
+const string N_W = "afc_west";
+const string N_E = "afc_east";
+const string N_N = "nfc_north";
+const string N_S = "nfc_south";
+
 void welcome();
 
 int getMenuChoice();
@@ -213,10 +222,14 @@ void printAll(TeamInfo *records, int numOfTeams) {
 
 void printDivision(TeamInfo *records, int numOfTeams)
 {
-  string conference;
-  string division;
+  string conference = " ";
+  string division = " ";
   string confDiv;
   string targetConfDiv;
+
+while((targetConfDiv != A_W) || (targetConfDiv != A_E) || (targetConfDiv != A_N)
+  || (targetConfDiv != A_S) || (targetConfDiv != N_W) || (targetConfDiv != N_E)
+  || (targetConfDiv != N_N) || (targetConfDiv != N_S)) {
 
   cout << "What conference would you like? (NFC or AFC)? ";
   cin >> conference;
@@ -226,7 +239,7 @@ void printDivision(TeamInfo *records, int numOfTeams)
   cin >> division;
 
   targetConfDiv = conference + "_" + division;
-
+}
   // col labels for table
   cout << setw(CITY_SPACES) << CITY
        << setw(TEAM_SPACES) << TEAM
