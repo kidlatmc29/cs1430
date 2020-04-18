@@ -60,18 +60,35 @@ const int SCREEN_HEIGHT = 20;
 void welcome();
 
 int getMenuChoice();
+// returns an integer that signifies the user's choice
+// only returns valid choices
 
 void readFile(string fileName, int numOfTeams, TeamInfo *records);
+// reads in a number of teams (num supplied by the user), from a text file
+// the information is then stored in a array of structs
 
 void sortWinningPercent(TeamInfo *records, int numOfTeams);
+// does a selection sort on the array based on winning percentages
+// sorted in non-descending order
 
 void printAll(TeamInfo *records, int numOfTeams);
+// prints all teams in records, as well as their winning percentages
 
 void printDivision(TeamInfo *records, int numOfTeams);
+// asks the user a conference and division
+// prints out all the teams in that conf and div
 
 void swapTeam(TeamInfo *records, int index, int indexSwap);
+// swaps a TeamInfo struct with another
+// used in sortWinningPercent();
 
 void clearScreen();
+// prints 25 lines of \n
+// used for formatting
+
+void pause();
+// waits for the user to press enter before continuing
+// used for formatting
 
 void goodbye();
 
@@ -175,6 +192,7 @@ void printAll(TeamInfo *records, int numOfTeams) {
     cout << right << setw(WIN_PERC_SPACES) << records[index].winningPercent;
     cout << endl;
   }
+  pause();
 }
 
 void printDivision(TeamInfo *records, int numOfTeams)
@@ -215,7 +233,7 @@ void printDivision(TeamInfo *records, int numOfTeams)
            << endl;
     }
   }
-  cout << endl << endl;
+  pause();
 }
 
 void sortWinningPercent(TeamInfo *records, int numOfTeams)
@@ -231,6 +249,7 @@ void sortWinningPercent(TeamInfo *records, int numOfTeams)
     swapTeam(records, index, indexSwap);
   }
   cout << "Sorting complete...." << endl;
+  pause();
 }
 
 void swapTeam(TeamInfo *records, int index, int indexSwap) {
@@ -243,6 +262,13 @@ void clearScreen()
 {
   for(int i = 0; i < SCREEN_HEIGHT; i++)
     cout << endl;
+}
+
+void pause()
+{
+  cin.clear();
+  cout << "Press enter to continue....";
+  cin.get();
 }
 
 void goodbye()
