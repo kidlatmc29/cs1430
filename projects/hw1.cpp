@@ -90,7 +90,9 @@ void pause();
 // waits for the user to press enter before continuing
 // used for formatting
 
-void goodbye();
+void goodbye(TeamInfo *records);
+// deallocates memory used by array
+// tells the user the program is terminating
 
 int main()
 {
@@ -276,7 +278,7 @@ void pause()
   cout << endl;
 }
 
-void goodbye()
+void goodbye(TeamInfo *records)
 {
   clearScreen();
 
