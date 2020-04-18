@@ -11,11 +11,20 @@
 // Input: Data is given from a text file with various information about a team.
 
 // Processing: The data read from the text file is placed into a TeamInfo
-//  struct.
+// struct. The structs are also placed into an array that has been dynamically
+// allotted memory for.
+//
+// The user's input will also be processed through some input validation loops,
+//  and a switch statement for the menu.
 
-// Output:
+// Output: A table with the given information will be printed to the screen.
 
-// Examples:
+// Examples: The user enters the number 12 when asked how many teams it wants
+//  the program to analyze. The program will read in 12 teams from the text
+//  file. Then the user inputs the number [3] so the program can sort the
+//  array of TeamInfo. The user is then taken back to the menu and pressed the
+//  number [1] which prints out the entire array of teams with their winning
+//  percentages sorted from greatest to least (non-ascending order).
 
 
 #include <iostream>
