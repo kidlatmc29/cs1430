@@ -36,6 +36,7 @@ struct TeamInfo
 };
 
 const string DATA_FILE = "NFLdata.txt";
+
 const string CITY = "City";
 const string TEAM = "Team";
 const string CONF = "Conf/Div";
@@ -48,13 +49,14 @@ const int PRINT_DIV = 2;
 const int SORT_WIN_PERC = 3;
 const int QUIT = 4;
 
-const int CITY_SPACES = 15;
+const int CITY_SPACES = 16;
 const int TEAM_SPACES = 12;
-const int CONF_SPACES = 30;
-const int WINS_SPACES = 5;
-const int LOSSES_SPACES = 7;
+const int CONF_SPACES = 13;
+const int WINS_SPACES = 10;
+const int LOSSES_SPACES = 10;
 const int TIES_SPACES = 3;
 const int WIN_PERC_SPACES = 10;
+
 const int SCREEN_HEIGHT = 25;
 
 void welcome();
@@ -144,7 +146,7 @@ while(menuChoice != QUIT) {
       }
     }
   }
-  goodbye();
+  goodbye(records);
   return 0;
 }
 
@@ -230,10 +232,10 @@ void printDivision(TeamInfo *records, int numOfTeams)
     confDiv = records[index].confDiv;
     if(confDiv == targetConfDiv) {
       cout << setw(CITY_SPACES) << records[index].city
-           << setw(TEAM_SPACES) << records[index].mascot
-           << setw(CONF_SPACES) << records[index].confDiv;
-      cout << right << setw(WINS_SPACES) << records[index].wins
-           << setw(LOSSES_SPACES) << records[index].losses
+           << setw(TEAM_SPACES) << records[index].mascot;
+      cout << right << setw(CONF_SPACES) << records[index].confDiv
+           << setw(WINS_SPACES) <<  records[index].wins
+           << setw(LOSSES_SPACES) <<  records[index].losses
            << setw(WIN_PERC_SPACES) << records[index].winningPercent
            << endl;
     }
