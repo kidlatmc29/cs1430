@@ -48,14 +48,14 @@ const int PRINT_DIV = 2;
 const int SORT_WIN_PERC = 3;
 const int QUIT = 4;
 
-const int CITY_SPACES = 14;
+const int CITY_SPACES = 15;
 const int TEAM_SPACES = 12;
-const int CONF_SPACES = 10;
+const int CONF_SPACES = 30;
 const int WINS_SPACES = 5;
 const int LOSSES_SPACES = 7;
 const int TIES_SPACES = 3;
 const int WIN_PERC_SPACES = 10;
-const int SCREEN_HEIGHT = 20;
+const int SCREEN_HEIGHT = 25;
 
 void welcome();
 
@@ -121,6 +121,7 @@ while(menuChoice != QUIT) {
         clearScreen();
         printAll(records, numOfTeams);
         menuChoice = getMenuChoice();
+        clearScreen();
         break;
       }
       case PRINT_DIV :
@@ -128,6 +129,7 @@ while(menuChoice != QUIT) {
         clearScreen();
         printDivision(records, numOfTeams);
         menuChoice = getMenuChoice();
+        clearScreen();
         break;
       }
       case SORT_WIN_PERC :
@@ -135,6 +137,7 @@ while(menuChoice != QUIT) {
         clearScreen();
         sortWinningPercent(records, numOfTeams);
         menuChoice = getMenuChoice();
+        clearScreen();
         break;
       }
     }
