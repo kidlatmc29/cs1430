@@ -63,13 +63,13 @@ int getMenuChoice();
 
 void readFile(string fileName, int numOfTeams, TeamInfo *records);
 
-//void printTeam(TeamInfo *records, int numOfTeams);
-
-//void sortWinningPercent(TeamInfo *records, int numOfTeams);
+void sortWinningPercent(TeamInfo *records, int numOfTeams);
 
 void printAll(TeamInfo *records, int numOfTeams);
 
 void printDivision(TeamInfo *records, int numOfTeams);
+
+void swapTeam(TeamInfo *records, int index, int indexSwap)
 
 void clearScreen();
 
@@ -181,7 +181,7 @@ void printDivision(TeamInfo *records, int numOfTeams)
   cin >> conference;
 
   cout << "What division within the " << conference
-       << " would you like (east, west, south, north)? ";
+       << " would you like (East, West, South, North)? ";
   cin >> division;
 
   targetConfDiv = conference + "_" + division;
@@ -209,6 +209,26 @@ void printDivision(TeamInfo *records, int numOfTeams)
     }
   }
   cout << endl << endl;
+}
+
+void sortWinningPercent(TeamInfo *records, int numOfTeams)
+{
+  int indexSwap;
+  for(int index = 0; index < numOfTeams; index++) {
+    indexSwap = index;
+    for(int j = index + 1; j < numOfTeams; j++) {
+      if(records[j].winningPercent > records[indexSwap].winningPercent) {
+        indexSwap = j;
+      }
+    }
+    swapTeam(records, index, indexSwap);
+  }
+}
+
+void swapTeam(TeamInfo *records, int index, int indexSwap) {
+  TeamInfo temp = records[index];
+  records[index] = records[indexSwap];
+  records[indexSwap] = temp;
 }
 
 void clearScreen()
