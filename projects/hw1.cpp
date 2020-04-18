@@ -69,7 +69,7 @@ void printAll(TeamInfo *records, int numOfTeams);
 
 void printDivision(TeamInfo *records, int numOfTeams);
 
-void swapTeam(TeamInfo *records, int index, int indexSwap)
+void swapTeam(TeamInfo *records, int index, int indexSwap);
 
 void clearScreen();
 
