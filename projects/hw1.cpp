@@ -267,8 +267,10 @@ void clearScreen()
 void pause()
 {
   cin.clear();
+  cin.ignore();
   cout << "Press enter to continue....";
   cin.get();
+  cout << endl;
 }
 
 void goodbye()
