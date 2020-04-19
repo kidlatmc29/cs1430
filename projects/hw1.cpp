@@ -235,7 +235,7 @@ while((targetConfDiv != A_W) || (targetConfDiv != A_E) || (targetConfDiv != A_N)
   cin >> conference;
 
   cout << "What division within the " << conference
-       << " would you like (East, West, South, North)? ";
+       << " would you like (east, west, south, north)? ";
   cin >> division;
 
   targetConfDiv = conference + "_" + division;
