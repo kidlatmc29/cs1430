@@ -68,14 +68,14 @@ const int WIN_PERC_SPACES = 10;
 
 const int SCREEN_HEIGHT = 25;
 
-const string A_W = "afc_west";
-const string A_E = "afc_east";
-const string A_N = "afc_north";
-const string A_S = "afc_south";
-const string N_W = "afc_west";
-const string N_E = "afc_east";
-const string N_N = "nfc_north";
-const string N_S = "nfc_south";
+const string A_W = "AFC_West";
+const string A_E = "AFC_East";
+const string A_N = "AFC_North";
+const string A_S = "AFC_South";
+const string N_W = "NFC_West";
+const string N_E = "NFC_East";
+const string N_N = "NFC_North";
+const string N_S = "NFC_South";
 
 void welcome();
 
@@ -83,7 +83,7 @@ int getMenuChoice();
 // returns an integer that signifies the user's choice
 // only returns valid choices
 
-void readFile(string fileName, int numOfTeams, TeamInfo *records);
+void readFile(string fileName, int& numOfTeams, TeamInfo *records);
 // reads in a number of teams (num supplied by the user), from a text file
 // the information is then stored in a array of structs
 
@@ -187,24 +187,26 @@ int getMenuChoice()
   return choice;
 }
 
-void readFile(string fileName, int numOfTeams, TeamInfo *records)
+void readFile(string fileName, int& numOfTeams, TeamInfo *records)
 {
   ifstream inFile;
-  int count = numOfTeams;
+  int index = 0;
 
   inFile.open(fileName);
 
   if(!inFile.fail()) {
-      for(int index = 0; index < count; index++) {
-        inFile >> records[index].city
-               >> records[index].mascot
+      while(index < numOfTeams && inFile >> records[index].city) {
+        inFile >> records[index].mascot
                >> records[index].confDiv
                >> records[index].wins
                >> records[index].losses
                >> records[index].ties
                >> records[index].winningPercent;
+
+        index++;
     }
   }
+  numOfTeams = index;
   inFile.close();
 }
 
@@ -227,18 +229,19 @@ void printDivision(TeamInfo *records, int numOfTeams)
   string confDiv;
   string targetConfDiv;
 
-while((targetConfDiv != A_W) || (targetConfDiv != A_E) || (targetConfDiv != A_N)
-  || (targetConfDiv != A_S) || (targetConfDiv != N_W) || (targetConfDiv != N_E)
-  || (targetConfDiv != N_N) || (targetConfDiv != N_S)) {
+while((targetConfDiv != A_W) && (targetConfDiv != A_E) && (targetConfDiv != A_N)
+  && (targetConfDiv != A_S) && (targetConfDiv != N_W) && (targetConfDiv != N_E)
+  && (targetConfDiv != N_N) && (targetConfDiv != N_S)) {
 
   cout << "What conference would you like? (NFC or AFC)? ";
   cin >> conference;
 
   cout << "What division within the " << conference
-       << " would you like (east, west, south, north)? ";
+       << " would you like (East, West, South, North)? ";
   cin >> division;
 
   targetConfDiv = conference + "_" + division;
+  cout << endl << endl;
 }
   // col labels for table
   cout << setw(CITY_SPACES) << CITY
