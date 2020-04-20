@@ -6,7 +6,7 @@ using namespace std;
 class IntegerSet {
   public:
     IntegerSet();
-    IntegerSet(int[] arr, int size);
+    IntegerSet(int[] arr, int numOfElements);
 
     IntegerSet unionOfsets();
     IntegerSet intersectionOfSets();
@@ -20,10 +20,11 @@ class IntegerSet {
 
     void emptySet();
     void inputSet();
-    
+
   private:
     const int MAX_VAL = 100;
     const int MIN_VAL = 0;
+    int numOfElements;
     bool validEntry();
 
 }
