@@ -211,6 +211,7 @@ void readFile(string fileName, int& numOfTeams, TeamInfo *records)
 }
 
 void printAll(TeamInfo *records, int numOfTeams) {
+  cout << "League Standings: " << endl << endl;
   cout << setw(CITY_SPACES) << "Team";
   cout << right << setw(WIN_PERC_SPACES) << "Winning%" << endl;
 
@@ -243,6 +244,8 @@ while((targetConfDiv != A_W) && (targetConfDiv != A_E) && (targetConfDiv != A_N)
   targetConfDiv = conference + "_" + division;
   cout << endl << endl;
 }
+
+cout << "League Standings: " << endl << endl;
   // col labels for table
   cout << setw(CITY_SPACES) << CITY
        << setw(TEAM_SPACES) << TEAM
@@ -298,6 +301,7 @@ void clearScreen()
 
 void pause()
 {
+  cout << endl << endl;
   cin.clear();
   cin.ignore();
   cout << "Press [enter] to continue back to the menu....";
