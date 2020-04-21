@@ -12,6 +12,24 @@ IntegerSet::IntegerSet(int[] arr, int numOfElements) {
 
 }
 
-IntegerSet::emptySet() {
+void insertElement(){
 
+}
+void deleteElement() {
+
+}
+
+void printElement() {
+
+}
+
+bool isEqualTo() {
+
+}
+
+
+void IntegerSet::emptySet() {
+  for(int index = 0; index < numOfElements; index++) {
+    //set every element to 0
+  }
 }
