@@ -24,7 +24,9 @@ class IntegerSet {
   private:
     const int MAX_VAL = 100;
     const int MIN_VAL = 0;
-    const int END_OF_SET = -1; 
+    const int END_OF_SET = -1;
+    const int INITIAL_SIZE = 3;
+    int *set = nullptr;
     int numOfElements;
     bool validEntry();
 

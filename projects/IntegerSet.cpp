@@ -5,7 +5,8 @@
 #include "IntegerSet.h"
 
 IntegerSet::IntegerSet() {
-  emptySet();
+  set = new int[INITIAL_SIZE];
+  emptySet(set, INITIAL_SIZE);
 }
 
 IntegerSet::IntegerSet(int[] arr, int numOfElements) {
@@ -28,8 +29,8 @@ bool isEqualTo() {
 }
 
 
-void IntegerSet::emptySet() {
+void IntegerSet::emptySet(int* set, int size) {
   for(int index = 0; index < numOfElements; index++) {
-    //set every element to 0
+    set[index[] = 0;
   }
 }
