@@ -9,28 +9,25 @@ IntegerSet::IntegerSet() {
   emptySet(set, INITIAL_SIZE);
 }
 
-IntegerSet::IntegerSet(int[] arr, int numOfElements) {
+IntegerSet::IntegerSet(int arr[], int numOfElements) {
 
 }
 
-void insertElement(){
-
-}
-void deleteElement() {
-
-}
 
 void printElement() {
 
 }
 
-bool isEqualTo() {
-
+void inputSet(int* set, int newElement, int numOfElements, int size) {
+  if(numOfElements + 1 > size) {
+    // resize set AKA create a new set here
+  } else if (numOfElements++ <= size)
+    set[numOfElements+ 1] = newElement;
+    numOfElements++;
 }
-
 
 void IntegerSet::emptySet(int* set, int size) {
   for(int index = 0; index < numOfElements; index++) {
-    set[index[] = 0;
+    set[index] = 0;
   }
 }
