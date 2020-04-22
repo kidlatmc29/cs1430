@@ -14,8 +14,12 @@ IntegerSet::IntegerSet(int arr[], int numOfElements) {
 }
 
 
-void printElement() {
-
+void printElement(int *set, int numOfElements, int size) {
+  cout << L_BRAC << " ";
+  for(int index = 0; index < numOfElements; index++) {
+    cout <<
+  }
+  cout << R_BRAC;
 }
 
 void inputSet(int* set, int newElement, int numOfElements, int size) {

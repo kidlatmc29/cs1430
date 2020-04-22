@@ -46,7 +46,7 @@ int main()
 void welcome()
 {
   cout << endl << endl
-       <<"- Welcome to the IntegerSet Program - " << endl;
+       << " - Welcome to the IntegerSet Program - " << endl;
 }
 
 void goodbye()
