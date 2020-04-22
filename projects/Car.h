@@ -10,6 +10,7 @@ class Car {
     int speed;
 
   public:
+      Car::Car(int givenYearModel, string givenMake);
       int getyearModel();
       string getMake();
       string getSpeed();
