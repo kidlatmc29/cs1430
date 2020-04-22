@@ -2,6 +2,7 @@
 // Car.cpp
 
 #include "Car.h"
+using namespace std;
 
 Car::Car(int givenYearModel, string givenMake)
 {
@@ -10,25 +11,26 @@ Car::Car(int givenYearModel, string givenMake)
   speed = 0;
 }
 
-int getyearModel()
+int Car::getyearModel()
 {
   return yearModel;
 }
 
-string getMake()
+string Car::getMake()
 {
   return make;
 }
 
-string getSpeed()
+int Car::getSpeed()
 {
   return speed;
 }
 
-void accelerate(int speed)
+void Car::accelerate()
 {
   speed = speed + 5;
 }
-void brake(int speed) {
+
+void Car::brake() {
   speed = speed - 5;
 }

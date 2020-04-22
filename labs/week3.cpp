@@ -3,31 +3,36 @@
 
 using namespace std;
 
-#include <iostream>;
-#include "Car.h";
+#include <iostream>
+#include "Car.h"
 
 int main()
 {
 
   cout << endl << endl;
-  cout << "Welcome!";
+  cout << "Welcome!" << endl << endl;
 
-  Car myCar = new Car(1993, "Honda");
-  cout << "myCar is a " << myCar.getyearModel << " " << myCar.getMake << endl;
-
+  cout << "Creating a Car object....." << endl;
+  Car *myCar = new Car(1993, "Honda");
+  cout << "myCar is a " << myCar->getyearModel() << " " << myCar->getMake() << endl;
+  cout << endl;
+  
   cout << "Accelerating myCar: " << endl;
   for (int i = 0; i < 5; i++) {
-    myCar.accelerate();
-    cout << "Speed is " << myCar.getSpeed() << endl;
+    myCar->accelerate();
+    cout << "Speed is " << myCar->getSpeed() << endl;
   }
+
+  cout << endl << endl;
 
   cout << "Braking myCar: " << endl;
   for (int i = 0; i < 5; i++) {
-    myCar.brake();
-    cout << "Speed is " << myCar.getSpeed() << endl;
+    myCar->brake();
+    cout << "Speed is " << myCar->getSpeed() << endl;
   }
 
-  cout << "Goodbye.....";
+  cout << endl << endl;
+  cout << "Goodbye! ";
   cout << endl << endl;
   return 0;
 }
