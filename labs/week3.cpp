@@ -13,10 +13,8 @@ int main()
   cout << "Welcome!" << endl << endl;
   cout << "Creating a Car object....." << endl;
   Car *myCar = new Car(1993, "Honda");
-  
+
   cout << "myCar is a " << myCar->getyearModel() << " " << myCar->getMake()
-       << endl;
-  cout << "julesCar is " << julesCar.getyearModel() << " " << julesCar.getMake()
        << endl;
   cout << endl;
 
