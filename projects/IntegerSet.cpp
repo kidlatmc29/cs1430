@@ -84,10 +84,12 @@ int IntegerSet::getNumOfElements()
 
 void selectionSort()
 {
-  
+
 }
 
 void swapInt(int index, int indexSwap)
 {
-
+  int temp = set[index];
+  set[index] = set[indexSwap];
+  set[indexSwap] = temp;
 }
