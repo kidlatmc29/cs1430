@@ -21,6 +21,16 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
 }
 
+IntegerSet unionOfSets(IntegerSet *otherSet)
+{
+  IntegerSet *setC = new int[size + otherSet->getNumOfElements()];
+  for(int index = 0; index < numOfElements; index++) {
+    setC[index] = set[index];
+  }
+
+  for
+}
+
 void IntegerSet::insertElement()
 {
     int* temp = new int[size + 1];
@@ -36,6 +46,7 @@ void IntegerSet::printSet()
  {
   cout << L_BRAC;
   for(int index = 0; index < numOfElements; index++) {
+    if(index <)
       cout << set[index] << " ";
   }
   cout << R_BRAC;
@@ -68,4 +79,15 @@ int IntegerSet::getSize()
 int IntegerSet::getNumOfElements()
 {
   return numOfElements;
+}
+
+
+void selectionSort()
+{
+  
+}
+
+void swapInt(int index, int indexSwap)
+{
+
 }
