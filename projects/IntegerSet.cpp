@@ -29,9 +29,11 @@ void IntegerSet::insertElement()
   }
   delete []set; // deletes the array pointed to by "set"
   set = temp; //changes to the address of the new array
+  size++;
 }
 
-void IntegerSet::printSet() {
+void IntegerSet::printSet()
+ {
   cout << L_BRAC;
   for(int index = 0; index < numOfElements; index++) {
       cout << set[index] << " ";
@@ -39,18 +41,31 @@ void IntegerSet::printSet() {
   cout << R_BRAC;
 }
 
-void IntegerSet::inputSet(int newElement) {
+void IntegerSet::inputSet(int newElement)
+{
   if(numOfElements + 1 > size) {
-    cout << "resizing the array " << endl;
     insertElement();
-  } else {
-    set[numOfElements + 1] = newElement;
+  }
+
+  if(newElement != END_OF_SET) {
+    set[numOfElements] = newElement;
     numOfElements++;
   }
 }
 
-void IntegerSet::emptySet() {
+void IntegerSet::emptySet()
+{
   for(int index = 0; index < numOfElements; index++) {
     set[index] = 0;
   }
+}
+
+int IntegerSet::getSize()
+{
+  return size;
+}
+
+int IntegerSet::getNumOfElements()
+{
+  return numOfElements;
 }

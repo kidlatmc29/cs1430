@@ -38,6 +38,7 @@ int main()
   }
   input = 0;
   setA->printSet();
+  cout << endl;
 
   cout << "Creating set b....." << endl;
   IntegerSet *setB = new IntegerSet;
@@ -48,6 +49,7 @@ int main()
     setB->inputSet(input);
   }
   setB->printSet();
+  cout << endl;
   //perform union of sets a and b
 
   // perform intersection of sets a and b

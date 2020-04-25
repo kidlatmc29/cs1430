@@ -21,6 +21,9 @@ class IntegerSet {
     void emptySet();
     void inputSet(int newElement);
 
+    int getSize();
+    int getNumOfElements();
+
   private:
     const int MAX_VAL = 100;
     const int MIN_VAL = 0;
