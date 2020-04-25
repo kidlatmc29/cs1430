@@ -27,9 +27,7 @@ int main()
 
   cout << "Creating mySet...." << endl;
   IntegerSet* mySet = new IntegerSet();
-
   mySet->printSet();
-
 
   // fill sets a and b
 

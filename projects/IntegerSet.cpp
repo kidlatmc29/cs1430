@@ -5,10 +5,11 @@
 #include "IntegerSet.h"
 
 IntegerSet::IntegerSet() {
+  cout << "this is the empty boi" << endl;
   set = new int[INITIAL_SIZE];
   size = INITIAL_SIZE;
   numOfElements = 0;
-  emptySet(set);
+  emptySet();
 }
 
 IntegerSet::IntegerSet(int arr[], int arrLength) {
