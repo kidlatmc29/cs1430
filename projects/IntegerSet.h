@@ -6,7 +6,7 @@ using namespace std;
 class IntegerSet {
   public:
     IntegerSet();
-  //  IntegerSet(int arr[], int numOfElements); //need to figure out arr or ptr
+    IntegerSet(int arr[], int numOfElements); //need to figure out arr or ptr
 
   //  IntegerSet unionOfSets();
   //  IntegerSet intersectionOfSets();
@@ -14,7 +14,7 @@ class IntegerSet {
   //  void insertElement();
   //  void deleteElement(int* set, int numOfElements);
 
-    void printElement();
+    void printElement(int *set, int numOfElements);
 
   //  bool isEqualTo();
 
@@ -34,6 +34,6 @@ class IntegerSet {
     int size; // tracks the total size of the set
 
 
-    bool validEntry();
+  //  bool validEntry();
 
-}
+};

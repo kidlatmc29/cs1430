@@ -20,7 +20,8 @@ using namespace std;
 
 int main()
 {
-
+  cout << "Creating mySet...." << endl;
+  IntegerSet mySet();
   // fill sets a and b
 
   //perform union of sets a and b
@@ -51,5 +52,6 @@ void welcome()
 
 void goodbye()
 {
-
+  cout << " Goodbye!"
+       << endl << endl;
 }
