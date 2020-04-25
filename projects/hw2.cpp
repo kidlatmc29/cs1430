@@ -22,6 +22,8 @@ int main()
 {
   cout << "Creating mySet...." << endl;
   IntegerSet mySet();
+
+  
   // fill sets a and b
 
   //perform union of sets a and b
@@ -41,6 +43,8 @@ int main()
   // print out values that are invalid
 
   // print out set c
+
+  goodbye();
   return 0;
 }
 

@@ -18,7 +18,7 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
 }
 
-void IntegerSet::printElement(int *set, int numOfElements) {
+void IntegerSet::printSet(int *set, int numOfElements) {
   cout << L_BRAC;
   for(int index = 0; index < numOfElements; index++) {
     if(index > numOfElements - 1) {

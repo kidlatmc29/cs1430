@@ -14,7 +14,7 @@ class IntegerSet {
   //  void insertElement();
   //  void deleteElement(int* set, int numOfElements);
 
-    void printElement(int *set, int numOfElements);
+    void printElements(int *set, int numOfElements);
 
   //  bool isEqualTo();
 
