@@ -6,7 +6,9 @@
 
 IntegerSet::IntegerSet() {
   set = new int[INITIAL_SIZE];
-  emptySet(set, INITIAL_SIZE);
+  size = INITIAL_SIZE;
+  numOfElements = 0;
+  emptySet(set);
 }
 
 IntegerSet::IntegerSet(int arr[], int arrLength) {
@@ -18,7 +20,7 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
 }
 
-void IntegerSet::printSet(int *set, int numOfElements) {
+void IntegerSet::printSet() {
   cout << L_BRAC;
   for(int index = 0; index < numOfElements; index++) {
     if(index > numOfElements - 1) {
@@ -28,7 +30,7 @@ void IntegerSet::printSet(int *set, int numOfElements) {
   cout << R_BRAC;
 }
 
-void IntegerSet::inputSet(int* set, int newElement, int numOfElements, int size) {
+void IntegerSet::inputSet(int newElement) {
   if(numOfElements + 1 > size) {
     // resize set AKA create a new set here
   } else if (numOfElements++ <= size) {
@@ -37,7 +39,7 @@ void IntegerSet::inputSet(int* set, int newElement, int numOfElements, int size)
   }
 }
 
-void IntegerSet::emptySet(int* set, int size) {
+void IntegerSet::emptySet() {
   for(int index = 0; index < numOfElements; index++) {
     set[index] = 0;
   }

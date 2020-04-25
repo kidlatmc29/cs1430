@@ -14,12 +14,12 @@ class IntegerSet {
   //  void insertElement();
   //  void deleteElement(int* set, int numOfElements);
 
-    void printElements(int *set, int numOfElements);
+    void printSet();
 
   //  bool isEqualTo();
 
-    void emptySet(int* set, int size);
-    void inputSet(int* set, int newElement, int numOfElements, int size);
+    void emptySet();
+    void inputSet(int newElement);
 
   private:
     const int MAX_VAL = 100;

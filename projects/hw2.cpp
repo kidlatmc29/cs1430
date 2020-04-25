@@ -17,13 +17,20 @@
 
 using namespace std;
 
+void welcome();
+
+void goodbye();
 
 int main()
 {
-  cout << "Creating mySet...." << endl;
-  IntegerSet mySet();
+  welcome();
 
-  
+  cout << "Creating mySet...." << endl;
+  IntegerSet* mySet = new IntegerSet();
+
+  mySet->printSet();
+
+
   // fill sets a and b
 
   //perform union of sets a and b
