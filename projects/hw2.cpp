@@ -17,18 +17,29 @@
 
 using namespace std;
 
+const int STOP = -1;
+
 void welcome();
 
 void goodbye();
 
 int main()
 {
+  int input;
   welcome();
 
-  cout << "Creating mySet...." << endl;
-  IntegerSet* mySet = new IntegerSet();
-  mySet->printSet();
+  cout << "Creating set a...." << endl;
+  IntegerSet *setA = new IntegerSet();
+  setA->printSet();
+  cout << endl;
 
+  while(input != STOP) {
+    cout << "enter an integer for set A: ";
+    cin >> input;
+    setA->inputSet(input);
+  }
+
+  setA->printSet();
   // fill sets a and b
 
   //perform union of sets a and b

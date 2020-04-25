@@ -5,7 +5,6 @@
 #include "IntegerSet.h"
 
 IntegerSet::IntegerSet() {
-  cout << "this is the empty boi" << endl;
   set = new int[INITIAL_SIZE];
   size = INITIAL_SIZE;
   numOfElements = 0;
@@ -28,13 +27,15 @@ void IntegerSet::printSet() {
       cout << set[index] << ", ";
     }
   }
-  cout << R_BRAC;
+  cout << R_BRAC;z
 }
 
 void IntegerSet::inputSet(int newElement) {
+  cout << newElement << endl;
   if(numOfElements + 1 > size) {
+    cout << "you need to resize the underlying array!";
     // resize set AKA create a new set here
-  } else if (numOfElements++ <= size) {
+  } else {
     set[numOfElements + 1] = newElement;
     numOfElements++;
   }
