@@ -14,27 +14,37 @@ IntegerSet::IntegerSet() {
 IntegerSet::IntegerSet(int arr[], int arrLength) {
   set = new int[arrLength];
   size = arrLength;
+
   for(int index = 0; index < size; index++) {
     set[index] = arr[index];
     numOfElements++;
   }
 }
 
+void insertElement()
+{
+    int newArr[size + 1];
+    for(int index = 0; index < size - 1; index++) {
+      newArr[index] = set[index];
+    }
+
+    newArr[size] = 0;
+    *set = &newArr; // set the pointer to the new array?
+    size++; // updates array size
+}
+
 void IntegerSet::printSet() {
   cout << L_BRAC;
   for(int index = 0; index < numOfElements; index++) {
-    if(index > numOfElements - 1) {
-      cout << set[index] << ", ";
-    }
+      cout << set[index] << " ";
   }
-  cout << R_BRAC;z
+  cout << R_BRAC;
 }
 
 void IntegerSet::inputSet(int newElement) {
   cout << newElement << endl;
   if(numOfElements + 1 > size) {
-    cout << "you need to resize the underlying array!";
-    // resize set AKA create a new set here
+    insertElement();
   } else {
     set[numOfElements + 1] = newElement;
     numOfElements++;

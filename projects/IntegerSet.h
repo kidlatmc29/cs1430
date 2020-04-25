@@ -11,8 +11,8 @@ class IntegerSet {
   //  IntegerSet unionOfSets();
   //  IntegerSet intersectionOfSets();
 
-  //  void insertElement();
-  //  void deleteElement(int* set, int numOfElements);
+    void insertElement();
+  //  void deleteElement();
 
     void printSet();
 
