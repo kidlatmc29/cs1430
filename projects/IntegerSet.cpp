@@ -21,13 +21,12 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
 }
 
-void insertElement()
+void IntegerSet::insertElement()
 {
     int* temp = new int[size + 1];
     for(int index = 0; index < size; index++) {
       temp[index] = set[index];
   }
-
   delete []set; // deletes the array pointed to by "set"
   set = temp; //changes to the address of the new array
 }
