@@ -84,10 +84,19 @@ int IntegerSet::getNumOfElements()
 
 void selectionSort()
 {
-
+  int indexSwap;
+  for(int index = 0; index < numOfElements; index++) {
+    indexSwap = index;
+    for(int j = index + 1; j < numOfElements; j++) {
+      if(set[j] < parts[indexSwap]) {
+        indexSwap = j;
+      }
+    }
+    swapInts(index, indexSwap);
+  }
 }
 
-void swapInt(int index, int indexSwap)
+void swapInts(int index, int indexSwap)
 {
   int temp = set[index];
   set[index] = set[indexSwap];
