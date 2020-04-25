@@ -30,18 +30,24 @@ int main()
 
   cout << "Creating set a...." << endl;
   IntegerSet *setA = new IntegerSet();
-  setA->printSet();
-  cout << endl;
 
   while(input != STOP) {
-    cout << "enter an integer for set A: ";
+    cout << "Enter an integer for set A (enter -1 to stop): ";
     cin >> input;
     setA->inputSet(input);
   }
-
+  input = 0;
   setA->printSet();
-  // fill sets a and b
 
+  cout << "Creating set b....." << endl;
+  IntegerSet *setB = new IntegerSet;
+
+  while(input != STOP) {
+    cout << "Enter integers for set B (enter -1 to stop): ";
+    cin >> input;
+    setB->inputSet(input);
+  }
+  setB->printSet();
   //perform union of sets a and b
 
   // perform intersection of sets a and b

@@ -40,8 +40,8 @@ void IntegerSet::printSet() {
 }
 
 void IntegerSet::inputSet(int newElement) {
-  cout << newElement << endl;
   if(numOfElements + 1 > size) {
+    cout << "resizing the array " << endl;
     insertElement();
   } else {
     set[numOfElements + 1] = newElement;
