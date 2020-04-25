@@ -23,14 +23,13 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
 
 void insertElement()
 {
-    int newArr[size + 1];
-    for(int index = 0; index < size - 1; index++) {
-      newArr[index] = set[index];
-    }
+    int* temp = new int[size + 1];
+    for(int index = 0; index < size; index++) {
+      temp[index] = set[index];
+  }
 
-    newArr[size] = 0;
-    *set = &newArr; // set the pointer to the new array?
-    size++; // updates array size
+  delete []set; // deletes the array pointed to by "set"
+  set = temp; //changes to the address of the new array
 }
 
 void IntegerSet::printSet() {
