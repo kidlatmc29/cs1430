@@ -21,14 +21,32 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
 }
 
-IntegerSet unionOfSets(IntegerSet *otherSet)
+IntegerSet IntegerSet::unionOfSets(IntegerSet *otherSet)
 {
-  IntegerSet *setC = new int[size + otherSet->getNumOfElements()];
-  for(int index = 0; index < numOfElements; index++) {
-    setC[index] = set[index];
+  int cSize;
+  int otherSetSize = otherSet->getSize();
+
+  if(otherSetSize > size) {
+    cSize = otherSetSize;
+  } else {
+    cSize = size;
   }
 
-  for
+  IntegerSet *setC = new int[cSize];
+
+  for(int index = 0; index < numOfElements; index++) {
+    if(set[index] != otherSet[index]) {
+      setC[index] = set[index];
+    }
+  }
+
+  for(int index = 0; index < otherSetSize; index++) {
+    if(setC[otherSet[index]] == 0) {
+      setC[otherSet[index]];
+    }
+  }
+
+  return setC;
 }
 
 void IntegerSet::insertElement()
@@ -82,7 +100,7 @@ int IntegerSet::getNumOfElements()
 }
 
 
-void selectionSort()
+void IntegerSet::selectionSort()
 {
   int indexSwap;
   for(int index = 0; index < numOfElements; index++) {
@@ -96,7 +114,7 @@ void selectionSort()
   }
 }
 
-void swapInts(int index, int indexSwap)
+void IntgerSet::swapInts(int index, int indexSwap)
 {
   int temp = set[index];
   set[index] = set[indexSwap];

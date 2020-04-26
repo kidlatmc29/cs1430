@@ -18,7 +18,6 @@ class IntegerSet {
 
   //  bool isEqualTo();
 
-    void emptySet();
     void inputSet(int newElement);
 
     int getSize();
@@ -33,11 +32,14 @@ class IntegerSet {
     const char R_BRAC = '}';
 
     int *set = nullptr;
-    int numOfElements; // tracks how many elements are in the set
+    int numOfElements; // tracks num of elements in set
     int size; // tracks the total size of the set
 
+    void emptySet();
+
     void selectionSort();
-    void swapInt(int index, int indexSwap);
+    void swapInts(int index, int indexSwap);
   //  bool validEntry();
+
 
 };
