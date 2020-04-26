@@ -21,6 +21,7 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
 }
 
+/*
 IntegerSet IntegerSet::unionOfSets(IntegerSet *otherSet)
 {
   int cSize;
@@ -36,20 +37,20 @@ IntegerSet IntegerSet::unionOfSets(IntegerSet *otherSet)
   IntegerSet *setC = new int[cSize];
 
   for(int index = 0; index < numOfElements; index++) {
-    if(set[index] != otherSet[index]) {
+    if(set[index] != otherArr[index]) {
       setC[index] = set[index];
     }
   }
 
   for(int index = 0; index < otherSetSize; index++) {
-    if(setC[otherSet[index]] == 0) {
-      setC[otherSet[index]];
+    if(setC[otherArr[index]] == 0) {
+      setC[otherArr[index]];
     }
   }
 
   return *setC;
 }
-
+*/
 void IntegerSet::insertElement()
 {
     int* temp = new int[size + 1];
@@ -71,6 +72,26 @@ void IntegerSet::printSet()
       cout << set[index];
     }
   cout << R_BRAC;
+  }
+}
+
+bool isEqualTo(IntegerSet *setB)
+{
+  int count = 0;
+  bool isEqual = true;
+  int arrB[] = setB->getArray();
+  if(setB->getNumOfElements() != getNumOfElements) {
+    return false;
+  }
+
+  while(isEqual) {
+    if(set[count] != arrB[count]) {
+      isEqual = false;
+    }
+    count++;
+  }
+
+  return isEqual;
 }
 
 void IntegerSet::inputSet(int newElement)
@@ -102,8 +123,9 @@ int IntegerSet::getNumOfElements()
   return numOfElements;
 }
 
-int* IntegerSet::getArray(); {
-  return &set; 
+int* IntegerSet::getArray()
+{
+  return &set;
 }
 
 void IntegerSet::selectionSort()

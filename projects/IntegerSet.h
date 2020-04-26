@@ -8,7 +8,7 @@ class IntegerSet {
     IntegerSet();
     IntegerSet(int arr[], int numOfElements); //need to figure out arr or ptr
 
-    IntegerSet unionOfSets(IntegerSet *otherSet);
+  //  IntegerSet unionOfSets(IntegerSet *otherSet);
   //  IntegerSet intersectionOfSets();
 
     void insertElement();
@@ -16,7 +16,7 @@ class IntegerSet {
 
     void printSet();
 
-  //  bool isEqualTo();
+    bool isEqualTo();
 
     void inputSet(int newElement);
 
@@ -41,6 +41,5 @@ class IntegerSet {
     void selectionSort();
     void swapInts(int index, int indexSwap);
   //  bool validEntry();
-
 
 };

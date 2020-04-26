@@ -53,12 +53,12 @@ int main()
   cout << endl;
 
   cout << "Union of set A and set B: " << endl;
-  setA->unionOfSets(setB);
+  //  setA->unionOfSets(setB);
 
-  //perform union of sets a and b
-
+  cout << "Intersecion of set A and set B: " << endl;
   // perform intersection of sets a and b
 
+  cout << "Equality of set A and set B: " << endl;
   // see if set a and b are equal
 
   // ask the user to input a number into set a
