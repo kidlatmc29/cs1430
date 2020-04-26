@@ -37,7 +37,7 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
   IntegerSet *setC = new IntegerSet();
 
   // need to sort through setA and set B!!!!!
-  
+
   for(int index = 0; index < numOfElements; index++) {
     if(set[index] != otherArr[index]) {
       setC[index] = set[index];
@@ -54,7 +54,7 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
 }
 */
 
-IntegerSet* intersectionOfSets(IntegerSet *setB)
+IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
 {
   int countA = 0;
   int countB = 0;
@@ -74,18 +74,37 @@ IntegerSet* intersectionOfSets(IntegerSet *setB)
       countB++;
     }
   }
+  return setC;
 }
 
 void IntegerSet::insertElement()
 {
-    int* temp = new int[size + 1];
+    int tempSize = size + 1;
+    int* temp = new int[tempSize];
 
     for(int index = 0; index < size; index++) {
       temp[index] = set[index];
   }
+
+  temp[tempSize] = 1;
   delete []set; // deletes the array pointed to by "set"
   set = temp; //changes to the address of the new array
   size++;
+}
+
+void IntegerSet::deleteElement()
+{
+  int tempSize = size - 1;
+  int* temp = new int[tempSize];
+
+  for(int index = 0; index < size - 1; index++) {
+    temp[index] = set[index];
+  }
+
+  temp[tempSize] = 0;
+  delete []set; // deletes the array pointed to by "set"
+  set = temp; //changes to the address of the new array
+  size--;
 }
 
 void IntegerSet::printSet()
