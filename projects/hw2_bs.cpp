@@ -32,6 +32,7 @@
 using namespace std;
 
 const int STOP = -1;
+const int CSIZE = 5;
 
 void welcome();
 
@@ -40,7 +41,7 @@ void goodbye();
 int main()
 {
   int input;
-
+  int arrC[CSIZE] = {-1, 29, 8, 2001, 54};
   welcome();
 
   cout << "Creating set A...." << endl;
@@ -66,6 +67,44 @@ int main()
   }
   setB->printSet();
   cout << endl;
+
+/**
+  IntegerSet *unionOf = new IntegerSet();
+  cout << "Union of set A and set B: " << endl << endl;
+  unionOf = setA->unionOfSets(setB);
+  unionOf->printSet();
+  cout << endl;
+
+  IntegerSet *intersection = new IntegerSet();
+  cout << "Intersection of set A and set B: " << endl;
+  intersection = setA->intersectionOfSets(setB);
+  intersection->printSet();
+  cout << endl;
+**/
+
+  cout << endl << "Equality of set A and set B: " << endl;
+
+  if(setA->isEqualTo(setB) == true) {
+    cout << "Set A and set B are equal" << endl << endl;
+  } else {
+    cout << "Set A and set B are not equal" << endl << endl;
+  }
+
+  cout << "Please give an integer to insert into set A: ";
+  cin >> input;
+
+  cout << "Inserting " << input << " into set A..." << endl;
+  setA->inputSet(input);
+  cout << "Set A is now: " << endl;
+  setA->printSet();
+
+  cout << "Deleting " << input << " from Set A..." << endl;
+  cout << "Set A is now: " << endl;
+  setA->printSet();
+
+  cout << "Creating array of size 5: {-1, 29, 8, 2001, 54}" << endl;
+  IntegerSet *setC = new IntegerSet(arrC, CSIZE);
+  setC->printSet();
 
   goodbye();
   return 0;

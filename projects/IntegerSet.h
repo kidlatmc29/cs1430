@@ -8,37 +8,32 @@ class IntegerSet {
     IntegerSet();
     IntegerSet(int arr[], int numOfElements);
 
-    IntegerSet* unionOfSets(IntegerSet *otherSet);
-    IntegerSet* intersectionOfSets(IntegerSet *otherSet);
+  //  IntegerSet* unionOfSets(IntegerSet *otherSet);
+  //  IntegerSet* inters ectionOfSets(IntegerSet *otherSet);
 
     void insertElement();
     void deleteElement();
 
     void printSet();
 
-    bool isEqualTo(IntegerSet *setB);
+  //  bool isEqualTo(IntegerSet *setB);
 
-    void inputSet(int newElement);
+  //  void inputSet(int newElement);
 
-    int getSize();
-    int getNumOfElements();
-    int* getArray();
+  //  int getSize();
+  //  int getNumOfElements();
+  //  int* getArray();
 
   private:
-    const int MAX_VAL = 100;
+    const int MAX_VAL = 101;
     const int MIN_VAL = 0;
     const int END_OF_SET = -1;
-    const int INITIAL_SIZE = 3;
     const char L_BRAC = '{';
     const char R_BRAC = '}';
 
-    int *set = nullptr;
-    int numOfElements; // tracks num of elements in set
-    int size; // tracks the total size of the set
+    int *set = new int[MAX_VAL];
 
     void emptySet();
-    void selectionSort();
-    void swapInts(int index, int indexSwap);
     bool validEntry(int entry);
 
 };
