@@ -25,6 +25,7 @@ IntegerSet IntegerSet::unionOfSets(IntegerSet *otherSet)
 {
   int cSize;
   int otherSetSize = otherSet->getSize();
+  int *otherArr[] = otherSet->getSet();
 
   if(otherSetSize > size) {
     cSize = otherSetSize;
@@ -46,7 +47,7 @@ IntegerSet IntegerSet::unionOfSets(IntegerSet *otherSet)
     }
   }
 
-  return setC;
+  return *setC;
 }
 
 void IntegerSet::insertElement()
@@ -64,9 +65,11 @@ void IntegerSet::printSet()
  {
   cout << L_BRAC;
   for(int index = 0; index < numOfElements; index++) {
-    if(index <)
+    if(index < numOfElements - 1) {
       cout << set[index] << " ";
-  }
+    } else {
+      cout << set[index];
+    }
   cout << R_BRAC;
 }
 
@@ -99,6 +102,9 @@ int IntegerSet::getNumOfElements()
   return numOfElements;
 }
 
+int* IntegerSet::getArray(); {
+  return &set; 
+}
 
 void IntegerSet::selectionSort()
 {
@@ -106,7 +112,7 @@ void IntegerSet::selectionSort()
   for(int index = 0; index < numOfElements; index++) {
     indexSwap = index;
     for(int j = index + 1; j < numOfElements; j++) {
-      if(set[j] < parts[indexSwap]) {
+      if(set[j] < set[indexSwap]) {
         indexSwap = j;
       }
     }
@@ -114,7 +120,7 @@ void IntegerSet::selectionSort()
   }
 }
 
-void IntgerSet::swapInts(int index, int indexSwap)
+void IntegerSet::swapInts(int index, int indexSwap)
 {
   int temp = set[index];
   set[index] = set[indexSwap];

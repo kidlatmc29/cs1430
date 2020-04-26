@@ -22,6 +22,7 @@ class IntegerSet {
 
     int getSize();
     int getNumOfElements();
+    int* getArray();
 
   private:
     const int MAX_VAL = 100;
