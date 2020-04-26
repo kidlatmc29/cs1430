@@ -18,16 +18,14 @@ class IntegerSet {
 
   //  bool isEqualTo(IntegerSet *setB);
 
-  //  void inputSet(int newElement);
+   void inputSet();
 
-  //  int getSize();
-  //  int getNumOfElements();
   //  int* getArray();
 
   private:
     const int MAX_VAL = 101;
     const int MIN_VAL = 0;
-    const int END_OF_SET = -1;
+    const int STOP = -1;
     const char L_BRAC = '{';
     const char R_BRAC = '}';
 

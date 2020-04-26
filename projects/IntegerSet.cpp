@@ -45,3 +45,22 @@ bool IntegerSet::validEntry(int entry)
   }
   return true;
 }
+
+void IntegerSet::inputSet()
+{
+  int input;
+  bool valid;
+
+  cout << "Enter an element (-1 to stop): ";
+  cin >> input;
+  valid = validEntry(entry);
+
+  while(valid != STOP) {
+    set[input] = 1;
+    cout << "Enter an element between 0 and 100 (-1 to stop): ";
+    cin >> input;
+    valid = validEntry(entry);
+  }
+
+  cout << "Entry complete..." << endl;
+}

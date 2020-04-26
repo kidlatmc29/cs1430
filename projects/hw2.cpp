@@ -33,52 +33,33 @@ using namespace std;
 
 const int STOP = -1;
 
-void welcome();
-
-void goodbye();
-
 int main()
 {
   int input;
+  IntegerSet *setA = new IntegerSet();
+  IntegerSet *setB = new IntegerSet();
+  IntegerSet *setC = new IntegerSet();
 
   welcome();
 
-  cout << "Creating set A...." << endl;
-  IntegerSet *setA = new IntegerSet();
+  cout << "Enter Set A: " << endl;
+  setA->inputSet();
 
-  while(input != STOP) {
-    cout << "Enter an integer for set A (enter -1 to stop): ";
-    cin >> input;
-    setA->inputSet(input);
-  }
-  input = 0;
+  cout << "Enter Set B: " << endl;
+  setB->inputSet();
+
   setA->printSet();
-
-  cout << endl << endl;;
-
-  cout << "Creating set b....." << endl << endl;
-  IntegerSet *setB = new IntegerSet();
-
-  while(input != STOP) {
-    cout << "Enter integers for set B (enter -1 to stop): ";
-    cin >> input;
-    setB->inputSet(input);
-  }
   setB->printSet();
-  cout << endl;
 
   goodbye();
   return 0;
 }
 
-void welcome()
-{
-  cout << endl << endl
-       << " - Welcome to the IntegerSet Program - " << endl;
+void welcome() {
+  cout << endl << endl;
 }
 
-void goodbye()
-{
-  cout << endl << endl << "Goodbye!"
-       << endl << endl;
+void goodbye() {
+  cout << endl << endl
+       << "Ending program.... Goodbye!" << endl << endl;
 }
