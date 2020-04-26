@@ -52,11 +52,14 @@ int main()
   setB->printSet();
   cout << endl;
 
+  IntegerSet *union = new IntegerSet();
   cout << "Union of set A and set B: " << endl << endl;
-  //  setA->unionOfSets(setB);
+  //union = setA->unionOfSets(setB);
 
+  IntegerSet *intersection = new IntegerSet();
   cout << "Intersection of set A and set B: " << endl << endl;
-  setA->intersectionOfSets(setB);
+  intersection = setA->intersectionOfSets(setB);
+  intersection->printSet();
 
   cout << "Equality of set A and set B: " << endl;
   // see if set a and b are equal
