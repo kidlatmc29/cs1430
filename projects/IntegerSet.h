@@ -39,6 +39,6 @@ class IntegerSet {
     void emptySet();
     void selectionSort();
     void swapInts(int index, int indexSwap);
-    bool validEntry();
+    bool validEntry(int entry);
 
 };

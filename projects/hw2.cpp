@@ -90,9 +90,7 @@ int main()
 
   cout << "Creating array of size 5: {-1, 29, 8, 2001, 54}" << endl;
   IntegerSet *setC = new IntegerSet(arrC, CSIZE);
-  setC->validEntry();
   setC->printSet();
-
 
   goodbye();
   return 0;

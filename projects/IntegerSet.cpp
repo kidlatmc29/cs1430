@@ -12,12 +12,15 @@ IntegerSet::IntegerSet() {
 }
 
 IntegerSet::IntegerSet(int arr[], int arrLength) {
+  bool valid = false;
   set = new int[arrLength];
   size = arrLength;
 
   for(int index = 0; index < size; index++) {
-    set[index] = arr[index];
-    numOfElements++;
+    if(validEntry(arr[index]) == true) {
+      set[index] = arr[index];
+      numOfElements++;
+    }
   }
 }
 
@@ -52,7 +55,6 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
 
   return setC;
 }
-*/
 
 IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
 {
@@ -76,6 +78,7 @@ IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
   }
   return setC;
 }
+*/
 
 void IntegerSet::insertElement()
 {
@@ -147,7 +150,7 @@ void IntegerSet::inputSet(int newElement)
     insertElement();
   }
 
-  if(newElement != END_OF_SET) {
+  if(newElement != END_OF_SET && validEntry(newElement) == true) {
     set[numOfElements] = newElement;
     numOfElements++;
   }
@@ -194,4 +197,14 @@ void IntegerSet::swapInts(int index, int indexSwap)
   int temp = set[index];
   set[index] = set[indexSwap];
   set[indexSwap] = temp;
+}
+
+void IntegerSet::validEntry(int entry)
+{
+  for(int index = 0; index < numOfElements; index++) {
+    if(entry > MAX_VAL || entry < MIN_VAL) {
+      return false;
+    }
+  }
+  return true;
 }
