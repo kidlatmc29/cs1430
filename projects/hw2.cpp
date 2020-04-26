@@ -52,7 +52,9 @@ int main()
   setB->printSet();
   cout << endl;
 
-  
+  cout << "Union of set A and set B: " << endl;
+  setA->unionOfSets(setB);
+
   //perform union of sets a and b
 
   // perform intersection of sets a and b
