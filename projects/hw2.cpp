@@ -60,6 +60,11 @@ int main()
 
   cout << "Equality of set A and set B: " << endl;
   // see if set a and b are equal
+  if(setA->isEqualTo(setB) == true) {
+    cout << "Set A and set B are equal" << endl;
+  } else {
+    cout << "Set A and set B are not equal" << endl;
+  }
 
   // ask the user to input a number into set a
   // insert given integer into set a

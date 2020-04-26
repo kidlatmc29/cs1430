@@ -16,7 +16,7 @@ class IntegerSet {
 
     void printSet();
 
-    bool isEqualTo();
+    bool isEqualTo(IntegerSet *setB);
 
     void inputSet(int newElement);
 

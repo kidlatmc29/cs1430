@@ -75,12 +75,14 @@ void IntegerSet::printSet()
   }
 }
 
-bool isEqualTo(IntegerSet *setB)
+bool IntegerSet::isEqualTo(IntegerSet *setB)
 {
   int count = 0;
   bool isEqual = true;
-  int arrB[] = setB->getArray();
-  if(setB->getNumOfElements() != getNumOfElements) {
+  int *arrB = setB->getArray();
+  int numOfElementsB = setB->getNumOfElements();
+
+  if(numOfElementsB != numOfElements) {
     return false;
   }
 
@@ -125,7 +127,7 @@ int IntegerSet::getNumOfElements()
 
 int* IntegerSet::getArray()
 {
-  return &set;
+  return set;
 }
 
 void IntegerSet::selectionSort()
