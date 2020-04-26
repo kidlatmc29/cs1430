@@ -12,7 +12,7 @@ class IntegerSet {
     IntegerSet* intersectionOfSets(IntegerSet *otherSet);
 
     void insertElement();
-  //  void deleteElement();
+    void deleteElement();
 
     void printSet();
 
@@ -37,9 +37,8 @@ class IntegerSet {
     int size; // tracks the total size of the set
 
     void emptySet();
-
     void selectionSort();
     void swapInts(int index, int indexSwap);
-  //  bool validEntry();
+    bool validEntry();
 
 };

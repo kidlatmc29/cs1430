@@ -18,6 +18,7 @@
 using namespace std;
 
 const int STOP = -1;
+const int CSIZE = 5;
 
 void welcome();
 
@@ -26,6 +27,7 @@ void goodbye();
 int main()
 {
   int input;
+  int arrC[CSIZE] = {-1, 29, 8, 2001, 54};
   welcome();
 
   cout << "Creating set A...." << endl;
@@ -52,15 +54,19 @@ int main()
   setB->printSet();
   cout << endl;
 
-//  IntegerSet *unionOf = new IntegerSet();
+/**
+  IntegerSet *unionOf = new IntegerSet();
   cout << "Union of set A and set B: " << endl << endl;
-  //union = setA->unionOfSets(setB);
+  unionOf = setA->unionOfSets(setB);
+  unionOf->printSet();
+  cout << endl;
 
   IntegerSet *intersection = new IntegerSet();
   cout << "Intersection of set A and set B: " << endl;
   intersection = setA->intersectionOfSets(setB);
   intersection->printSet();
   cout << endl;
+**/
 
   cout << endl << "Equality of set A and set B: " << endl;
 
@@ -78,13 +84,15 @@ int main()
   cout << "Set A is now: " << endl;
   setA->printSet();
 
-  // delete recently added integer from set a
-  // print set a
+  cout << "Deleting " << input << " from Set A..." << endl;
+  cout << "Set A is now: " << endl;
+  setA->printSet();
 
-  // create a set with a given numOfelemt value and elements
-  // print out values that are invalid
+  cout << "Creating array of size 5: {-1, 29, 8, 2001, 54}" << endl;
+  IntegerSet *setC = new IntegerSet(arrC, CSIZE);
+  setC->validEntry();
+  setC->printSet();
 
-  // print out set c
 
   goodbye();
   return 0;
