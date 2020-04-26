@@ -12,15 +12,11 @@ IntegerSet::IntegerSet() {
 }
 
 IntegerSet::IntegerSet(int arr[], int arrLength) {
-  bool valid = false;
   set = new int[arrLength];
   size = arrLength;
 
   for(int index = 0; index < size; index++) {
-    if(validEntry(arr[index]) == true) {
-      set[index] = arr[index];
-      numOfElements++;
-    }
+    inputSet(arr[index]);
   }
 }
 
@@ -199,7 +195,7 @@ void IntegerSet::swapInts(int index, int indexSwap)
   set[indexSwap] = temp;
 }
 
-void IntegerSet::validEntry(int entry)
+bool IntegerSet::validEntry(int entry)
 {
   for(int index = 0; index < numOfElements; index++) {
     if(entry > MAX_VAL || entry < MIN_VAL) {
