@@ -86,7 +86,7 @@ bool IntegerSet::isEqualTo(IntegerSet *setB)
     return false;
   }
 
-  while(isEqual) {
+  while(isEqual && count < numOfElements) {
     if(set[count] != arrB[count]) {
       isEqual = false;
     }
