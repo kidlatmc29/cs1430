@@ -66,6 +66,8 @@ int main()
     cout << "Set A and set B are not equal" << endl << endl;
   }
 
+  cout << "Please give an integer to inser into set A: ";
+  setA->inputSet();
   // ask the user to input a number into set a
   // insert given integer into set a
   //print set a
