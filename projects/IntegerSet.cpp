@@ -71,8 +71,8 @@ void IntegerSet::printSet()
     } else {
       cout << set[index];
     }
-  cout << R_BRAC;
   }
+  cout << R_BRAC;
 }
 
 bool IntegerSet::isEqualTo(IntegerSet *setB)
