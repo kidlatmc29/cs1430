@@ -21,12 +21,11 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
 }
 
-/*
-IntegerSet IntegerSet::unionOfSets(IntegerSet *otherSet)
+IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
 {
   int cSize;
   int otherSetSize = otherSet->getSize();
-  int *otherArr[] = otherSet->getSet();
+  int *otherArr = otherSet->getArray();
 
   if(otherSetSize > size) {
     cSize = otherSetSize;
@@ -34,7 +33,7 @@ IntegerSet IntegerSet::unionOfSets(IntegerSet *otherSet)
     cSize = size;
   }
 
-  IntegerSet *setC = new int[cSize];
+  IntegerSet *setC = new IntegerSet();
 
   for(int index = 0; index < numOfElements; index++) {
     if(set[index] != otherArr[index]) {
@@ -48,9 +47,9 @@ IntegerSet IntegerSet::unionOfSets(IntegerSet *otherSet)
     }
   }
 
-  return *setC;
+  return setC;
 }
-*/
+
 void IntegerSet::insertElement()
 {
     int* temp = new int[size + 1];

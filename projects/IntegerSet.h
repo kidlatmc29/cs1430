@@ -8,7 +8,7 @@ class IntegerSet {
     IntegerSet();
     IntegerSet(int arr[], int numOfElements); //need to figure out arr or ptr
 
-  //  IntegerSet unionOfSets(IntegerSet *otherSet);
+    IntegerSet* unionOfSets(IntegerSet *otherSet);
   //  IntegerSet intersectionOfSets();
 
     void insertElement();

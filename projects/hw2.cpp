@@ -42,7 +42,7 @@ int main()
   cout << endl << endl;;
 
   cout << "Creating set b....." << endl << endl;
-  IntegerSet *setB = new IntegerSet;
+  IntegerSet *setB = new IntegerSet();
 
   while(input != STOP) {
     cout << "Enter integers for set B (enter -1 to stop): ";
@@ -55,10 +55,10 @@ int main()
   cout << "Union of set A and set B: " << endl << endl;
   //  setA->unionOfSets(setB);
 
-  cout << "Intersecion of set A and set B: " << endl << endl;
-  // perform intersection of sets a and b
+  cout << "Intersection of set A and set B: " << endl << endl;
+  // setA->intersectionOfSets(setB);
 
-  cout << "Equality of set A and set B: " << endl << endl;
+  cout << "Equality of set A and set B: " << endl;
   // see if set a and b are equal
   if(setA->isEqualTo(setB) == true) {
     cout << "Set A and set B are equal" << endl << endl;
@@ -66,14 +66,14 @@ int main()
     cout << "Set A and set B are not equal" << endl << endl;
   }
 
-  cout << "Please give an integer to insert into set A: ";
+  cout << "Please give an integer to insert into set A: " << endl;
   cin >> input;
 
-  cout << "Inserting " << input << "into set A...";
+  cout << "Inserting " << input << "into set A..." << endl;
   setA->inputSet(input);
   cout << "Set A is now: " << endl;
   setA->printSet();
-  
+
   // delete recently added integer from set a
   // print set a
 
