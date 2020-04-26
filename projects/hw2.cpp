@@ -56,7 +56,7 @@ int main()
   //  setA->unionOfSets(setB);
 
   cout << "Intersection of set A and set B: " << endl << endl;
-  // setA->intersectionOfSets(setB);
+  setA->intersectionOfSets(setB);
 
   cout << "Equality of set A and set B: " << endl;
   // see if set a and b are equal

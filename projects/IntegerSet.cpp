@@ -21,6 +21,7 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
 }
 
+/*
 IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
 {
   int cSize;
@@ -35,6 +36,8 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
 
   IntegerSet *setC = new IntegerSet();
 
+  // need to sort through setA and set B!!!!!
+  
   for(int index = 0; index < numOfElements; index++) {
     if(set[index] != otherArr[index]) {
       setC[index] = set[index];
@@ -49,10 +52,34 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
 
   return setC;
 }
+*/
+
+IntegerSet* intersectionOfSets(IntegerSet *setB)
+{
+  int countA = 0;
+  int countB = 0;
+  int setBElements = setB->getNumOfElements();
+  int *arrayB = setB->getArray();
+
+  IntegerSet* setC = new IntegerSet();
+
+  while(countA < numOfElements && countB < setBElements) {
+    if(set[countA] < arrayB[countB]){
+       countA++;
+    } else if(arrayB[countB] < set[countA]) {
+      countB++;
+    } else {
+      setC->inputSet(arrayB[countB]);
+      countA++;
+      countB++;
+    }
+  }
+}
 
 void IntegerSet::insertElement()
 {
     int* temp = new int[size + 1];
+
     for(int index = 0; index < size; index++) {
       temp[index] = set[index];
   }
