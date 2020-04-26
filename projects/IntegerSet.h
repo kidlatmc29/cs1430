@@ -6,7 +6,7 @@ using namespace std;
 class IntegerSet {
   public:
     IntegerSet();
-    IntegerSet(int arr[], int numOfElements); //need to figure out arr or ptr
+    IntegerSet(int arr[], int numOfElements);
 
     IntegerSet* unionOfSets(IntegerSet *otherSet);
     IntegerSet* intersectionOfSets(IntegerSet *otherSet);
