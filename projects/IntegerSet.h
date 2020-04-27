@@ -32,7 +32,7 @@ class IntegerSet {
 
     int set[101];
 
-    void emptySet();
+   void emptySet();
    bool validEntry(int entry);
 
 };

@@ -72,7 +72,7 @@ void IntegerSet::emptySet()
   }
 }
 
- bool validEntry(int entry)
+ bool IntegerSet::validEntry(int entry)
  {
    if(entry > MAX_VAL || entry < MIN_VAL) {
      return false;
