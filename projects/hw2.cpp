@@ -36,6 +36,7 @@ const int STOP = -1;
 int main()
 {
   int input;
+  bool isEqual;
   IntegerSet *setA = new IntegerSet();
   IntegerSet *setB = new IntegerSet();
 // IntegerSet *setC = new IntegerSet();
@@ -54,8 +55,18 @@ int main()
   setA->printSet();
   cout << endl;
   setB->printSet();
+  cout << endl;
 
+  cout << endl;
+  isEqual = setA->isEqualTo(setB);
+  if(isEqual) {
+    cout << "Set A and Set B are equal";
+  } else {
+    cout << "Set A and Set B are not equal";
+  }
+  cout << endl;
 
+  cout << endl;
   cout << "Enter an integer to input into Set A: ";
   cin >> input;
   setA->insertElement(input);

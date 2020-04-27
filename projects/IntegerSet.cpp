@@ -6,6 +6,7 @@
 
 IntegerSet::IntegerSet()
 {
+  numOfElements = 0;
   emptySet();
 }
 
@@ -22,6 +23,7 @@ void IntegerSet::insertElement(int input)
   bool valid = validEntry(input);
   if(valid) {
     set[input] = 1;
+    numOfElements++;
   }
 }
 
@@ -29,6 +31,7 @@ void IntegerSet::deleteElement(int input) {
   bool valid = validEntry(input);
   if(valid) {
     set[input] = 0;
+    numOfElements--;
   }
 }
 
@@ -64,10 +67,22 @@ void IntegerSet::inputSet()
 
     if(valid) {
       set[input] = 1;
+      numOfElements++;
     }
     cout << "Enter an integer for set (enter -1 to stop): ";
     cin >> input;
   }
+}
+
+bool IntegerSet::isEqualTo(IntegerSet *setB)
+{
+  //int indexA = 0;
+  //int indexB = 0;
+
+  if(numOfElements != setB->getNumOfElements()){
+    return false;
+  }
+  return true;
 }
 
 void IntegerSet::emptySet()
@@ -84,4 +99,9 @@ void IntegerSet::emptySet()
      return false;
    }
    return true;
+ }
+
+ int IntegerSet::getNumOfElements()
+ {
+   return numOfElements;
  }

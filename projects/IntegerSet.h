@@ -16,10 +16,11 @@ class IntegerSet {
 
     void printSet();
 
-  //  bool isEqualTo(IntegerSet *setB);
+    bool isEqualTo(IntegerSet *setB);
 
     void inputSet();
 
+    int getNumOfElements();
   //  int* getArray();
 
   private:
@@ -31,6 +32,7 @@ class IntegerSet {
     const char R_BRAC = '}';
 
     int set[101];
+    int numOfElements;
 
    void emptySet();
    bool validEntry(int entry);
