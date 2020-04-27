@@ -16,14 +16,27 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
     set[arr[index]] = 1;
   }
 }
-
 /*
-IntegerSet* unionOfSets(IntegerSet *otherSet)
+IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
+{
+  int indexA = 0;
+  int indexB = 0;
+  int *elementB = setB->getArray();
+  int arrC[MAX_SIZE];
+
+
+  while(indexA < MAX_SIZE && indexB << MAX_SIZE) {
+    if(set[indexA] {
+
+    }
+}
+
+*/
+
+IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *otherSet)
 {
 
 }
-*/
-
 void IntegerSet::insertElement(int input)
 {
   bool valid = validEntry(input);
