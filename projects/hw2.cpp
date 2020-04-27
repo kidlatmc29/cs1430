@@ -51,6 +51,9 @@ int main()
 
   cout << endl;
   setA->printSet();
+  cout << endl;
+  setB->printSet();
+
 
   delete setA;
   delete setB;
