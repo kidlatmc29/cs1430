@@ -14,7 +14,7 @@ class IntegerSet {
   //  void insertElement();
     void deleteElement();
 
-  //  void printSet();
+    void printSet();
 
   //  bool isEqualTo(IntegerSet *setB);
 
@@ -23,14 +23,14 @@ class IntegerSet {
   //  int* getArray();
 
   private:
-    const int MAX_SIZE = 101;
-    const int MAX_VAL = 100;
-    const int MIN_VAL = 0;
-    const int STOP = -1;
-    const char L_BRAC = '{';
-    const char R_BRAC = '}';
+     const int MAX_SIZE = 101;
+     const int MAX_VAL = 100;
+     const int MIN_VAL = 0;
+     const int STOP = -1;
+     const char L_BRAC = '{';
+     const char R_BRAC = '}';
 
-    int set[] = new int[MAX_SIZE];
+    int set[101];
 
     void emptySet();
   //  bool validEntry(int entry);

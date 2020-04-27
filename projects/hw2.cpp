@@ -35,31 +35,17 @@ const int STOP = -1;
 
 int main()
 {
-  int input;
+//  int input;
   IntegerSet *setA = new IntegerSet();
   IntegerSet *setB = new IntegerSet();
-  IntegerSet *setC = new IntegerSet();
-
-  welcome();
+// IntegerSet *setC = new IntegerSet();
 
   cout << "Enter Set A: " << endl;
-  setA->inputSet();
 
   cout << "Enter Set B: " << endl;
-  setB->inputSet();
 
   setA->printSet();
   setB->printSet();
 
-  goodbye();
   return 0;
-}
-
-void welcome() {
-  cout << endl << endl;
-}
-
-void goodbye() {
-  cout << endl << endl
-       << "Ending program.... Goodbye!" << endl << endl;
 }

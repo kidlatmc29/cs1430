@@ -9,25 +9,30 @@ IntegerSet::IntegerSet()
   emptySet();
 }
 
-IntegerSet::IntergetSet(int arr[], int arrLength) {
+IntegerSet::IntegerSet(int arr[], int arrLength) {
+  emptySet();
   for(int index = 0; index < MAX_VAL; index++) {
-    if(arr[index] = index) {
-      set[index] = 1;
-    }
+    set[arr[index]] = 1;
   }
 }
 
 void IntegerSet::printSet()
 {
-  cout << L_BRAC;
-  for(int index = 0; index < MAX_SIZE; index++)
-  {
-    if(set[index] == 1 && (index + 1) != MAX_SIZE) {
-      cout << index << " ";
-    } else if(set[index] == 1) {
-      cout << index;
+  bool isEmpty = true;
+  string result;
+  result += L_BRAC;
+  for(int index = 0; index < MAX_SIZE; index++)  {
+    if(set[index] == 1) {
+      result += index + " ";
+      isEmpty = false;
     }
-  cout << R_BRAC;
+  }
+  if(isEmpty) {
+    result += "-";
+  }
+   result += R_BRAC;
+
+   cout << result << endl;
 }
 
 void IntegerSet::emptySet()
