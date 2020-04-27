@@ -17,6 +17,12 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
 }
 
+/*
+IntegerSet* unionOfSets(IntegerSet *otherSet)
+{
+
+}
+*/
 
 void IntegerSet::insertElement(int input)
 {
@@ -78,12 +84,10 @@ bool IntegerSet::isEqualTo(IntegerSet *setB)
 {
   int indexA = 0;
   int indexB = 0;
-  int *elementB = &setB->set[indexB];
+  int *elementB = setB->getArray();
 
   if(numOfElements != setB->getNumOfElements()){
     return false;
-  } else {
-    return true;
   }
 
   while(set[indexA] == *elementB) {
@@ -121,5 +125,5 @@ void IntegerSet::emptySet()
 
  int* IntegerSet::getArray()
  {
-   return &set;
+   return &set[0];
  }
