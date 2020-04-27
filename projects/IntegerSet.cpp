@@ -28,21 +28,15 @@ void IntegerSet::insertElement(int input)
 
 void IntegerSet::printSet()
 {
-  bool isEmpty = true;
-
   cout << L_BRAC;
-  for(int index = 0; index < MAX_SIZE; index++)  {
+
+  for(int index = 0; index < MAX_SIZE; index++) {
     if(set[index] == 1) {
-      cout <<  index + " ";
-      isEmpty = false;
+      cout << index << " ";
     }
   }
 
-  if(!isEmpty) {
-    cout << "-";
-  }
-   cout << R_BRAC;
-
+  cout << R_BRAC;
 }
 
 void IntegerSet::inputSet()
@@ -54,9 +48,10 @@ void IntegerSet::inputSet()
 
   while(input != STOP) {
     valid = validEntry(input);
-    
+
     if(valid) {
       set[input] = 1;
+      cout << "input in set is " << set[input] << endl;
     }
     cout << "Enter an integer for set (enter -1 to stop): ";
     cin >> input;

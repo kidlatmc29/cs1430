@@ -39,11 +39,22 @@ int main()
   IntegerSet *setB = new IntegerSet();
 // IntegerSet *setC = new IntegerSet();
 
+  cout << endl << endl;
+
   cout << "Enter Set A: " << endl;
   setA->inputSet();
+
+  cout << endl;
 
   cout << "Enter Set B: " << endl;
   setB->inputSet();
 
+  cout << endl;
+  setA->printSet();
+
+  delete setA;
+  delete setB;
+
+  cout << endl << endl;
   return 0;
 }
