@@ -21,7 +21,7 @@ class IntegerSet {
     void inputSet();
 
     int getNumOfElements();
-  //  int* getArray();
+    int* getArray();
 
   private:
     const int MAX_SIZE = 101;

@@ -78,7 +78,7 @@ bool IntegerSet::isEqualTo(IntegerSet *setB)
 {
   int indexA = 0;
   int indexB = 0;
-  int *elementB = &setB[indexB];
+  int *elementB = &setB->set[indexB];
 
   if(numOfElements != setB->getNumOfElements()){
     return false;
@@ -89,7 +89,7 @@ bool IntegerSet::isEqualTo(IntegerSet *setB)
   while(set[indexA] == *elementB) {
     indexA++;
     indexB++;
-    elementB = &elementB[indexB]
+    elementB = &elementB[indexB];
   }
 
   if(indexA != MAX_VAL || indexB || MAX_VAL) {
@@ -117,4 +117,9 @@ void IntegerSet::emptySet()
  int IntegerSet::getNumOfElements()
  {
    return numOfElements;
+ }
+
+ int* IntegerSet::getArray()
+ {
+   return &set;
  }
