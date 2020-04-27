@@ -9,7 +9,7 @@ class IntegerSet {
     IntegerSet(int arr[], int numOfElements);
 
   //  IntegerSet* unionOfSets(IntegerSet *otherSet);
-    IntegerSet intersectionOfSets(IntegerSet *otherSet);
+    IntegerSet* intersectionOfSets(IntegerSet *otherSet);
 
     void insertElement(int input);
     void deleteElement(int input);

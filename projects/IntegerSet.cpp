@@ -34,7 +34,7 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
 
 */
 
-IntegerSet IntegerSet::intersectionOfSets(IntegerSet *setB)
+IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
 {
   int indexA = 0;
   int indexB = 0;
@@ -50,8 +50,8 @@ IntegerSet IntegerSet::intersectionOfSets(IntegerSet *setB)
     }
   }
 
-  IntegerSet setC(arrC, indexC);
-  return setC;
+  // IntegerSet *setC = new IntegerSet(arrC, indexC);
+  return new IntegerSet(arrC, indexC);
 }
 
 void IntegerSet::insertElement(int input)
