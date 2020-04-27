@@ -44,10 +44,13 @@ IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
   int arrC[101];
 
   while(indexA < MAX_SIZE && indexB < MAX_SIZE) {
+    cout << endl;
     if(set[indexA] == 1 && elementB[indexB] == 1) {
       arrC[indexC] = indexA;
       indexC++;
     }
+    indexA++;
+    indexB++;
   }
 
   // IntegerSet *setC = new IntegerSet(arrC, indexC);

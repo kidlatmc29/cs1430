@@ -64,7 +64,7 @@ int main()
 
   cout << endl;
   cout << "Intersection of Set A and Set B: " << endl;
-  IntegerSet* unionOf = &setA->intersectionOfSets(setB);
+  IntegerSet* unionOf = setA->intersectionOfSets(setB);
   unionOf->printSet();
   cout << endl;
 
