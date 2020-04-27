@@ -35,8 +35,22 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
 
 IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *otherSet)
 {
+  int indexA = 0;
+  int indexB = 0;
+  int indexC = 0;
+  int *elementB = setB->getArray();
+  int arrC[MAX_SIZE];
 
+  while(indexA < MAX_SIZE && indexB < MAX_SIZE) {
+    if(set[indexA] == 1 && elementB[indexB] == 1) {
+      arrC[indexC];
+      indexC++;
+    }
+  }
+
+  return IntegerSet setC(arrC, indexC);
 }
+
 void IntegerSet::insertElement(int input)
 {
   bool valid = validEntry(input);
