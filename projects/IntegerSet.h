@@ -11,27 +11,28 @@ class IntegerSet {
   //  IntegerSet* unionOfSets(IntegerSet *otherSet);
   //  IntegerSet* inters ectionOfSets(IntegerSet *otherSet);
 
-    void insertElement();
+  //  void insertElement();
     void deleteElement();
 
-    void printSet();
+  //  void printSet();
 
   //  bool isEqualTo(IntegerSet *setB);
 
-   void inputSet();
+  // void inputSet();
 
   //  int* getArray();
 
   private:
-    const int MAX_VAL = 101;
+    const int MAX_SIZE = 101;
+    const int MAX_VAL = 100;
     const int MIN_VAL = 0;
     const int STOP = -1;
     const char L_BRAC = '{';
     const char R_BRAC = '}';
 
-    int *set = new int[MAX_VAL];
+    int set[] = new int[MAX_SIZE];
 
     void emptySet();
-    bool validEntry(int entry);
+  //  bool validEntry(int entry);
 
 };
