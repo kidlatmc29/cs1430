@@ -35,17 +35,15 @@ const int STOP = -1;
 
 int main()
 {
-//  int input;
   IntegerSet *setA = new IntegerSet();
   IntegerSet *setB = new IntegerSet();
 // IntegerSet *setC = new IntegerSet();
 
   cout << "Enter Set A: " << endl;
+  setA->inputSet();
 
   cout << "Enter Set B: " << endl;
-
-  setA->printSet();
-  setB->printSet();
+  setB->inputSet();
 
   return 0;
 }
