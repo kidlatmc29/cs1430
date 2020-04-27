@@ -13,8 +13,9 @@ IntegerSet::IntegerSet()
 IntegerSet::IntegerSet(int arr[], int arrLength) {
   emptySet();
   for(int index = 0; index < MAX_VAL; index++) {
-    set[arr[index]] = 1;
+    insertElement(set[arr[index]]);
   }
+  numOfElements = arrLength;
 }
 /*
 IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
@@ -38,17 +39,19 @@ IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *otherSet)
   int indexA = 0;
   int indexB = 0;
   int indexC = 0;
+
   int *elementB = setB->getArray();
   int arrC[MAX_SIZE];
 
   while(indexA < MAX_SIZE && indexB < MAX_SIZE) {
     if(set[indexA] == 1 && elementB[indexB] == 1) {
-      arrC[indexC];
+      arrC[indexC] = indexA;
       indexC++;
     }
   }
 
-  return IntegerSet setC(arrC, indexC);
+  IntegerSet setC(arrC, indexC);
+  return setC;
 }
 
 void IntegerSet::insertElement(int input)

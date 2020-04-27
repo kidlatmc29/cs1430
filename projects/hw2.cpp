@@ -58,6 +58,17 @@ int main()
   cout << endl;
 
   cout << endl;
+  cout << "Union of Set A and Set B:" << endl;
+  // setA->unionOfSets(setB);
+  cout << endl;
+
+  cout << endl;
+  cout << "Intersection of Set A and Set B: " << endl;
+  setA->intersectionOfSets(setB);
+  cout << endl;
+
+
+  cout << endl;
   isEqual = setA->isEqualTo(setB);
   if(isEqual) {
     cout << "Set A and Set B are equal";
