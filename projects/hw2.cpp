@@ -35,6 +35,7 @@ const int STOP = -1;
 
 int main()
 {
+  int input;
   IntegerSet *setA = new IntegerSet();
   IntegerSet *setB = new IntegerSet();
 // IntegerSet *setC = new IntegerSet();
@@ -55,9 +56,23 @@ int main()
   setB->printSet();
 
 
+  cout << "Enter an integer to input into Set A: ";
+  cin >> input;
+  setA->insertElement(input);
+  cout << "Set A is now: ";
+  setA->printSet();
+  cout << endl;
+
+  cout << "Enter an integer to delete from Set A: ";
+  cin >> input;
+  setA->deleteElement(input);
+  cout << "Set A is now: ";
+  setA->printSet();
+  cout << endl;
+
+
   delete setA;
   delete setB;
-
   cout << endl << endl;
   return 0;
 }

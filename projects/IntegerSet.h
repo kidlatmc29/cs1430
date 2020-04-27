@@ -12,7 +12,7 @@ class IntegerSet {
   //  IntegerSet* intersectionOfSets(IntegerSet *otherSet);
 
     void insertElement(int input);
-  // void deleteElement();
+    void deleteElement(int input);
 
     void printSet();
 
