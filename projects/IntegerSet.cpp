@@ -34,14 +34,14 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
 
 */
 
-IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *otherSet)
+IntegerSet IntegerSet::intersectionOfSets(IntegerSet *setB)
 {
   int indexA = 0;
   int indexB = 0;
   int indexC = 0;
 
   int *elementB = setB->getArray();
-  int arrC[MAX_SIZE];
+  int arrC[101];
 
   while(indexA < MAX_SIZE && indexB < MAX_SIZE) {
     if(set[indexA] == 1 && elementB[indexB] == 1) {
