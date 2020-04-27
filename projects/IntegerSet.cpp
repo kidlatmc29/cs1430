@@ -25,6 +25,13 @@ void IntegerSet::insertElement(int input)
   }
 }
 
+void IntegerSet::deleteElement(int input) {
+  bool valid = validEntry(input);
+  if(valid) {
+    set[input] = 0;
+  }
+}
+
 
 void IntegerSet::printSet()
 {
@@ -57,7 +64,6 @@ void IntegerSet::inputSet()
 
     if(valid) {
       set[input] = 1;
-      cout << "input in set is " << set[input] << endl;
     }
     cout << "Enter an integer for set (enter -1 to stop): ";
     cin >> input;
