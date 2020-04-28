@@ -12,10 +12,10 @@ IntegerSet::IntegerSet()
 
 IntegerSet::IntegerSet(int arr[], int arrLength) {
   emptySet();
-  for(int index = 0; index < MAX_VAL; index++) {
+  for(int index = 0; index < arrLength; index++) {
     insertElement(set[arr[index]]);
+    numOfElements++;
   }
-  numOfElements = arrLength;
 }
 
 IntegerSet* IntegerSet::unionOfSets(IntegerSet *setB)
@@ -28,14 +28,14 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *setB)
 
 
   while(indexA < MAX_SIZE && indexB < MAX_SIZE) {
-    if(set[indexA] == 1 & elementB[indexB]) {
+    if(set[indexA] == 1 & elementB[indexB] == 1) {
       arrC[indexC] = 1;
       indexC++;
     } else {
       arrC[indexC] = 0;
     }
   }
-  return new IntgerSet(arrC, indexC);
+  return new IntegerSet(arrC, indexC);
 }
 
 
@@ -50,7 +50,7 @@ IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
 
   while(indexA < MAX_SIZE && indexB < MAX_SIZE && indexC < MAX_SIZE) {
     cout << endl;
-    if(set[indexA] == 1 && elementB[indexB] == 1) {
+    if((set[indexA] == 1) && (elementB[indexB] == 1)) {
       arrC[indexC] = indexA;
       indexC++;
     }

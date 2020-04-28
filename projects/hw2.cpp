@@ -95,7 +95,7 @@ int main()
 
   cout << "Creating Set C with" << C_SIZE
        << "elements: {1,13,-1,34,2001,29,8}... ";
-  Integer* setC = new IntegerSet(arrC, C_SIZE);
+  IntegerSet* setC = new IntegerSet(arrC, C_SIZE);
   cout << "Set C: " << endl;
   setC->printSet();
   cout << endl;
