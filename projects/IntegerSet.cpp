@@ -12,34 +12,43 @@ IntegerSet::IntegerSet()
 
 IntegerSet::IntegerSet(int arr[], int arrLength) {
   emptySet();
-  for(int index = 0; index < arrLength; index++) {
-    insertElement(set[arr[index]]);
-    numOfElements++;
+  for(int index = 0; index < arrLength - 1; index++) {
+    insertElement(arr[index]);
   }
 }
 
 IntegerSet* IntegerSet::unionOfSets(IntegerSet *setB)
 {
   int size = 0;
+  int indexD = 0;
   int *arrB = setB->getArray();
   int arrC[101];
+  int arrD[101];
 
   for(int index = 0; index < MAX_SIZE; index++) {
     if((set[index] == 1) || (arrB[index] == 1)) {
-      arrC[index] = 1;
+      arrC[index] = index;
       size++;
     } else {
       arrC[index] = 0;
     }
   }
-  return new IntegerSet(arrC, size);
+
+  for(int index = 0; index < MAX_SIZE; index++) {
+    if(arrC[index] != 0) {
+      arrD[indexD++] = index;
+    }
+  }
+  return new IntegerSet(arrD, indexD+1);
 }
 
 IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
 {
   int size = 0;
+  int indexD = 0;
   int *arrB = setB->getArray();
   int arrC[101];
+  int arrD[101];
 
   for(int index = 0; index < MAX_SIZE; index++) {
     if((set[index] == 1) && (arrB[index] == 1)) {
@@ -139,11 +148,11 @@ void IntegerSet::emptySet()
 
  bool IntegerSet::validEntry(int entry)
  {
-   if(entry > MAX_VAL || entry < MIN_VAL) {
-     cout << "Invalid insert of " << entry << " attempted!" << endl;
-     return false;
+   if((MIN_VAL <= entry) && (entry <= MAX_VAL)) {
+     return true;
    }
-   return true;
+   cout << "Invalid insert of " << entry << " attempted!" << endl;
+   return false;
  }
 
  int IntegerSet::getNumOfElements()
