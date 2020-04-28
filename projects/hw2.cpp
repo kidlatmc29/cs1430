@@ -93,7 +93,7 @@ int main()
 
   cout << endl;
   cout << "Creating Set C with " << C_SIZE
-       << " elements: {1,13,-5,34,2001,29,8}... " << endl;
+       << " elements: {1, 13, -5, 34, 2001, 29, 8}... " << endl;
   IntegerSet* setC = new IntegerSet(arrC, 7);
 
   cout << endl <<  "Set C: " << endl;

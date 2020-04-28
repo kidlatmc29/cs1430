@@ -12,7 +12,7 @@ IntegerSet::IntegerSet()
 
 IntegerSet::IntegerSet(int arr[], int arrLength) {
   emptySet();
-  for(int index = 0; index < arrLength - 1; index++) {
+  for(int index = 0; index < arrLength; index++) {
     insertElement(arr[index]);
   }
 }
@@ -52,13 +52,20 @@ IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
 
   for(int index = 0; index < MAX_SIZE; index++) {
     if((set[index] == 1) && (arrB[index] == 1)) {
-      arrC[index] = 1;
+      arrC[index] = index;
       size++;
     } else {
       arrC[index] = 0;
     }
   }
-  return new IntegerSet(arrC, size);
+
+  for(int index = 0; index < MAX_SIZE; index++) {
+    if(arrC[index] != 0) {
+      arrD[indexD++] = index;
+    }
+  }
+
+  return new IntegerSet(arrD, size);
 }
 
 void IntegerSet::insertElement(int input)
