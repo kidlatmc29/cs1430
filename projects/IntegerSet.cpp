@@ -17,22 +17,27 @@ IntegerSet::IntegerSet(int arr[], int arrLength) {
   }
   numOfElements = arrLength;
 }
-/*
-IntegerSet* IntegerSet::unionOfSets(IntegerSet *otherSet)
+
+IntegerSet* IntegerSet::unionOfSets(IntegerSet *setB)
 {
   int indexA = 0;
   int indexB = 0;
+  int indexC = 0;
   int *elementB = setB->getArray();
-  int arrC[MAX_SIZE];
+  int arrC[101];
 
 
-  while(indexA < MAX_SIZE && indexB << MAX_SIZE) {
-    if(set[indexA] {
-
+  while(indexA < MAX_SIZE && indexB < MAX_SIZE) {
+    if(set[indexA] == 1 & elementB[indexB]) {
+      arrC[indexC] = 1;
+      indexC++;
+    } else {
+      arrC[indexC] = 0;
     }
+  }
+  return new IntgerSet(arrC, indexC);
 }
 
-*/
 
 IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
 {
@@ -43,7 +48,7 @@ IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
   int *elementB = setB->getArray();
   int arrC[101];
 
-  while(indexA < MAX_SIZE && indexB < MAX_SIZE) {
+  while(indexA < MAX_SIZE && indexB < MAX_SIZE && indexC < MAX_SIZE) {
     cout << endl;
     if(set[indexA] == 1 && elementB[indexB] == 1) {
       arrC[indexC] = indexA;
@@ -53,7 +58,6 @@ IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
     indexB++;
   }
 
-  // IntegerSet *setC = new IntegerSet(arrC, indexC);
   return new IntegerSet(arrC, indexC);
 }
 

@@ -32,6 +32,7 @@
 using namespace std;
 
 const int STOP = -1;
+const int C_SIZE = 7;
 
 int main()
 {
@@ -39,7 +40,7 @@ int main()
   bool isEqual;
   IntegerSet *setA = new IntegerSet();
   IntegerSet *setB = new IntegerSet();
-// IntegerSet *setC = new IntegerSet();
+  const int arrC[C_SIZE] = {1,13,-1,34,2001,29,8};
 
   cout << endl << endl;
 
@@ -59,15 +60,15 @@ int main()
 
   cout << endl;
   cout << "Union of Set A and Set B:" << endl;
-  // setA->unionOfSets(setB);
+  IntegerSet* unionOf = setA->unionOfSets(setB);
+  unionOf->printSet();
   cout << endl;
 
   cout << endl;
   cout << "Intersection of Set A and Set B: " << endl;
-  IntegerSet* unionOf = setA->intersectionOfSets(setB);
-  unionOf->printSet();
+  IntegerSet* intersectionOf = setA->intersectionOfSets(setB);
+  intersectionOf->printSet();
   cout << endl;
-
 
   cout << endl;
   isEqual = setA->isEqualTo(setB);
@@ -79,23 +80,34 @@ int main()
   cout << endl;
 
   cout << endl;
-  cout << "Enter an integer to input into Set A: ";
-  cin >> input;
-  setA->insertElement(input);
+  cout << "Inputing 29 into Set A: ";
+  setA->insertElement(29);
   cout << "Set A is now: ";
   setA->printSet();
   cout << endl;
 
-  cout << "Enter an integer to delete from Set A: ";
+  cout << "Deleteing 29 from Set A: ";
   cin >> input;
-  setA->deleteElement(input);
+  setA->deleteElement(29);
   cout << "Set A is now: ";
   setA->printSet();
   cout << endl;
 
+  cout << "Creating Set C with" << C_SIZE
+       << "elements: {1,13,-1,34,2001,29,8}... ";
+  Integer* setC = new IntegerSet(arrC, C_SIZE);
+  cout << "Set C: " << endl;
+  setC->printSet();
+  cout << endl;
 
   delete setA;
   delete setB;
+  delete setC;
+
+  setA = nullptr;
+  setB = nullptr;
+  setC = nullptr;
+
   cout << endl << endl;
   return 0;
 }
