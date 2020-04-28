@@ -40,7 +40,7 @@ int main()
   bool isEqual;
   IntegerSet *setA = new IntegerSet();
   IntegerSet *setB = new IntegerSet();
-  const int arrC[C_SIZE] = {1,13,-1,34,2001,29,8};
+  int arrC[C_SIZE] = {1,13,-1,34,2001,29,8};
 
   cout << endl << endl;
 
@@ -86,8 +86,7 @@ int main()
   setA->printSet();
   cout << endl;
 
-  cout << "Deleteing 29 from Set A: ";
-  cin >> input;
+  cout << "Deleting 29 from Set A: ";
   setA->deleteElement(29);
   cout << "Set A is now: ";
   setA->printSet();
@@ -95,7 +94,7 @@ int main()
 
   cout << "Creating Set C with" << C_SIZE
        << "elements: {1,13,-1,34,2001,29,8}... ";
-  IntegerSet* setC = new IntegerSet(arrC, C_SIZE);
+  IntegerSet* setC = new IntegerSet(arrC, 7);
   cout << "Set C: " << endl;
   setC->printSet();
   cout << endl;
