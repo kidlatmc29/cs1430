@@ -12,14 +12,13 @@ IntegerSet::IntegerSet()
 
 IntegerSet::IntegerSet(int arr[], int arrLength) {
   emptySet();
-  for(int index = 0; index < arrLength - 1; index++) {
+  for(int index = 0; index < arrLength; index++) {
     insertElement(arr[index]);
   }
 }
 
 IntegerSet* IntegerSet::unionOfSets(IntegerSet *setB)
 {
-  int size = 0;
   int indexD = 0;
   int *arrB = setB->getArray();
   int arrC[101];
@@ -27,25 +26,22 @@ IntegerSet* IntegerSet::unionOfSets(IntegerSet *setB)
 
   for(int index = 0; index < MAX_SIZE; index++) {
     if((set[index] == 1) || (arrB[index] == 1)) {
-      arrC[index] = index;
-      size++;
+      arrC[index] = 1;
     } else {
       arrC[index] = 0;
     }
   }
 
   for(int index = 0; index < MAX_SIZE; index++) {
-    if(arrC[index] != 0) {
-      arrD[indexD] = index;
+    if(arrC[index] == 1) {
+      arrD[indexD++] = index;
     }
-    indexD++;
   }
-  return new IntegerSet(arrD, indexD+1);
+  return new IntegerSet(arrD, indexD);
 }
 
 IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
 {
-  int size = 0;
   int indexD = 0;
   int *arrB = setB->getArray();
   int arrC[101];
@@ -53,21 +49,19 @@ IntegerSet* IntegerSet::intersectionOfSets(IntegerSet *setB)
 
   for(int index = 0; index < MAX_SIZE; index++) {
     if((set[index] == 1) && (arrB[index] == 1)) {
-      arrC[index] = index;
-      size++;
+      arrC[index] = 1;
     } else {
       arrC[index] = 0;
     }
   }
 
   for(int index = 0; index < MAX_SIZE; index++) {
-    if(arrC[index] != 0) {
-      arrD[indexD] = index;
+    if(arrC[index] == 1) {
+      arrD[indexD++] = index;
     }
-    indexD++;
   }
 
-  return new IntegerSet(arrD, size);
+  return new IntegerSet(arrD, indexD);
 }
 
 void IntegerSet::insertElement(int input)
