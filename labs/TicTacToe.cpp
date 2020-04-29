@@ -38,6 +38,17 @@ void TicTacToe::placePiece(int player, int row, int col)
   cout << "Inside placePiece() " << endl;
 }
 
+void TicTacToe::validSpace(int row, int col)
+{
+  cout << "Inside validSpace()";
+  if((row - 1) < ROW && (row - 1) > -1) {
+    if(col - 1) < COL && (col - 1) > -1) {
+      return true;
+    }
+  }
+  return false;
+}
+
 bool TicTacToe::checkWinner()
 {
   cout << "Inside checkWinner() " << endl;

@@ -20,8 +20,9 @@ class TicTacToe {
     const char BLANK = ' ';
     static const int ROW = 3;
     static const int COL = 3;
-    
+
     char board[ROW][COL];
 
+    bool validSpace(int row, int col);
     bool checkWinner();
 };
