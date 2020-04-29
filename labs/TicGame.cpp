@@ -1,7 +1,7 @@
 // Isabel Ovalles
 // TicGame.cpp
 
-// Purpose: 
+// Purpose:
 // Input:
 // Processing:
 // Output:
@@ -17,6 +17,9 @@ int main()
   cout << endl << endl;
   cout << "Welcome to TicTacToe! " << endl << endl;
 
+  cout << "Creating TicTacToe....";
+  TicTacToe game;
+  game.displayBoard();
 
   cout << endl << endl;
   return 0;

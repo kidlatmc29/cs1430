@@ -18,10 +18,10 @@ class TicTacToe {
     const char LEFT_BRAC = '[';
     const char RIGHT_BRAC = ']';
     const char BLANK = ' ';
-
-    static const int row = 3;
-    static const int col = 3;
-    char board[row][col];
+    static const int ROW = 3;
+    static const int COL = 3;
+    
+    char board[ROW][COL];
 
     bool checkWinner();
 };
