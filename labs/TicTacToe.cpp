@@ -9,7 +9,7 @@ TicTacToe::TicTacToe()
   cout << "Inside constructor " << endl;
   for(int r = 0; r < row; r++) {
     for(int c = 0; c < col; c++) {
-      board[r][c] = SPACE;
+      board[r][c] = BLANK;
     }
   }
 
