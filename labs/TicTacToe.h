@@ -9,8 +9,8 @@ class TicTacToe {
   public:
     TicTacToe();
     void displayBoard();
-    void takeTurn(int player);
-    void placePiece(int player, int row, int col);
+    void takeTurn();
+    void placePiece(int player);
 
   private:
     const char X = 'X';
@@ -24,5 +24,7 @@ class TicTacToe {
     char board[ROW][COL];
 
     bool validSpace(int row, int col);
-    bool checkWinner();
+    char checkWinner();
+    char threeInARow(char one, char two, char three);
+    void printWinner(char winner);
 };
