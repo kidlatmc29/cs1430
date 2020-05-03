@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
   TicTacToe game;
-  bool endGame = false; 
+  bool endGame = false;
 
   cout << endl << endl;
   cout << "Welcome to TicTacToe! " << endl << endl;
@@ -20,9 +20,7 @@ int main()
   while(!endGame) {
     game.displayBoard();
     endGame = game.takeTurn();
-    game.displayBoard();
   }
-
   cout << "Goodbye.....";
   cout << endl << endl;
   return 0;

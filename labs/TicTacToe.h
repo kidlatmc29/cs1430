@@ -21,6 +21,7 @@ class TicTacToe {
     static const int ROW = 3;
     static const int COL = 3;
 
+    int player = 1;
     char board[ROW][COL];
 
     bool validSpace(int row, int col);
