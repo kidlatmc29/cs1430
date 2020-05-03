@@ -11,6 +11,7 @@ class TicTacToe {
     void displayBoard();
     bool takeTurn();
     void placePiece(int player);
+    void clearScreen();
 
   private:
     const char X = 'X';
@@ -18,6 +19,7 @@ class TicTacToe {
     const char LEFT_BRAC = '[';
     const char RIGHT_BRAC = ']';
     const char BLANK = ' ';
+    const int SCREEN_HEIGHT = 25;
     static const int ROW = 3;
     static const int COL = 3;
 

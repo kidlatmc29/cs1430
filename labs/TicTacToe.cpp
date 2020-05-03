@@ -123,3 +123,9 @@ void TicTacToe::printWinner(char winner)
     cout << "Player 2 won!" << endl;
   }
 }
+
+void TicTacToe::clearScreen(){
+  for(int i = 0; i < SCREEN_HEIGHT; i++) {
+    cout << endl;
+  }
+}
