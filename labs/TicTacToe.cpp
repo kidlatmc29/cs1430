@@ -54,27 +54,29 @@ void TicTacToe::placePiece(int player)
 
   cout << "Enter a row and col: ";
   cin >> row >> col;
-
+  row--;
+  col--;
 
   while(!(validSpace(row, col))) {
     cout << "Enter a row and col: ";
     cin >> row >> col;
+    row--;
+    col--;
   }
 
   if(validSpace(row, col) && player == 1) {
-    board[row - 1][col - 1] = X;
+    board[row][col] = X;
   }
 
   if(validSpace(row, col) && player == 2) {
-    board[row - 1][col - 1] = O;
+    board[row][col] = O;
   }
-
 }
 
 bool TicTacToe::validSpace(int row, int col)
 {
-  if(((row - 1) <= ROW) && ((row - 1) > -1)) {
-    if(((col - 1) <= COL) && ((col - 1) > -1)) {
+  if((row < ROW) && (row > -1)) {
+    if((col < COL) && (col > -1)) {
       if(board[row][col] == BLANK) {
         return true;
       }
@@ -101,7 +103,7 @@ char TicTacToe::checkWinner()
   winner = threeInARow(board[0][0], board[1][1], board[2][2]);
   winner = threeInARow(board[0][2], board[1][1], board[2][0]);
 
-  cout << "winner is = " << winner << endl;
+  // cout << "winner is = " << winner << endl;
   return winner;
 }
 
