@@ -33,14 +33,14 @@ bool TicTacToe::takeTurn()
   char winner;
   cout << "Inside takeTurn() " << endl;
 
-  if(playerTurn == 1) {
+  if(player == 1) {
     placePiece(player);
     winner = checkWinner();
-    playerTurn++;
+    player++;
   } else {
-    playerPiece(player);
+    placePiece(player);
     winner = checkWinner();
-    playerTurn--;
+    player--;
   }
 
   if(winner == X || winner == O){
@@ -73,8 +73,8 @@ void TicTacToe::placePiece(int player)
 bool TicTacToe::validSpace(int row, int col)
 {
   cout << "Inside validSpace()";
-  if((row - 1) < ROW && (row - 1) > -1) {
-    if(col - 1) < COL && (col - 1) > -1) {
+  if(((row - 1) < ROW) && ((row - 1) > -1)) {
+    if(((col - 1) < COL) && ((col - 1) > -1)) {
       if(board[row][col] == BLANK) {
       return true;
       }

@@ -9,7 +9,7 @@ class TicTacToe {
   public:
     TicTacToe();
     void displayBoard();
-    void takeTurn();
+    bool takeTurn();
     void placePiece(int player);
 
   private:
