@@ -31,20 +31,16 @@ bool TicTacToe::takeTurn()
   if(player == 1) {
     cout << "It's player's 1 turn: " << endl;
     placePiece(player);
-    winner = checkWinner();
     player++;
   } else {
     cout << "It's player's 2 turn: " << endl;
     placePiece(player);
-    winner = checkWinner();
     player--;
   }
+  winner = checkWinner();
+  printWinner(winner);
 
-  if(winner == X || winner == O) {
-    printWinner(winner);
-    return true;
-  }
-  return false;
+  return winner == BLANK;
 }
 
 void TicTacToe::placePiece(int player)
@@ -87,23 +83,45 @@ bool TicTacToe::validSpace(int row, int col)
 
 char TicTacToe::checkWinner()
 {
-  char winner;
+  char winner = BLANK;
 
   // check all row
   winner = threeInARow(board[0][0], board[0][1], board[0][2]);
+  if(isWinner(winner)) {
+    return winner;
+  }
   winner = threeInARow(board[1][0], board[1][1], board[1][2]);
+  if(isWinner(winner)) {
+    return winner;
+  }
   winner = threeInARow(board[2][0], board[2][1], board[2][2]);
+  if(isWinner(winner)) {
+    return winner;
+  }
 
   // check all cols
   winner = threeInARow(board[0][0], board[1][0], board[2][0]);
+  if(isWinner(winner)) {
+    return winner;
+  }
   winner = threeInARow(board[0][1], board[1][1], board[1][2]);
+  if(isWinner(winner)) {
+    return winner;
+  }
   winner = threeInARow(board[0][2], board[1][2], board[2][2]);
+  if(isWinner(winner)) {
+    return winner;
+  }
 
   //check all diags
   winner = threeInARow(board[0][0], board[1][1], board[2][2]);
+  if(isWinner(winner)) {
+    return winner;
+  }
   winner = threeInARow(board[0][2], board[1][1], board[2][0]);
-
-  // cout << "winner is = " << winner << endl;
+  if(isWinner(winner)) {
+    return winner;
+  }
   return winner;
 }
 
@@ -119,7 +137,7 @@ void TicTacToe::printWinner(char winner)
 {
   if(winner == X) {
     cout << "Player 1 won!" << endl;
-  } else {
+  } else if(winner == O) {
     cout << "Player 2 won!" << endl;
   }
 }
@@ -128,4 +146,9 @@ void TicTacToe::clearScreen(){
   for(int i = 0; i < SCREEN_HEIGHT; i++) {
     cout << endl;
   }
+}
+
+bool TicTacToe::isWinner(char winner)
+{
+    return winner != BLANK;
 }

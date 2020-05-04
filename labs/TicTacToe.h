@@ -30,4 +30,6 @@ class TicTacToe {
     char checkWinner();
     char threeInARow(char one, char two, char three);
     void printWinner(char winner);
+    bool isWinner(char winner);
+
 };
