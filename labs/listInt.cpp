@@ -3,13 +3,22 @@ using namespace std;
 #include "listInt.h"
 
 ListInt::ListInt(): head(nullptr)
-{ }
+{
+  cout << "Inside null ctor" << endl;
+}
+
+ListInt::NodeInt::NodeInt(int dta):data(dta),next(nullptr)
+{
+}
 
 ListInt::ListInt(const ListInt& temp) : head(nullptr)
 {
+  cout << "Inside copy ctor" << endl;
+
   NodeInt* newNode = temp.head;
 
   while(newNode != nullptr) {
+    cout << "Coping node...";
     Add(newNode->data);
     newNode = newNode->next;
   }
@@ -55,7 +64,6 @@ void ListInt::Add(int x)
 void ListInt::print()const
 {
         NodeInt* indexPtr = head;
-        cout << "The List:" << endl;
         while(indexPtr)
         {
                 cout << indexPtr->data << endl;
@@ -63,5 +71,14 @@ void ListInt::print()const
         }
 }
 
-ListInt::NodeInt::NodeInt(int dta):data(dta),next(nullptr)
-{ }
+ListInt& ListInt::operator=(const ListInt& src)
+{
+  cout << "In assignment" << endl;
+  if(src.IsEmpty()) {
+    head = nullptr;
+  } else {
+    head = src.head;
+  }
+
+  return *this;
+}

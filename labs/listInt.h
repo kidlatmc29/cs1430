@@ -20,6 +20,7 @@ class ListInt
   public:
       ListInt();
       ListInt(const ListInt& temp);
+      ListInt& operator=(const ListInt& src);
       ~ListInt();
       bool IsEmpty()const;
       void Add(int x);
