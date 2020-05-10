@@ -9,13 +9,19 @@ using namespace std;
 
 class Message {
   public:
-    // constructor
+    Message();
     // add node
     // delete node
     // search for data
   private:
-    // MessageNode class
-    // MessageNode* head
+    class MessageNode {
+      public:
+        MessageNode(int num = 0, char letter = ' ');
+        int num; // stores number given
+        char letter; // stores character given
+        MessageNode* next;
+    }
+    MessageNode* head;
 };
 
 #endif

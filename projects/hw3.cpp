@@ -13,6 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include "Message.h"
 
 using namespace std;
 

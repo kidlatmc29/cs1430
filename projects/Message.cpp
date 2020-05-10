@@ -5,3 +5,9 @@
 #include <iostream>
 
 using namespace std;
+
+Message::Message()
+{
+  head = nullptr; 
+  cout << "inside null ctr" << endl;
+}
