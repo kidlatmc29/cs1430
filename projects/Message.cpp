@@ -6,8 +6,22 @@
 
 using namespace std;
 
-Message::Message()
+Message::Message(): head(nullptr)
 {
-  head = nullptr; 
   cout << "inside null ctr" << endl;
+}
+
+Message::MessageNode::MessageNode(int num, char val):position(num),letter(val),
+  next(nullptr)
+{
+  cout << "inside message node constructor " << endl;
+}
+
+void Message::print()const
+{
+  MessageNode* index = head;
+  while(index) {
+    cout << index->position << " " << index->letter << endl;
+    index = index->next;
+  }
 }
