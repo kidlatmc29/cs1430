@@ -1,6 +1,9 @@
 // Isabel Ovalles
 // Message.h
 
+#ifndef MESSAGE_H
+#define MESSAGE_H
+
 #include <iostream>
 
 using namespace std;
@@ -8,7 +11,7 @@ using namespace std;
 class Message {
   public:
     Message();
-    // void print()const;
+    void print()const;
     // add node
     // print node
     // delete node
@@ -23,3 +26,5 @@ class Message {
     };
     MessageNode* head;
 };
+
+#endif
