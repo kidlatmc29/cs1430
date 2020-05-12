@@ -14,29 +14,12 @@ ListInt::NodeInt::NodeInt(int dta):data(dta),next(nullptr)
 ListInt::ListInt(const ListInt& temp) : head(nullptr)
 {
   cout << "Inside copy ctor" << endl;
-
-  NodeInt* newNode = temp.head;
-
-  while(newNode != nullptr) {
-    cout << "Coping node...";
-    Add(newNode->data);
-    newNode = newNode->next;
-  }
+  copyList(temp);
 }
 
 ListInt::~ListInt()
 {
-  NodeInt *nodePtr;
-  NodeInt *nextNode;
-
-  nodePtr = head;
-
-  while(nodePtr != nullptr) {
-    nextNode = nodePtr->next;
-    cout << "Deleting node... ";
-    delete nodePtr;
-    nodePtr = nextNode;
-  }
+    clearList();
 }
 
 bool ListInt::IsEmpty()const
@@ -69,6 +52,7 @@ void ListInt::print()const
                 cout << indexPtr->data << endl;
                 indexPtr= indexPtr->next;
         }
+        cout << endl << endl;
 }
 
 const ListInt& ListInt::operator=(const ListInt& src)
@@ -76,15 +60,32 @@ const ListInt& ListInt::operator=(const ListInt& src)
   cout << "In assignment" << endl;
   if(&src != this) {
     // free current memory
-    this->~ListInt();
-
+    clearList();
   // creates the copy
-  NodeInt* newNode = src.head;
-
-    while(newNode != nullptr) {
-      Add(newNode->data);
-      newNode = newNode->next;
-    }
+    copyList(src);
   }
   return *this;
+}
+
+void ListInt::clearList()
+{
+  NodeInt *nodePtr = this->head;
+  NodeInt *nextPtr;
+  while(nodePtr != nullptr) {
+    nextPtr = nodePtr->next;
+    cout << "Deleting node... " << endl;
+    delete nodePtr;
+    nodePtr = nextPtr;
+  }
+  head = nullptr;
+}
+
+void ListInt::copyList(const ListInt& src)
+{
+  NodeInt* newNode = src.head;
+  while(newNode != nullptr) {
+    cout << "Coping node...";
+    Add(newNode->data);
+    newNode = newNode->next;
+  }
 }

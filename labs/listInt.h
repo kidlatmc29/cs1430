@@ -16,7 +16,8 @@ class ListInt
       };
 
       NodeInt* head;
-
+      void clearList();
+      void copyList(const ListInt& src);
   public:
       ListInt();
       ListInt(const ListInt& temp);
@@ -25,7 +26,6 @@ class ListInt
       bool IsEmpty()const;
       void Add(int x);
       void print()const;
-
 };
 
 #endif

@@ -17,6 +17,8 @@
 
 using namespace std;
 
+bool readFile( Message txt);
+
 int main()
 {
 
@@ -36,4 +38,20 @@ int main()
   cout << "Terminating programing.... Goodbye....";
   cout << endl << endl;
   return 0;
+}
+
+bool readFile(Message txt)
+{
+  ifstream inFile;
+  string fileName;
+  bool isValid = false;
+
+  cout << "Please input a file name with extension: ";
+  cin >> fileName;
+
+  inFile(fileName);
+
+  if()
+
+  return true;
 }
