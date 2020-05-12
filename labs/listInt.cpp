@@ -76,18 +76,14 @@ const ListInt& ListInt::operator=(const ListInt& src)
   cout << "In assignment" << endl;
   if(&src != this) {
     // free current memory
-    NodeInt *nodePtr = head;
-    while(nodePtr->next != nullptr) {
-      head = head->next;
-      delete nodePtr;
-      nodePtr = head;
-    }
+    this->~ListInt();
 
   // creates the copy
-  nodePtr = src.head;
-    while(nodePtr != nullptr) {
-      Add(nodePtr->data);
-      nodePtr = nodePtr->next;
+  NodeInt* newNode = src.head;
+
+    while(newNode != nullptr) {
+      Add(newNode->data);
+      newNode = newNode->next;
     }
   }
   return *this;

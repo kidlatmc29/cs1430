@@ -6,6 +6,7 @@ using namespace std;
 class ListInt
 {
    private:
+
       class NodeInt
       {
         public:
@@ -19,7 +20,7 @@ class ListInt
   public:
       ListInt();
       ListInt(const ListInt& temp);
-      const ListInt& operator=(const ListInt& src);
+    const ListInt& operator=(const ListInt& src);
       ~ListInt();
       bool IsEmpty()const;
       void Add(int x);
