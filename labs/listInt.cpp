@@ -71,14 +71,24 @@ void ListInt::print()const
         }
 }
 
-ListInt& ListInt::operator=(const ListInt& src)
+const ListInt& ListInt::operator=(const ListInt& src)
 {
   cout << "In assignment" << endl;
-  if(src.IsEmpty()) {
-    head = nullptr;
-  } else {
-    head = src.head;
-  }
+  if(&src != this) {
+    // free current memory
+    NodeInt *nodePtr = head;
+    while(nodePtr->next != nullptr) {
+      head = head->next;
+      delete nodePtr;
+      nodePtr = head;
+    }
 
+  // creates the copy
+  nodePtr = src.head;
+    while(nodePtr != nullptr) {
+      Add(nodePtr->data);
+      nodePtr = nodePtr->next;
+    }
+  }
   return *this;
 }

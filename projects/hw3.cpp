@@ -22,8 +22,7 @@ int main()
 
   cout << endl << endl;
   cout << "- Welcome to the decoding program - " << endl;
-
-  Message myMessage; 
+  Message myMessage;
 
   // ask for file name to decode
 

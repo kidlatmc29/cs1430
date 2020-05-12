@@ -1,8 +1,8 @@
 // Driver program to do basic testing on a listInt class.
 #include <iostream>
 using namespace std;
-#include "listInt.h" 
- 
+#include "listInt.h"
+
 int main() {
 	ListInt myList;
 	myList.Add(1);
@@ -24,12 +24,13 @@ int main() {
     secondList = emptyList;
     cout << "Second List Again. " << endl;
     secondList.print();
-    
+
     myList.Add(6);
     secondList = myList;
     cout << "First List Again. " << endl;
     myList.print();
     cout << "Second List Again. " << endl;
     secondList.print();
+  
 	return 0;
 }
