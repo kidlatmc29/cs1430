@@ -24,6 +24,7 @@ void Message::print()const
     cout << index->position << " " << index->letter << endl;
     index = index->next;
   }
+  cout << endl << endl;
 }
 
 void Message::append(int p, char l)
@@ -38,8 +39,8 @@ void Message::append(int p, char l)
       indexPtr = head;
       while(indexPtr->next) {
       indexPtr = indexPtr->next;
-      indexPtr->next = nodePtr;
     }
+    indexPtr->next = nodePtr;
   }
 }
 
