@@ -17,7 +17,7 @@
 
 using namespace std;
 
-bool readFile( Message txt);
+bool readFile(Message txt);
 
 int main()
 {
@@ -26,15 +26,19 @@ int main()
   cout << "- Welcome to the decoding program - " << endl;
   Message myMessage;
 
-  // ask for file name to decode
+  myMessage.append(1, 'c');
+  myMessage.append(2, 'a');
+  myMessage.append(3, 't');
 
-  // read in file
+  myMessage.print();
+
   // create message object
 
   // print out message to screen
 
   // ask user again for a new file name or quit
 
+  cout << endl << endl;
   cout << "Terminating programing.... Goodbye....";
   cout << endl << endl;
   return 0;
@@ -43,15 +47,24 @@ int main()
 bool readFile(Message txt)
 {
   ifstream inFile;
-  string fileName;
+  string fileName = " ";
   bool isValid = false;
+  int pos;
+  char letter;
 
   cout << "Please input a file name with extension: ";
   cin >> fileName;
 
-  inFile(fileName);
+  inFile.open(fileName);
+  isValid = inFile.fail();
+  if(!isValid) {
+    //read in the boi
+    while(inFile >> pos) {
+      inFile >> letter;
+      txt.append(pos, letter);
+    }
+  }
 
-  if()
-
-  return true;
+  inFile.close();
+  return isValid;
 }

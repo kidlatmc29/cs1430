@@ -16,12 +16,12 @@ class ListInt
       };
 
       NodeInt* head;
-      void clearList();
-      void copyList(const ListInt& src);
+      //void clearList();
+    //  void copyList(const ListInt& src);
   public:
       ListInt();
       ListInt(const ListInt& temp);
-    const ListInt& operator=(const ListInt& src);
+      const ListInt& operator=(const ListInt& src);
       ~ListInt();
       bool IsEmpty()const;
       void Add(int x);

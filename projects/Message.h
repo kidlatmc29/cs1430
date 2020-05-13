@@ -12,8 +12,8 @@ class Message {
   public:
     Message();
     void print()const;
-    // add node
-    // print node
+    void append(int p, char l);
+    bool isEmpty();
     // delete node
     // search for data
   private:

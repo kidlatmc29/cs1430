@@ -25,3 +25,25 @@ void Message::print()const
     index = index->next;
   }
 }
+
+void Message::append(int p, char l)
+{
+  cout << "Adding node..." << p << " " << l << endl;
+  MessageNode* indexPtr;
+  MessageNode* nodePtr = new MessageNode(p, l);
+  nodePtr->next = nullptr;
+  if(isEmpty()) {
+      head = nodePtr;
+    } else {
+      indexPtr = head;
+      while(indexPtr->next) {
+      indexPtr = indexPtr->next;
+      indexPtr->next = nodePtr;
+    }
+  }
+}
+
+bool Message::isEmpty()
+{
+  return head == nullptr;
+}

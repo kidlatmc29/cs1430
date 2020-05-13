@@ -8,7 +8,7 @@ int main() {
 	myList.Add(1);
 	myList.Add(2);
 	myList.Add(3);
-    cout << "First List. " << endl;
+  cout << "First List. " << endl;
 	myList.print();
 
     ListInt secondList (myList);
@@ -31,6 +31,6 @@ int main() {
     myList.print();
     cout << "Second List Again. " << endl;
     secondList.print();
-  
+
 	return 0;
 }
