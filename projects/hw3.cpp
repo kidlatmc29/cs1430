@@ -57,8 +57,6 @@ bool readFile(Message txt)
   bool failed = false;
   int position = 0;
   char letter = ' ';
-  int numOfSpaces;
-  istringstream lineStream;
 
   cout << "Please input a file name with extension: ";
   cin >> fileName;
@@ -69,29 +67,10 @@ bool readFile(Message txt)
   if(!failed) {
     //read in the boi
     while(getline(inFile, line)) {
-      lineStream.str(line);
-      numOfSpaces = countSpaces(line);
-      if(numOfSpaces > 1) {
-        letter = WS;
-        lineStream >> position;
-      } else {
-        lineStream >> letter >> position;
-      }
       txt.append(letter, position);
-      lineStream.clear();
     }
   }
 
   inFile.close();
   return failed;
-}
-
-int countSpaces(string str)
-{
-  int count = 0;
-  for ( std::string::iterator it=str.begin(); it!=str.end(); ++it) {
-    if(isspace(*it))
-    count++;
-  }
-  return count;
 }
