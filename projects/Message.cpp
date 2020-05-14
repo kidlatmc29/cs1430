@@ -11,33 +11,35 @@ Message::Message(): head(nullptr)
   cout << "inside null ctr" << endl;
 }
 
-Message::MessageNode::MessageNode(int num, char val):position(num),letter(val),
-  next(nullptr)
+Message::MessageNode::MessageNode(char val, int num)
 {
-  cout << "inside message node constructor " << endl;
+//  cout << "inside message node constructor " << endl;
+  letter = val;
+  position = num;
+  next = nullptr;
 }
 
 void Message::print()const
 {
-  MessageNode* index = head;
-  while(index) {
-    cout << index->position << " " << index->letter << endl;
+  MessageNode* index = this->head;
+  while(index != nullptr) {
+    cout << index->letter << " " << index->position << endl;
     index = index->next;
   }
   cout << endl << endl;
 }
 
-void Message::append(int p, char l)
+void Message::append(char l, int p)
 {
-  cout << "Adding node..." << p << " " << l << endl;
+  cout << "Adding node..." << l << " " << p << endl;
   MessageNode* indexPtr;
-  MessageNode* nodePtr = new MessageNode(p, l);
+  MessageNode* nodePtr = new MessageNode(l, p);
   nodePtr->next = nullptr;
   if(isEmpty()) {
       head = nodePtr;
     } else {
       indexPtr = head;
-      while(indexPtr->next) {
+      while(indexPtr->next != nullptr) {
       indexPtr = indexPtr->next;
     }
     indexPtr->next = nodePtr;

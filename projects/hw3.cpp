@@ -13,28 +13,33 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <sstream>
+#include <string>
 #include "Message.h"
 
 using namespace std;
 
+const char WS = ' ';
+
 bool readFile(Message txt);
+int countSpaces(string line);
 
 int main()
 {
-
+  bool badFile = true;
   cout << endl << endl;
   cout << "- Welcome to the decoding program - " << endl;
   Message myMessage;
 
-  myMessage.append(1, 'c');
-  myMessage.append(2, 'a');
-  myMessage.append(3, 't');
-
-  myMessage.print();
-
-  // create message object
-
-  // print out message to screen
+  badFile = readFile(myMessage);
+//  cout << validFile << endl;
+  if(badFile) {
+    cout << "Problem with file! Cannot open!" << endl;
+  } else {
+    cout << "File is good! Decoding message...";
+      // sort the characters
+    myMessage.print();
+  }
 
   // ask user again for a new file name or quit
 
@@ -47,24 +52,46 @@ int main()
 bool readFile(Message txt)
 {
   ifstream inFile;
+  string line;
   string fileName = " ";
-  bool isValid = false;
-  int pos;
-  char letter;
+  bool failed = false;
+  int position = 0;
+  char letter = ' ';
+  int numOfSpaces;
+  istringstream lineStream;
 
   cout << "Please input a file name with extension: ";
   cin >> fileName;
 
   inFile.open(fileName);
-  isValid = inFile.fail();
-  if(!isValid) {
+  failed = inFile.fail();
+
+  if(!failed) {
     //read in the boi
-    while(inFile >> pos) {
-      inFile >> letter;
-      txt.append(pos, letter);
+    while(getline(inFile, line)) {
+      lineStream.str(line);
+      numOfSpaces = countSpaces(line);
+      if(numOfSpaces > 1) {
+        letter = WS;
+        lineStream >> position;
+      } else {
+        lineStream >> letter >> position;
+      }
+      txt.append(letter, position);
+      lineStream.clear();
     }
   }
 
   inFile.close();
-  return isValid;
+  return failed;
+}
+
+int countSpaces(string str)
+{
+  int count = 0;
+  for ( std::string::iterator it=str.begin(); it!=str.end(); ++it) {
+    if(isspace(*it))
+    count++;
+  }
+  return count;
 }
