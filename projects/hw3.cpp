@@ -13,13 +13,14 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <sstream>
+#include <cctype>
 #include <string>
 #include "Message.h"
 
 using namespace std;
 
 const char WS = ' ';
+const char ENDL = '\n';
 
 bool readFile(Message txt);
 int countSpaces(string line);
@@ -52,9 +53,10 @@ int main()
 bool readFile(Message txt)
 {
   ifstream inFile;
-  string line;
+  // string line;
   string fileName = " ";
   bool failed = false;
+  char val = ' ';
   int position = 0;
   char letter = ' ';
 
@@ -63,12 +65,18 @@ bool readFile(Message txt)
 
   inFile.open(fileName);
   failed = inFile.fail();
+  inFile.get(val);
 
-  if(!failed) {
-    //read in the boi
-    while(getline(inFile, line)) {
-      txt.append(letter, position);
+  while(!failed) {
+    while(val != ENDL) { // loop to read each line by char
+      letter = val; // the first char in the line is always the letter
+      cout << "letter is " << letter << endl;
+      inFile.get(val); // goes over whitespace
+      inFile >> position; // everything after the second whitespace is an int
+      cout << "position is " << position << endl;
+      inFile.get(val); // should get the nextline char
     }
+    inFile.get(val);
   }
 
   inFile.close();
