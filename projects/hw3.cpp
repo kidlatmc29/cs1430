@@ -15,6 +15,7 @@
 #include <iomanip>
 #include <cctype>
 #include <string>
+#include <sstream>
 #include "Message.h"
 
 using namespace std;
@@ -53,30 +54,29 @@ int main()
 bool readFile(Message txt)
 {
   ifstream inFile;
-  // string line;
+  stringstream ss;
   string fileName = " ";
   bool failed = false;
-  char val = ' ';
+  string line;
   int position = 0;
   char letter = ' ';
+
 
   cout << "Please input a file name with extension: ";
   cin >> fileName;
 
   inFile.open(fileName);
   failed = inFile.fail();
-  inFile.get(val);
 
-  while(!failed) {
-    while(val != ENDL) { // loop to read each line by char
-      letter = val; // the first char in the line is always the letter
-      cout << "letter is " << letter << endl;
-      inFile.get(val); // goes over whitespace
-      inFile >> position; // everything after the second whitespace is an int
-      cout << "position is " << position << endl;
-      inFile.get(val); // should get the nextline char
+  if(!failed) {
+    while(getline(inFile, line)) {
+      ss.clear();
+      letter = line[0];
+      ss.str(line.substr(2, line.length() - 1));
+      ss >> position;
+      cout << "position = " << position << endl;
+      txt.append(letter, position);
     }
-    inFile.get(val);
   }
 
   inFile.close();
