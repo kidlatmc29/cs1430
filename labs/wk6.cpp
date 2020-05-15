@@ -23,17 +23,23 @@ int main()
   cout << "Testing displayList..." << endl;
   csClass.displayList();
 
-/**
+  cout << "Testing search..." << endl;
+  cout << "Searching for Yumeko Honda... " << endl;
+  if(csClass.search("Yumeko", "Honda")) {
+    cout << "Present in list." << endl;
+  } else {
+    cout << "Not present in list." << endl;
+  }
+
   cout << "Testing deleteNode... Removing Sally Holland from list...." << endl;
   csClass.deleteNode("Sally", "Holland");
 
   cout << "Testing displayList again..." << endl;
   csClass.displayList();
-**/
 
   cout << "Testing deconstructor..." << endl;
-  delete csClass;
-  
+  //call the boi to destroy
+
   cout << "Testing complete.... Goodbye..." << endl << endl;
   return 0;
 }
