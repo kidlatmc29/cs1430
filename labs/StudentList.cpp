@@ -37,7 +37,7 @@ void StudentList::append(string fname, string lname, double grade)
     head = newStudent;
   } else {
     index = head;
-    while(index->next) {
+    while(index->next) {z
       index = index->next;
     }
     index->next = newStudent;
@@ -68,5 +68,14 @@ void StudentList::displayList() const
 
 bool StudentList::search(string fname, string lname)
 {
-  return false;
+  bool inList = false;
+  StudentNode* index = head;
+  while(index->next && !inList) {
+    if(index->fName == fname && index->lName == lname) {
+      inList = true;
+    } else {
+      index = index->next;
+    }
+  }
+  return inList;
 }
