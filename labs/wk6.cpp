@@ -12,10 +12,15 @@ int main()
   cout << "Functionality Testing For StudentList: " << endl << endl;
 
   StudentList csClass;
+  cout << "Testing insert... " << endl;
+  csClass.insert("Tony", "Wong", 67.45);
+  csClass.insert("William", "Klein", 93.12);
+  csClass.insert("Grace", "Zutter", 86.89);
+  cout << endl << endl;
 
   cout << "Testing append... " << endl;
   csClass.append("Isabel", "Ovalles", 96.43);
-  csClass.append("Sally", "Holland", 85.34);
+  csClass.append("Sally", "Granger", 85.34);
   csClass.append("John", "Doe", 78.21);
   csClass.append("Julia", "Harlin", 90.267);
   cout << endl << endl;
@@ -31,8 +36,10 @@ int main()
     cout << "Not present in list." << endl;
   }
 
-  cout << "Testing deleteNode... Removing Sally Holland from list...." << endl;
-  csClass.deleteNode("Sally", "Holland");
+  cout << endl << endl;
+
+  cout << "Testing deleteNode... Removing John Doe from list...." << endl;
+  csClass.deleteNode("John", "Doe");
 
   cout << "Testing displayList again..." << endl;
   csClass.displayList();

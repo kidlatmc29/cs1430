@@ -44,29 +44,54 @@ void StudentList::append(string fname, string lname, double grade)
   }
 }
 
-void StudentList::insert(string fname, string lname)
+void StudentList::insert(string fname, string lname, double grade)
 {
+  StudentNode* newStudent = new StudentNode(fname, lname, grade);
+  StudentNode* index;
+  StudentNode* previous;
 
+  if(!head) {
+    head = newStudent;
+  } else {
+    index = head;
+    previous = nullptr;
+
+    while(index != nullptr && index->lName < lname) {
+      previous = index;
+      index = index->next;
+    }
+
+    if(previous == nullptr) {
+      head = newStudent;
+      newStudent->next = index;
+    } else {
+      previous->next = newStudent;
+      newStudent->next = index;
+    }
+  }
 }
 
 void StudentList::deleteNode(string fname, string lname)
 {
   StudentNode* index = head;
   StudentNode* previous;
-  if(!head) {
+
+  if(head == nullptr) {
     return;
   }
 
-  if(head->fName == fname && head->lName == lname) {
+  if(search(fname,lname) && head->fName == fname && head->lName == lname) {
+    cout << "deleting head " << endl;
     index = head->next;
     delete head;
     head = index;
   } else {
-    while(index != nullptr && index->fName != fname && index->lName == lname) {
+    cout << "deleting node futher in list " << endl;
+    while(index != nullptr && index->fName != fname && index->lName != lname){
       previous = index;
       index = index->next;
     }
-    if(search(fname, lname)) {
+    if(index != nullptr) {
       previous->next = index->next;
       delete index;
     }
