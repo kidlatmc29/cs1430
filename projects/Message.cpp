@@ -21,7 +21,14 @@ Message::MessageNode::MessageNode(char val, int num)
 
 void Message::print()const
 {
-
+  cout << "Inside print fxn" << endl;
+  MessageNode* indexPtr = head;
+  while(indexPtr->next != nullptr)
+  {
+    cout << indexPtr->letter << " " << indexPtr->position << endl;
+    indexPtr= indexPtr->next;
+  }
+  cout << endl << endl;
 }
 
 void Message::append(char l, int p)

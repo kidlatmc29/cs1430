@@ -22,9 +22,9 @@ class Message {
         MessageNode(char val = ' ', int num = 0);
         int position; // stores number given
         char letter; // stores character given
-        MessageNode* next;
+        MessageNode* next = nullptr;
     };
-    MessageNode* head;
+    MessageNode* head = nullptr;
 };
 
 #endif
