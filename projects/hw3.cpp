@@ -73,8 +73,7 @@ bool readFile(Message txt)
       ss.clear();
       letter = line[0];
       ss.str(line.substr(2, line.length() - 1));
-      ss >> position;
-      cout << "position = " << position << endl;
+      ss >> position;  
       txt.append(letter, position);
     }
   }

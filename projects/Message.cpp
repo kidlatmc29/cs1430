@@ -21,19 +21,14 @@ Message::MessageNode::MessageNode(char val, int num)
 
 void Message::print()const
 {
-  MessageNode* index = this->head;
-  while(index != nullptr) {
-    cout << index->letter << " " << index->position << endl;
-    index = index->next;
-  }
-  cout << endl << endl;
+
 }
 
 void Message::append(char l, int p)
 {
-  cout << "Adding node..." << l << " " << p << endl;
   MessageNode* indexPtr;
   MessageNode* nodePtr = new MessageNode(l, p);
+  cout << "Adding node..." << nodePtr->letter << " " << nodePtr->position << endl;
   nodePtr->next = nullptr;
   if(isEmpty()) {
       head = nodePtr;
