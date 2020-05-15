@@ -3,6 +3,9 @@
 
 #ifndef STUDENTLIST_H
 #define STUDENTLIST_H
+#include <iostream>
+
+using namespace std;
 
 class StudentList {
   private:
