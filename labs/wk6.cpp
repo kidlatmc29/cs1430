@@ -17,6 +17,8 @@ int main()
   csClass.append("Isabel", "Ovalles", 96.43);
   csClass.append("Sally", "Holland", 85.34);
   csClass.append("John", "Doe", 78.21);
+  csClass.append("Julia", "Harlin", 90.267);
+  cout << endl << endl;
 
   cout << "Testing displayList..." << endl;
   csClass.displayList();
@@ -29,6 +31,9 @@ int main()
   csClass.displayList();
 **/
 
+  cout << "Testing deconstructor..." << endl;
+  delete csClass;
+  
   cout << "Testing complete.... Goodbye..." << endl << endl;
   return 0;
 }
