@@ -30,7 +30,20 @@ bool StudentList::isempty() const
 
 void StudentList::append(string fname, string lname, double grade)
 {
+  StudentNode* newStudent = new newStudent(fname, lname, grade);
+  StudentNode* index;
 
+  if(head == nullptr) {
+    head = newStudent;
+  } else {
+    index = head;
+    while(index->next) {
+      index = index->next;
+    }
+    cout << "appending student: " << newStudent->fName << " "
+         << newStudent->lastName << endl;
+    index->next = newStudent;
+  }
 }
 
 void StudentList::insert(string fname, string lname)
@@ -45,7 +58,14 @@ void StudentList::deleteNode(string fname, string lname)
 
 void StudentList::displayList() const
 {
+  StudentNode* index = head;
 
+  while(index) {
+    cout << index->fName << " " << index->lName << " " << index->grade << endl;
+    index = index->next;
+  }
+
+  cout << endl << endl;
 }
 
 bool StudentList::search(string fname, string lname)
