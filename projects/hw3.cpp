@@ -8,7 +8,7 @@
 //  order.
 // Output: Once the link listed is correctly created, the hhdden message is
 //  printed to the screen. The user will be asked if the process should be
-// repeated for a new file.
+//  repeated for a new file.
 // Example: The user inputs the file name cat.txt. It contains the phrase
 //  "Hello cat!" with the corresponding positions of each character. Once
 //  the file has been read and all the nodes have been inserted in the correct

@@ -51,7 +51,7 @@ void Message::insert(char character, int position)
   } else {
     index = head;
     previous = nullptr;
-    while(index != nullptr && index->position < p) {
+    while(index != nullptr && index->position < position) {
       previous = index;
       index = index->next;
     }
