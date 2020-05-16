@@ -8,14 +8,13 @@ using namespace std;
 
 Message::Message(): head(nullptr)
 {
-  cout << "inside null ctr" << endl;
 }
 
-Message::MessageNode::MessageNode(char l, int p)
+Message::MessageNode::MessageNode(char character, int position)
 {
-//  cout << "inside message node constructor " << endl;
-  letter = l;
-  position = p;
+  //  cout << "inside message node constructor " << endl;
+  this->character = character;
+  this->position = position;
   next = nullptr;
 }
 
@@ -24,29 +23,27 @@ void Message::print()const
   cout << "Inside print fxn" << endl;
   MessageNode* index = head;
   cout << "head is " << head << endl;
-  cout << "index is " << index << endl;
+  // head is the same in insert but is nullptr in print?
 
   if(index == nullptr) {
-    cout << "index was null!" << endl;
+    cout << "index was null!" << endl; // only for debugging - rm when fixed
     return;
   }
+
   while(index != nullptr) {
-    cout << index->letter << " ";
+    cout << index->character << " ";
     index = index->next;
   }
 
   cout << endl << endl;
 }
 
-void Message::insert(char l, int p)
+void Message::insert(char character, int position)
 {
-  MessageNode* newNode = new MessageNode(l, p);
+  MessageNode* newNode = new MessageNode(character, position);
 // cout << "newNode is " << newNode->letter << " " << newNode->position << endl;
   MessageNode* index;
   MessageNode* previous;
-
-//  cout << "Inserting node..."
-//       << newNode->letter << " " << newNode->position << endl;
 
   if(head == nullptr) {
     head = newNode;
@@ -66,7 +63,8 @@ void Message::insert(char l, int p)
       newNode->next = index;
     }
   }
-  cout << "head is now " << head << endl;
+  cout << "head is now " << head << endl; // only for debugging - rm when fixed
+    // testing shows head stays the same-
 }
 
 bool Message::isEmpty()

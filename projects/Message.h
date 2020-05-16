@@ -12,16 +12,16 @@ class Message {
   public:
     Message();
     void print()const;
-    void insert(char l, int p);
+    void insert(char character, int position);
     bool isEmpty();
     // delete node
     // search for data
   private:
     class MessageNode {
       public:
-        MessageNode(char l = ' ', int p = 0);
+        MessageNode(char character = ' ', int position = 0);
         int position; // stores number given
-        char letter; // stores character given
+        char character; // stores character given
         MessageNode* next = nullptr;
     };
     MessageNode* head = nullptr;
