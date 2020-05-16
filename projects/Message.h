@@ -11,10 +11,19 @@ using namespace std;
 class Message {
   public:
     Message();
+    // null constructor for Message
     void print()const;
+    // prints the message from characters stored in MessageNodes
     void insert(char character, int position);
+    // reads in given character and position, and creates a MessageNode from it
+    // finds the correct spot to insert the Message in based on position
+    // inserts based on position in a non ascending order
     bool isEmpty();
+    // returns true if head is nullptr
+    // else return false
     void clearList();
+    // removes all nodes from the list to make the list empty
+    // sets head to nullptr
   private:
     class MessageNode {
       public:

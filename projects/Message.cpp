@@ -12,7 +12,6 @@ Message::Message(): head(nullptr)
 
 Message::MessageNode::MessageNode(char character, int position)
 {
-  //  cout << "inside message node constructor " << endl;
   this->character = character;
   this->position = position;
   next = nullptr;
@@ -63,7 +62,6 @@ bool Message::isEmpty()
 
 void Message::clearList()
 {
-  cout << "inside clear list " << endl;
   MessageNode *nodePtr = this->head;
   MessageNode *nextPtr;
   while(nodePtr != nullptr) {
