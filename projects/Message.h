@@ -14,8 +14,6 @@ class Message {
     void print()const;
     void insert(char character, int position);
     bool isEmpty();
-    // delete node
-    // search for data
   private:
     class MessageNode {
       public:

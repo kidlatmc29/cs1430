@@ -20,18 +20,10 @@ Message::MessageNode::MessageNode(char character, int position)
 
 void Message::print()const
 {
-  cout << "Inside print fxn" << endl;
   MessageNode* index = head;
-  cout << "head is " << head << endl;
-  // head is the same in insert but is nullptr in print?
-
-  if(index == nullptr) {
-    cout << "index was null!" << endl; // only for debugging - rm when fixed
-    return;
-  }
 
   while(index != nullptr) {
-    cout << index->character << " ";
+    cout << index->character;
     index = index->next;
   }
 
@@ -41,7 +33,6 @@ void Message::print()const
 void Message::insert(char character, int position)
 {
   MessageNode* newNode = new MessageNode(character, position);
-// cout << "newNode is " << newNode->letter << " " << newNode->position << endl;
   MessageNode* index;
   MessageNode* previous;
 
@@ -63,8 +54,6 @@ void Message::insert(char character, int position)
       newNode->next = index;
     }
   }
-  cout << "head is now " << head << endl; // only for debugging - rm when fixed
-    // testing shows head stays the same-
 }
 
 bool Message::isEmpty()

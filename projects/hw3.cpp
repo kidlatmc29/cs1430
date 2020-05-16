@@ -27,26 +27,26 @@ using namespace std;
 
 const char YES = 'y';
 
-bool readFile(Message txt);
+bool readFile(Message &txt);
 
 int main()
 {
+  char again = YES;
   bool badFile = true;
 
   cout << endl << endl;
   cout << "- Welcome to the decoding program - " << endl;
   Message myMessage;
 
+while(again == YES) {
   badFile = readFile(myMessage);
-
-  if(badFile) {
-    cout << "Problem with file! Cannot open!" << endl;
-  } else {
-    cout << "File is good! Decoding message..." << endl;
-    myMessage.print();
+    if(badFile) {
+      cout << "Problem with file! Cannot open!" << endl;
+    } else {
+      cout << "File is good! Decoding message..." << endl;
+      myMessage.print();
+    }
   }
-
-  // ask user again for a new file name or quit
 
   cout << endl << endl;
   cout << "Terminating programing.... Goodbye....";
@@ -54,7 +54,7 @@ int main()
   return 0;
 }
 
-bool readFile(Message txt)
+bool readFile(Message &txt)
 {
   ifstream inFile;
   stringstream ss;
