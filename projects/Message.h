@@ -14,6 +14,7 @@ class Message {
     void print()const;
     void insert(char character, int position);
     bool isEmpty();
+    void clearList();
   private:
     class MessageNode {
       public:

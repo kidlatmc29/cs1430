@@ -60,3 +60,16 @@ bool Message::isEmpty()
 {
   return head == nullptr;
 }
+
+void Message::clearList()
+{
+  cout << "inside clear list " << endl;
+  MessageNode *nodePtr = this->head;
+  MessageNode *nextPtr;
+  while(nodePtr != nullptr) {
+    nextPtr = nodePtr->next;
+    delete nodePtr;
+    nodePtr = nextPtr;
+  }
+  head = nullptr;
+}

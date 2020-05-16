@@ -35,16 +35,22 @@ int main()
   bool badFile = true;
 
   cout << endl << endl;
-  cout << "- Welcome to the decoding program - " << endl;
+  cout << "- Welcome to the decoding program - " << endl << endl;
   Message myMessage;
 
-while(again == YES) {
+while(tolower(again) == YES) {
   badFile = readFile(myMessage);
     if(badFile) {
       cout << "Problem with file! Cannot open!" << endl;
     } else {
-      cout << "File is good! Decoding message..." << endl;
+      cout << "File is good! Decoding message..." << endl << endl;
+      cout << "The message: " << endl;
       myMessage.print();
+      cout << endl << "Would you like to decode another file? (y/n): ";
+      cin >> again;
+      if(towlower(again) == YES) {
+        myMessage.clearList();
+      }
     }
   }
 
