@@ -12,14 +12,14 @@ class Message {
   public:
     Message();
     void print()const;
-    void append(char l, int p);
+    void insert(char l, int p);
     bool isEmpty();
     // delete node
     // search for data
   private:
     class MessageNode {
       public:
-        MessageNode(char val = ' ', int num = 0);
+        MessageNode(char l = ' ', int p = 0);
         int position; // stores number given
         char letter; // stores character given
         MessageNode* next = nullptr;

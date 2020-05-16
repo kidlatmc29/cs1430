@@ -38,7 +38,7 @@ int main()
   if(badFile) {
     cout << "Problem with file! Cannot open!" << endl;
   } else {
-    cout << "File is good! Decoding message...";
+    cout << "File is good! Decoding message..." << endl;
       // sort the characters
     myMessage.print();
   }
@@ -73,8 +73,8 @@ bool readFile(Message txt)
       ss.clear();
       letter = line[0];
       ss.str(line.substr(2, line.length() - 1));
-      ss >> position;  
-      txt.append(letter, position);
+      ss >> position;
+      txt.insert(letter, position);
     }
   }
 

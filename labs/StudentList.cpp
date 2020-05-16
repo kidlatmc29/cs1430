@@ -7,7 +7,6 @@
 using namespace std;
 
 StudentList::StudentList() : head(nullptr) {
-  cout << "inside null ctor" << endl;
 }
 
 StudentList::StudentNode::StudentNode(string fname, string lname, double grade)
@@ -20,7 +19,15 @@ StudentList::StudentNode::StudentNode(string fname, string lname, double grade)
 
 StudentList::~StudentList()
 {
-  cout << "inside dector" << endl;
+  StudentNode *index = this->head;
+  StudentNode *nextPtr;
+  while(index != nullptr) {
+    nextPtr = index->next;
+    cout << "Deleting node... " << endl;
+    delete index;
+    index = nextPtr;
+  }
+  head = nullptr;
 }
 
 bool StudentList::isempty() const
@@ -52,6 +59,7 @@ void StudentList::insert(string fname, string lname, double grade)
 
   if(!head) {
     head = newStudent;
+    newStudent-> = nullptr;
   } else {
     index = head;
     previous = nullptr;
@@ -81,12 +89,10 @@ void StudentList::deleteNode(string fname, string lname)
   }
 
   if(search(fname,lname) && head->fName == fname && head->lName == lname) {
-    cout << "deleting head " << endl;
     index = head->next;
     delete head;
     head = index;
   } else {
-    cout << "deleting node futher in list " << endl;
     while(index != nullptr && index->fName != fname && index->lName != lname){
       previous = index;
       index = index->next;
