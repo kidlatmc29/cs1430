@@ -1,23 +1,23 @@
 // Isabel Ovalles
 // Message.cpp
 
-#include "Message.h"
+#include "message.h"
 #include <iostream>
 
 using namespace std;
 
-Message::Message(): head(nullptr)
+message::message(): head(nullptr)
 {
 }
 
-Message::MessageNode::MessageNode(char character, int position)
+message::MessageNode::MessageNode(char character, int position)
 {
   this->character = character;
   this->position = position;
   next = nullptr;
 }
 
-void Message::print()const
+void message::print()const
 {
   MessageNode* index = head;
 
@@ -29,7 +29,7 @@ void Message::print()const
   cout << endl << endl;
 }
 
-void Message::insert(char character, int position)
+void message::insert(char character, int position)
 {
   MessageNode* newNode = new MessageNode(character, position);
   MessageNode* index;
@@ -55,12 +55,12 @@ void Message::insert(char character, int position)
   }
 }
 
-bool Message::isEmpty()
+bool message::isEmpty()
 {
   return head == nullptr;
 }
 
-void Message::clearList()
+void message::clearList()
 {
   MessageNode *nodePtr = this->head;
   MessageNode *nextPtr;

@@ -21,13 +21,13 @@
 #include <cctype>
 #include <string>
 #include <sstream>
-#include "Message.h"
+#include "message.h"
 
 using namespace std;
 
 const char YES = 'y';
 
-bool readFile(Message &txt);
+bool readFile(message &txt);
 
 int main()
 {
@@ -36,7 +36,7 @@ int main()
 
   cout << endl << endl;
   cout << "- Welcome to the decoding program - " << endl << endl;
-  Message myMessage;
+  message myMessage;
 
 while(tolower(again) == YES) {
   badFile = readFile(myMessage);
@@ -60,7 +60,7 @@ while(tolower(again) == YES) {
   return 0;
 }
 
-bool readFile(Message &txt)
+bool readFile(message &txt)
 {
   ifstream inFile;
   stringstream ss;

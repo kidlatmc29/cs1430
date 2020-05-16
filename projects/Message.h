@@ -8,9 +8,9 @@
 
 using namespace std;
 
-class Message {
+class message {
   public:
-    Message();
+    message();
     // null constructor for Message
     void print()const;
     // prints the message from characters stored in MessageNodes
