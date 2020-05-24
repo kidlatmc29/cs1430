@@ -15,8 +15,7 @@ class Stack {
    StackNode *top;
  public:
    Stack();
-   // push
-   // pop
-   // isFull
-   // isEmpty
+   void push(char value);
+   char pop();
+   bool isEmpty();
 };
