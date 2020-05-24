@@ -11,15 +11,12 @@ Stack::Stack()
   top = nullptr;
 }
 
-Stack::Stack::StackNode(char value)
-{
-  data = value;
-  next = nullptr;
-}
-
 void Stack::push(char value)
 {
-  StackNode* newNode = new StackNode(value);
+  Node* newNode = new Node;
+  newNode->data = value;
+  newNode->next = nullptr; 
+
   if(isEmpty()) {
     top = newNode;
   } else {
@@ -31,7 +28,7 @@ void Stack::push(char value)
 char Stack::pop()
 {
   char val;
-  StackNode *temp;
+  Node *temp;
   if(isEmpty()) {
     cout << "This stack is empty." << endl;
   } else {

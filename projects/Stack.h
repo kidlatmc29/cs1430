@@ -6,13 +6,14 @@
 using namespace std;
 
 class Stack {
- private:
-   class StackNode {
-     StackNode(char value);
-     char data;
-     StackNode *next;
-   };
-   StackNode *top;
+private:
+  struct Node {
+    char data;
+    Node *next;
+  };
+
+  Node *top;
+
  public:
    Stack();
    void push(char value);
