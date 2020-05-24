@@ -15,7 +15,7 @@ void Stack::push(char value)
 {
   Node* newNode = new Node;
   newNode->data = value;
-  newNode->next = nullptr; 
+  newNode->next = nullptr;
 
   if(isEmpty()) {
     top = newNode;
@@ -43,7 +43,7 @@ char Stack::pop()
 bool Stack::isEmpty()
 {
   bool empty;
-  if(!top) {
+  if(top == nullptr) {
     empty = true;
   } else {
     empty = false;

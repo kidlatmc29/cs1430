@@ -15,15 +15,15 @@ int main()
   cout << endl << endl;
   cout << "Welcome to hw4: " << endl;
 
-  cout << "pushing bob in myStak " << endl;
+  cout << "pushing bob in myStack " << endl;
   myStack->push('b');
   myStack->push('o');
   myStack->push('b');
 
   cout << "popping stack: " << endl;
-  while(myStack->isEmpty()) {
-    cout << myStack->pop();
-  }
+  cout << myStack->pop();
+  cout << myStack->pop();
+  cout << myStack->pop();
 
   cout << "Terminating program. Goodbye....";
   cout << endl << endl;
