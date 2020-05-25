@@ -20,10 +20,15 @@ int main()
   myStack->push('o');
   myStack->push('b');
 
+  cout << "printing myStack " << endl;
+  myStack->print();
+  cout << endl;
+  
   cout << "popping stack: " << endl;
   cout << myStack->pop();
   cout << myStack->pop();
   cout << myStack->pop();
+  cout << endl;
 
   cout << "Terminating program. Goodbye....";
   cout << endl << endl;
