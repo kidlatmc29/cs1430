@@ -17,7 +17,7 @@ void Stack::push(char value)
   if(isFull()) {
     resize();
   }
-  
+
   top++;
   cout << "pushing " << value << endl;
   characters[top] = value;
@@ -41,8 +41,7 @@ void Stack::print()
   cout << endl;
 }
 
-
-void resize()
+void Stack::resize()
 {
   char* newStack = new char[size + SPACE];
 
