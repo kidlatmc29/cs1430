@@ -7,10 +7,7 @@ using namespace std;
 
 class Stack {
 private:
-  struct Node {
-    char data;
-    Node *next;
-  };
+  
 
   Node *top;
 
