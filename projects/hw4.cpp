@@ -62,20 +62,25 @@ bool readFile(Stack& line)
 
   if(!failed) {
     while(getline(inFile, inLine)) {
+      ss.clear();
       ss.str(inLine);
       inLineLength = inLine.length();
       for(int index = 0; index < (inLineLength - 1); index++) {
         ss >> value;
         line.push(value);
       }
-
+/**
       if(isPalindrom(line, inLine)) {
       cout << inLine << " - " << "is a palindrom" << endl;
       } else {
         cout << inLine << " - " << "is not a palindrom" << endl;
       }
+**/
+    cout << "the stack is : " << endl;
+    line.print();
+    cout << endl << endl;
+    line.clearStack();
     }
-
   }
   return failed;
 }
@@ -83,10 +88,8 @@ bool readFile(Stack& line)
 bool isPalindrom(Stack line, string originalLine)
 {
   string poppedLine;
-
   while(!(line.isEmpty())) {
     poppedLine += line.pop();
   }
-  cout << poppedLine << " " << originalLine << endl;
   return poppedLine == originalLine;
 }

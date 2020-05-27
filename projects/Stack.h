@@ -18,4 +18,5 @@ private:
    bool isEmpty();
    bool isFull();
    void print();
+   void clearStack();
 };

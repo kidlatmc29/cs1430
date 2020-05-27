@@ -33,10 +33,8 @@ char Stack::pop()
 // only here for debugging
 void Stack::print()
 {
-  int count = top;
-  while(count != -1) {
-    cout << characters[count];
-    count--;
+  for(int index = 0; index < top; index++) {
+    cout << characters[index];
   }
   cout << endl;
 }
@@ -76,4 +74,13 @@ bool Stack::isFull()
     full = false;
   }
   return full;
+}
+
+void Stack::clearStack()
+{
+  char* emptyStack = new char[SPACE];
+  delete[] characters;
+  top = -1;
+  size = 0;
+  characters = emptyStack;
 }
