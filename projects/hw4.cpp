@@ -34,8 +34,9 @@ int main()
   cout << "Welcome to hw4: " << endl;
 
   invalidFile = readFile(line);
-  if(!invalidFile) {
-    cout << "file was read correctly" << endl;
+
+  if(invalidFile) {
+    cout << "Could not open file! " << endl;
   }
 
   cout << "Terminating program. Goodbye....";
@@ -86,5 +87,6 @@ bool isPalindrom(Stack line, string originalLine)
   while(!(line.isEmpty())) {
     poppedLine += line.pop();
   }
+  cout << poppedLine << " " << originalLine << endl;
   return poppedLine == originalLine;
 }
