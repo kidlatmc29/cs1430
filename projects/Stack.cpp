@@ -19,7 +19,7 @@ void Stack::push(char value)
   }
 
   top++;
-  cout << "pushing " << value << endl;
+  //cout << "pushing " << value << endl;
   characters[top] = value;
 }
 

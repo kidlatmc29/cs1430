@@ -10,7 +10,7 @@
 //  palindrom or not.
 // Example: The user gives a file that contains the words "Bob," "No one." and
 //  "Racecar". The program prints out the words and results in a column.
-//  "Bob - Is a palindrom", "No one. - Is not a palindrom", "Racecare - Is a
+//  "Bob - Is a palindrom", "No one. - Is not a palindrom", "Racecar - Is a
 //  "palindrom"
 
 #include <iostream>
@@ -22,27 +22,34 @@ using namespace std;
 
 const char YES = 'y';
 
-bool readFile();
-bool isPalindrom(Stack* line);
+bool readFile(Stack& line);
+bool isPalindrom(Stack line, string originalLine);
 
 int main()
 {
-  Stack myStack;
+  Stack line;
+  bool invalidFile;
 
   cout << endl << endl;
   cout << "Welcome to hw4: " << endl;
+
+  invalidFile = readFile(line);
+  if(!invalidFile) {
+    cout << "file was read correctly" << endl;
+  }
 
   cout << "Terminating program. Goodbye....";
   cout << endl << endl;
   return 0;
 }
 
-bool readFile(Stack& myStack)
+bool readFile(Stack& line)
 {
   fstream inFile;
   string fileName;
-  sstream ss;
-  string line;
+  stringstream ss;
+  string inLine;
+  int inLineLength;
   char value;
   bool failed = true;
 
@@ -50,33 +57,34 @@ bool readFile(Stack& myStack)
   cin >> fileName;
 
   inFile.open(fileName);
-  failed =inFile.fail();
+  failed = inFile.fail();
 
   if(!failed) {
-    while(getline(inFile, line)) {
-      ss.str(line);
-      
-      for(int index = 0; index < line.length - 1; index++) {
+    while(getline(inFile, inLine)) {
+      ss.str(inLine);
+      inLineLength = inLine.length();
+      for(int index = 0; index < (inLineLength - 1); index++) {
         ss >> value;
-        myStack.push(value);
+        line.push(value);
       }
 
-      if(isPalindrom(myStack)) {
-      cout << line << " - " << "is a palindrom" << endl;
+      if(isPalindrom(line, inLine)) {
+      cout << inLine << " - " << "is a palindrom" << endl;
       } else {
-        cout << line << " - " << "is not a palindrom" << endl;
+        cout << inLine << " - " << "is not a palindrom" << endl;
       }
     }
+
   }
   return failed;
 }
 
-bool isPalindrom(Stack myStack, string originalLine)
+bool isPalindrom(Stack line, string originalLine)
 {
   string poppedLine;
 
-  while(!(myStack.isEmpty)) {
-    poppedLine += myStack.pop();
+  while(!(line.isEmpty())) {
+    poppedLine += line.pop();
   }
   return poppedLine == originalLine;
 }
