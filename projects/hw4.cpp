@@ -39,6 +39,9 @@ int main()
     cout << "Could not open file! " << endl;
   }
 
+  cout << "printing stack: " << endl;
+  line.print();
+
   cout << "Terminating program. Goodbye....";
   cout << endl << endl;
   return 0;
@@ -46,5 +49,37 @@ int main()
 
 bool readFile(Stack& line)
 {
-  
+  fstream inFile;
+  bool failed = false;
+  string fileName;
+  string phrase;
+  stringstream ss;
+  char value;
+
+  cout << "Please provide a file name: ";
+  cin >> fileName;
+
+  inFile.open(fileName);
+  failed = inFile.fail();
+
+  if(!failed) {
+    while(getline(inFile, phrase)) {
+      ss.str(phrase);
+      while(ss >> value) {
+        //cout << "value = " << value << endl;
+        if(isalpha(value) != 0) {
+          line.push(value);
+        }
+      }
+      cout << "printing stack: " << endl;
+      line.print();
+      cout << endl;
+
+      ss.clear();
+      line.clearStack();
+    }
+  }
+
+  inFile.close();
+  return failed;
 }

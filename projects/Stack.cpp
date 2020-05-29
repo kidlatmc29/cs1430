@@ -33,7 +33,7 @@ char Stack::pop()
 // only here for debugging
 void Stack::print()
 {
-  for(int index = 0; index < top; index++) {
+  for(int index = 0; index <= top; index++) {
     cout << characters[index];
   }
   cout << endl;
