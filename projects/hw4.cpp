@@ -29,14 +29,18 @@ int main()
 {
   Stack line;
   int numOfPalindroms;
+  char again = YES;
 
   cout << endl << endl;
-  cout << "Welcome to hw4: " << endl;
+  cout << "Welcome to hw4- " << endl << endl;
 
-  numOfPalindroms = readFile(line);
-
-  if(numOfPalindroms > -1) {
-    cout << "There were " << numOfPalindroms << " palindroms" << endl;
+  while(again == YES) {
+    numOfPalindroms = readFile(line);
+    if(numOfPalindroms > -1) {
+      cout << endl << "There were " << numOfPalindroms << " palindroms" << endl;
+    }
+    cout << "Would you like to check another file? (y/n): ";
+    cin >> again;
   }
 
   cout << "Terminating program. Goodbye....";
@@ -50,6 +54,7 @@ int readFile(Stack& line)
   bool failed = false;
   string fileName;
   string phrase;
+  string bottomToTop;
   stringstream ss;
   char value;
   int numOfPalindroms = 0;
@@ -65,13 +70,20 @@ int readFile(Stack& line)
       ss.str(phrase);
       while(ss >> value) {
         if(isalpha(value) != 0) { // only pushes characters into the stack
-          line.push(value);
+          line.push(tolower(value));
+          bottomToTop += tolower(value);
         }
       }
-      cout << "printing stack: " << endl;
-      line.print();
-      cout << endl;
 
+      cout << phrase << " is ";
+      if(line.isPalindrom(bottomToTop))  {
+        cout << "a palindrom" << endl;
+        numOfPalindroms++;
+      } else {
+        cout << "NOT a palindrom" << endl;
+      }
+      cout << endl;
+      bottomToTop = "";
       ss.clear();
       line.clearStack();
     }

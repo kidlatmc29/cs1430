@@ -19,7 +19,6 @@ void Stack::push(char value)
   }
 
   top++;
-  //cout << "pushing " << value << endl;
   characters[top] = value;
 }
 
@@ -55,25 +54,12 @@ void Stack::resize()
 
 bool Stack::isEmpty()
 {
-  bool empty;
-  if(top == -1) {
-    empty = true;
-  } else {
-    empty = false;
-  }
-  return empty;
+  return top == -1;
 }
 
 bool Stack::isFull()
 {
-  bool full;
-  if(top == size - 1)
-  {
-    full = true;
-  } else {
-    full = false;
-  }
-  return full;
+  return (top == (size -1));
 }
 
 void Stack::clearStack()
@@ -83,4 +69,14 @@ void Stack::clearStack()
   top = -1;
   size = 0;
   characters = emptyStack;
+}
+
+bool Stack::isPalindrom(string original)
+{
+  string topToBottom;
+
+  while(!this->isEmpty()) {
+    topToBottom += this->pop();
+  }
+  return original == topToBottom;
 }

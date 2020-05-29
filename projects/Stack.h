@@ -19,4 +19,5 @@ private:
    bool isFull();
    void print();
    void clearStack();
+   bool isPalindrom(string original);
 };
