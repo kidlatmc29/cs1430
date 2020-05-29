@@ -23,31 +23,28 @@ using namespace std;
 
 const char YES = 'y';
 
-bool readFile(Stack& line);
+int readFile(Stack& line);
 
 int main()
 {
   Stack line;
-  bool invalidFile;
+  int numOfPalindroms;
 
   cout << endl << endl;
   cout << "Welcome to hw4: " << endl;
 
-  invalidFile = readFile(line);
+  numOfPalindroms = readFile(line);
 
-  if(invalidFile) {
-    cout << "Could not open file! " << endl;
+  if(numOfPalindroms > -1) {
+    cout << "There were " << numOfPalindroms << " palindroms" << endl;
   }
-
-  cout << "printing stack: " << endl;
-  line.print();
 
   cout << "Terminating program. Goodbye....";
   cout << endl << endl;
   return 0;
 }
 
-bool readFile(Stack& line)
+int readFile(Stack& line)
 {
   fstream inFile;
   bool failed = false;
@@ -55,6 +52,7 @@ bool readFile(Stack& line)
   string phrase;
   stringstream ss;
   char value;
+  int numOfPalindroms = 0;
 
   cout << "Please provide a file name: ";
   cin >> fileName;
@@ -66,8 +64,7 @@ bool readFile(Stack& line)
     while(getline(inFile, phrase)) {
       ss.str(phrase);
       while(ss >> value) {
-        //cout << "value = " << value << endl;
-        if(isalpha(value) != 0) {
+        if(isalpha(value) != 0) { // only pushes characters into the stack
           line.push(value);
         }
       }
@@ -78,8 +75,11 @@ bool readFile(Stack& line)
       ss.clear();
       line.clearStack();
     }
+  } else {
+      numOfPalindroms = -1;
+      cout << "Could not open file! " << endl;
   }
 
   inFile.close();
-  return failed;
+  return numOfPalindroms;
 }
