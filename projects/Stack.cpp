@@ -12,6 +12,10 @@ Stack::Stack()
   size = 0;
 }
 
+Stack::~Stack(){
+  clearStack();
+}
+
 void Stack::push(char value)
 {
   if(isFull()) {
@@ -27,15 +31,6 @@ char Stack::pop()
   char poppedChar = characters[top];
   top--;
   return poppedChar;
-}
-
-// only here for debugging
-void Stack::print()
-{
-  for(int index = 0; index <= top; index++) {
-    cout << characters[index];
-  }
-  cout << endl;
 }
 
 void Stack::resize()

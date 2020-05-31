@@ -12,12 +12,16 @@ private:
   int size;
  public:
    Stack();
+   ~Stack();
    void push(char value);
    char pop();
    void resize();
    bool isEmpty();
    bool isFull();
-   void print();
+
    void clearStack();
    bool isPalindrom(string original);
+   //returns true if the orignal string matches the same order as the Stack
+   //  being popped
+   // returns false otherwise
 };

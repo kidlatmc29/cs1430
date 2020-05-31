@@ -53,8 +53,9 @@ int readFile(Stack& line)
   fstream inFile;
   bool failed = false;
   string fileName;
+
   string phrase;
-  string bottomToTop;
+  string bottomToTop; // used to compare order of chars when stack is popped
   stringstream ss;
   char value;
   int numOfPalindroms = 0;
