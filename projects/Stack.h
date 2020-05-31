@@ -21,7 +21,7 @@ private:
 
    void clearStack();
    bool isPalindrom(string original);
-   //returns true if the orignal string matches the same order as the Stack
-   //  being popped
-   // returns false otherwise
+   //  returns true if the orignal string matches the same order as the Stack
+   //    being popped
+   //    returns false otherwise
 };

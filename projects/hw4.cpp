@@ -62,6 +62,7 @@ int readFile(Stack& line)
 
   cout << "Please provide a file name: ";
   cin >> fileName;
+  cout << endl;
 
   inFile.open(fileName);
   failed = inFile.fail();
