@@ -22,9 +22,9 @@ class Queue {
     // adds an element to the rear
     int dequeue();
     // removes an element from the front
-
     void clear();
     // resets front, rear and sets numElements to 0
+
     bool isEmpty();
     bool isFull();
 };

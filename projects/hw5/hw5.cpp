@@ -20,37 +20,26 @@
 using namespace std;
 
 const int MAX_SIZE = 10;
-const int[] TEST_A = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const int[] TEST_B = [100];
-const int[] TEST_C = [-1, 23, -13, 0, -29, 12];
 
-void printQueue(Queue intQueue);
+// void printQueue(Queue intQueue);
+void printStack(Stack stackToPrint);
 
 int main()
 {
-  //int k = 4;
-  Queue myQueue(MAX_SIZE);
-  printQueue(myQueue);
+  cout << endl << endl << "- Welcome to hw5 -" << endl;
+  Stack myStack(MAX_SIZE);
 
-
-  cout << "adding values 1, 4 29, 100 to myQueue..." << endl;
-  myQueue.enqueue(1);
-  myQueue.enqueue(4);
-  myQueue.enqueue(29);
-  myQueue.enqueue(100);
-  printQueue(myQueue);
-
-  cout << endl;
-  cout << "removing all values from myQueue... " << endl;
-  while(!myQueue.isEmpty()) {
-      cout << myQueue.dequeue() << endl;
+  cout << "adding 10 values to myStack..." << endl;
+  for(int i = 1; i <= MAX_SIZE; i++) {
+    myStack.push(i);
   }
-  printQueue(myQueue);
+  printStack(myStack);
 
   cout << "Terminating programing... Goodbye" << endl;
   return 0;
 }
 
+/**
 void printQueue(Queue queueToPrint)
 {
   cout << "[ ";
@@ -58,4 +47,14 @@ void printQueue(Queue queueToPrint)
     cout << queueToPrint.dequeue() << " ";
   }
   cout << "]" << endl;
+}
+**/
+
+void printStack(Stack stackToPrint)
+{
+  cout << "[ ";
+  while(!stackToPrint.isEmpty()) {
+    cout << stackToPrint.pop() << " ";
+  }
+  cout << " ]" << endl;
 }

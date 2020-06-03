@@ -1,0 +1,18 @@
+//int k = 4;
+  Queue myQueue(MAX_SIZE);
+  printQueue(myQueue);
+
+
+  cout << "adding values 1, 4 29, 100 to myQueue..." << endl;
+  myQueue.enqueue(1);
+  myQueue.enqueue(4);
+  myQueue.enqueue(29);
+  myQueue.enqueue(100);
+  printQueue(myQueue);
+
+  cout << endl;
+  cout << "removing all values from myQueue... " << endl;
+  while(!myQueue.isEmpty()) {
+      cout << myQueue.dequeue() << endl;
+  }
+  printQueue(myQueue);
