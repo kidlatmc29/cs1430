@@ -16,7 +16,7 @@ class Queue {
     ~Queue();
 
     // operations
-    void eneqeue(int num);
+    void enqueue(int num);
     int dequeue();
     bool isEmpty();
     bool isFull();
