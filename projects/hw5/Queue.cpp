@@ -20,19 +20,29 @@ Queue::~Queue()
   delete [] queueArray;
 }
 
+Queue::Queue(const Queue& original)
+{
+  queueArray = new int[original.queueSize];
+
+  front = original.front;
+  rear = original.rear;
+  numElements = original.numElements;
+
+  for(int index = 0; index < original.queueSize; index++) {
+    queueArray[index] = original.queueArray[index];
+  }
+}
+
 void Queue::enqueue(int num)
 {
   if((isFull())) {
     cout << "Queue is full!" << endl;
     exit(1);
   } else {
-    cout << "rear is " << rear << endl;
     // finding new rear
     rear = rear + 1;
-    cout << "rear is now " << rear << endl;
     queueArray[rear] = num;
     numElements++;
-    //cout << "added " << queueArray[rear] << " to index " << rear << endl;
   }
 }
 
@@ -55,7 +65,6 @@ int Queue::dequeue()
 
 bool Queue::isEmpty()
 {
-
   return numElements == 0;
 }
 

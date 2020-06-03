@@ -12,6 +12,8 @@ class Queue {
   public:
     // constructor
     Queue(int size);
+    //copy constructor
+    Queue(const Queue&);
     // deconstructor
     ~Queue();
 
@@ -23,6 +25,4 @@ class Queue {
     // removes an element from the front
     bool isEmpty();
     bool isFull();
-
-    void printArr();
 };
