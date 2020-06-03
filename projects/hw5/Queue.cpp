@@ -8,7 +8,7 @@ using namespace std;
 
 Queue::Queue(int size)
 {
-  queueAray = new int[num];
+  queueArray = new int[size];
   queueSize = size;
   front = -1;
   rear = -1;
@@ -17,41 +17,56 @@ Queue::Queue(int size)
 
 Queue::~Queue()
 {
-  delete [] queueAray;
+  delete [] queueArray;
 }
 
-Queue::enqueue(int num)
+void Queue::enqueue(int num)
 {
-  if(isFull()) {
+  if(!(isFull())) {
     cout << "Queue is full!" << endl;
+    exit(1);
   } else {
     // finding new rear
-    rear++;
-    queueAray[rear] = num;
+    rear = rear + 1;
+    queueArray[rear] = num;
     numElements++;
+    cout << "added " << queueArray[rear] << " to index " << rear << endl;
   }
 }
 
-Queue::dequeue()
+int Queue::dequeue()
 {
   int num;
-
-  if(isEmpty()) {
-    cout << "Queue is empty!" << endl;
+  if(!(isEmpty())){
+    cout << numElements << " ";
+    cout << "Queue is empty" << endl;
+    exit(1);
   } else {
-    front++;
-    num = queueAray[front];
+    // moving front up
+    front = front + 1;
+    num = queueArray[front];
     numElements--;
   }
+
   return num;
 }
 
-Queue::isEmpty()
+bool Queue::isEmpty()
 {
+
   return numElements > 0;
 }
 
-Queue::isFull()
+bool Queue::isFull()
 {
   return numElements < queueSize;
+}
+
+void Queue::printArr()
+{
+    cout << "[";
+    for(int index = 0; index < numElements; index++) {
+      cout << queueArray[index] << " ";
+    }
+    cout << "]" << endl;
 }

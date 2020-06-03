@@ -3,7 +3,7 @@
 
 class Queue {
   private:
-    int *queueAray;
+    int *queueArray;
     int queueSize;
     int front;
     int rear;
@@ -20,7 +20,9 @@ class Queue {
     void enqueue(int num);
     // adds an element to the rear
     int dequeue();
-    // remooves an element from the front
+    // removes an element from the front
     bool isEmpty();
     bool isFull();
+
+    void printArr();
 };
