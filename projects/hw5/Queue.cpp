@@ -63,6 +63,13 @@ int Queue::dequeue()
   return num;
 }
 
+void clear()
+{
+  front = queueSize - 1;
+  rear = queueSize - 1;
+  numElements = 0;
+}
+
 bool Queue::isEmpty()
 {
   return numElements == 0;
