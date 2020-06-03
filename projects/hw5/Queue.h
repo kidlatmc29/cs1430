@@ -16,8 +16,11 @@ class Queue {
     ~Queue();
 
     // operations
+
     void enqueue(int num);
+    // adds an element to the rear
     int dequeue();
+    // remooves an element from the front
     bool isEmpty();
     bool isFull();
 };
