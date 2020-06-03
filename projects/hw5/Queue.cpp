@@ -63,12 +63,3 @@ bool Queue::isFull()
 {
   return numElements >= queueSize;
 }
-
-void Queue::printArr()
-{
-    cout << "[";
-    for(int index = front; index <= rear; index++) {
-      cout << queueArray[index] << " ";
-    }
-    cout << "]" << endl;
-}

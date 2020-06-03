@@ -27,7 +27,6 @@ int main()
   myQueue.enqueue(29);
   myQueue.enqueue(100);
 
-  myQueue.printArr();
 
   cout << endl;
   cout << "removing 2 values from myQueue... " << endl;
@@ -35,7 +34,6 @@ int main()
   int val2 = myQueue.dequeue();
   cout << "values removed were " << val1 << " " << val2 << endl;
 
-  myQueue.printArr();
   cout << "Terminating programing... Goodbye" << endl;
   return 0;
 }
