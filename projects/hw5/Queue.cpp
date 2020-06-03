@@ -22,22 +22,24 @@ Queue::~Queue()
 
 void Queue::enqueue(int num)
 {
-  if(!(isFull())) {
+  if((isFull())) {
     cout << "Queue is full!" << endl;
     exit(1);
   } else {
+    cout << "rear is " << rear << endl;
     // finding new rear
     rear = rear + 1;
+    cout << "rear is now " << rear << endl;
     queueArray[rear] = num;
     numElements++;
-    cout << "added " << queueArray[rear] << " to index " << rear << endl;
+    //cout << "added " << queueArray[rear] << " to index " << rear << endl;
   }
 }
 
 int Queue::dequeue()
 {
   int num;
-  if(!(isEmpty())){
+  if((isEmpty())){
     cout << numElements << " ";
     cout << "Queue is empty" << endl;
     exit(1);
@@ -54,18 +56,18 @@ int Queue::dequeue()
 bool Queue::isEmpty()
 {
 
-  return numElements > 0;
+  return numElements == 0;
 }
 
 bool Queue::isFull()
 {
-  return numElements < queueSize;
+  return numElements >= queueSize;
 }
 
 void Queue::printArr()
 {
     cout << "[";
-    for(int index = 0; index < numElements; index++) {
+    for(int index = front; index <= rear; index++) {
       cout << queueArray[index] << " ";
     }
     cout << "]" << endl;

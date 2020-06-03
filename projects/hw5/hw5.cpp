@@ -19,6 +19,7 @@ int main()
 {
   //int k;
   Queue myQueue(4);
+  myQueue.printArr();
 
   cout << "adding values 1, 4 29, 100 to myQueue..." << endl;
   myQueue.enqueue(1);
