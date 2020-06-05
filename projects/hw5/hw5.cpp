@@ -21,29 +21,49 @@ using namespace std;
 
 const int MAX_SIZE = 10;
 
+void reverseIntgers(Queue& intQueue, int k);
 void printQueue(Queue intQueue);
 void printStack(Stack stackToPrint);
 
 int main()
 {
   cout << endl << endl << "- Welcome to hw5 -" << endl;
-  Stack myStack(MAX_SIZE);
   Queue myQueue(MAX_SIZE);
-
-  cout << "adding 10 values to myStack..." << endl;
-  for(int i = 1; i <= MAX_SIZE; i++) {
-    myStack.push(i);
-  }
-  printStack(myStack);
 
   cout << "adding 10 values to myQueue " << endl;
   for(int i = 1; i <= MAX_SIZE; i++) {
     myQueue.enqueue(i);
   }
+
+  cout << "Testing k = 0 on myQueue" << endl;
   printQueue(myQueue);
 
   cout << "Terminating programing... Goodbye" << endl;
   return 0;
+}
+
+void reverseIntgers(Queue& intQueue, int k)
+{
+  // Get the integers to reverse
+  Stack reverse(MAX_SIZE);
+  for(int i = 0; i < k; i++) {
+    temp.push(intQueue.dequeue());
+  }
+
+  // Save the rest of the integers in a queue
+  Queue temp(MAX_SIZE);
+    while(!intQueue.isEmpty()) {
+        temp.enqueue(intQueue.dequeue())
+    }
+
+  // Put back the reverse and original values in the queue
+  while(!reverse.isEmpty()) {
+    intQueue.enqueue(reverse.pop())
+  }
+
+  while(!temp.isEmpty()) {
+    intQueue.enqueue(temp.dequeue());
+  }
 }
 
 void printQueue(Queue queueToPrint)

@@ -8,7 +8,6 @@ using namespace std;
 
 Stack::Stack(int size)
 {
-  cout << "in stack constructor" << endl;
   stackArray = new int[size];
   top = -1;
   this->size = size;
