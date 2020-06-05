@@ -63,7 +63,7 @@ int Queue::dequeue()
   return num;
 }
 
-void clear()
+void Queue::clear()
 {
   front = queueSize - 1;
   rear = queueSize - 1;
