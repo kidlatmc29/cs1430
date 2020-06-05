@@ -29,6 +29,7 @@ int main()
 {
   cout << endl << endl << "- Welcome to hw5 -" << endl;
   Queue myQueue(MAX_SIZE);
+  //int k = 0;
 
   cout << "adding 10 values to myQueue " << endl;
   for(int i = 1; i <= MAX_SIZE; i++) {
@@ -36,6 +37,8 @@ int main()
   }
 
   cout << "Testing k = 0 on myQueue" << endl;
+  //reverseIntgers(myQueue, k);
+
   printQueue(myQueue);
 
   cout << "Terminating programing... Goodbye" << endl;
@@ -47,18 +50,18 @@ void reverseIntgers(Queue& intQueue, int k)
   // Get the integers to reverse
   Stack reverse(MAX_SIZE);
   for(int i = 0; i < k; i++) {
-    temp.push(intQueue.dequeue());
+    reverse.push(intQueue.dequeue());
   }
 
   // Save the rest of the integers in a queue
   Queue temp(MAX_SIZE);
     while(!intQueue.isEmpty()) {
-        temp.enqueue(intQueue.dequeue())
+        temp.enqueue(intQueue.dequeue());
     }
 
   // Put back the reverse and original values in the queue
   while(!reverse.isEmpty()) {
-    intQueue.enqueue(reverse.pop())
+    intQueue.enqueue(reverse.pop());
   }
 
   while(!temp.isEmpty()) {
