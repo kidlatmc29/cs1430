@@ -28,18 +28,9 @@ void printStack(Stack stackToPrint);
 int main()
 {
   cout << endl << endl << "- Welcome to hw5 -" << endl;
-  Queue myQueue(MAX_SIZE);
-  //int k = 0;
+  Stack myStack(MAX_SIZE);
 
-  cout << "adding 10 values to myQueue " << endl;
-  for(int i = 1; i <= MAX_SIZE; i++) {
-    myQueue.enqueue(i);
-  }
-
-  cout << "Testing k = 0 on myQueue" << endl;
-  //reverseIntgers(myQueue, k);
-
-  printQueue(myQueue);
+  printStack(myStack);
 
   cout << "Terminating programing... Goodbye" << endl;
   return 0;
@@ -49,24 +40,12 @@ void reverseIntgers(Queue& intQueue, int k)
 {
   // Get the integers to reverse
   Stack reverse(MAX_SIZE);
-  for(int i = 0; i < k; i++) {
-    reverse.push(intQueue.dequeue());
-  }
+  //for(int i = 0; i < k; i++) {
+    //reverse.push(intQueue.dequeue());
+  //}
 
-  // Save the rest of the integers in a queue
-  Queue temp(MAX_SIZE);
-    while(!intQueue.isEmpty()) {
-        temp.enqueue(intQueue.dequeue());
-    }
-
-  // Put back the reverse and original values in the queue
-  while(!reverse.isEmpty()) {
-    intQueue.enqueue(reverse.pop());
-  }
-
-  while(!temp.isEmpty()) {
-    intQueue.enqueue(temp.dequeue());
-  }
+  //cout << "printing the reverse stack: " << endl;
+  printStack(reverse);
 }
 
 void printQueue(Queue queueToPrint)
