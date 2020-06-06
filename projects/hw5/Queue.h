@@ -27,4 +27,5 @@ class Queue {
 
     bool isEmpty();
     bool isFull();
+    int getSize();
 };

@@ -21,7 +21,7 @@ using namespace std;
 
 const int MAX_SIZE = 10;
 
-void reverseIntgers(Queue& intQueue, int k);
+void reverseIntegers(Queue& intQueue, int k);
 
 void printQueue(Queue intQueue);
 // takes in a queue object and creates a copy of it to dequeue values to print
@@ -31,57 +31,82 @@ void printStack(Stack stackToPrint);
 
 int main()
 {
-	int k = 3;
-	Queue firstTest(MAX_SIZE);
-  Queue secondTest(3);
-  Queue thirdTest(1);
+	int k;
+	Queue a(MAX_SIZE);
+  Queue b(3);
 
 	cout << endl << endl << "- Welcome to hw5 -" << endl << endl;
 
+  k = 5;
 	cout << "Testing queue: [1 2 3 4 5 6 7 8 9 10] - k = " << k << endl;
-	for (int count = 1; count <= MAX_SIZE; count++) {
-		firstTest.enqueue(count);
+  for (int count = 1; count <= MAX_SIZE; count++) {
+		a.enqueue(count);
 	}
-	reverseIntgers(firstTest, k);
+	reverseIntegers(a, k);
+  cout << endl;
 
+  // k = 5;
+  // cout << "Testing queue [1 2 3 4 5 6 7 8 9 10] - k " << k << endl;
+  // reverseIntegers(a, k);
+  // cout << endl;
 
+  k = 3;
   cout << "Testing queue [1 2 3] - k = " << k << endl;
   for(int count = 1; count <= 3; count++) {
-    secondTest.enqueue(count);
+    b.enqueue(count);
   }
-  reverseIntgers(secondTest, k);
+  reverseIntegers(b, k);
+  cout << endl;
+
+  k = -1;
+  cout << "Testing queue [1 2 3] - k = " << k << endl;
+  reverseIntegers(b, k);
+  cout << endl;
+
+  k = 11;
+  cout << "Testing queue [1 2 3 4 5 6 7 8 9 10] - k = " << k << endl;
+  reverseIntegers(a, k);
+  cout << endl;
+
 
 
 	cout << endl << "Terminating programing... Goodbye" << endl << endl << endl;
 	return 0;
 }
 
-void reverseIntgers(Queue& intQueue, int k)
+void reverseIntegers(Queue& intQueue, int k)
 {
 	int temp;
-	Queue final(MAX_SIZE);
+	Queue final(intQueue.getSize());
 
-	// Get the integers to reverse
-	Stack reverse(k);
-	for (int i = 0; i < k; i++) {
-		reverse.push(intQueue.dequeue());
-	}
-
-	// making a copy of original queue
-	Queue originalVals(intQueue);
-
-	// putting reverse vals and original vals final
-	while (!reverse.isEmpty()) {
-		temp = reverse.pop();
-		final.enqueue(temp);
-	}
-
-	while(!originalVals.isEmpty()) {
-		temp = originalVals.dequeue();
-		final.enqueue(temp);
+  if(k > 0 && k <= final.getSize()) {
+	   // Get the integers to reverse
+	 Stack reverse(k);
+	 for (int i = 0; i < k; i++) {
+		  reverse.push(intQueue.dequeue());
 	 }
-	cout << "Reversed Queue: " << endl;
-	printQueue(final);
+
+	 // making a copy of original queue
+	 Queue originalVals(intQueue);
+
+	 // putting reverse vals and original vals final
+	 while (!reverse.isEmpty()) {
+		  temp = reverse.pop();
+		  final.enqueue(temp);
+	 }
+
+	 while(!originalVals.isEmpty()) {
+		  temp = originalVals.dequeue();
+		  final.enqueue(temp);
+	   }
+	  cout << "Reversed Queue: " << endl;
+	 printQueue(final);
+ } else if (k < 0) {
+    cout << "K must be a non-negative integer! " << endl;
+  } else {
+    cout << "K must be less than or equal to the number of elements in the "
+         << "queue! " << endl;
+  }
 }
 
 void printQueue(Queue queueToPrint)

@@ -79,3 +79,8 @@ bool Queue::isFull()
 {
   return numElements == queueSize;
 }
+
+int Queue::getSize()
+{
+  return queueSize;
+}
