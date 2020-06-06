@@ -13,6 +13,18 @@ Stack::Stack(int size)
   this->size = size;
 }
 
+Stack::Stack(const Stack& original)
+{
+  stackArray = new int[original.size];
+
+  top = original.top;
+  size = original.size;
+
+  for(int index = 0; index < original.size; index++) {
+    stackArray[index] = original.stackArray[index];
+  }
+}
+
 Stack::~Stack()
 {
   delete[] stackArray;
