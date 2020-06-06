@@ -62,8 +62,6 @@ void reverseIntgers(Queue& intQueue, int k)
     reverse.push(intQueue.dequeue());
   }
 
-  printStack(reverse);
-
   // making a copy of original queue
   Queue orignalVals(intQueue);
 
@@ -72,7 +70,8 @@ void reverseIntgers(Queue& intQueue, int k)
     temp = reverse.pop();
     final.enqueue(temp);
   }
-  //
+
+
   //  while(!orignalVals.isEmpty()) {
   //   temp = orignalVals.dequeue();
   //   final.enqueue(temp);
