@@ -46,7 +46,6 @@ int main()
   reverseIntgers(integers, k);
 
   cout << "Reversed integers: ";
-  printQueue(integers);
 
   cout << "Terminating programing... Goodbye" << endl;
   return 0;
@@ -54,6 +53,9 @@ int main()
 
 void reverseIntgers(Queue& intQueue, int k)
 {
+  int temp;
+  Queue final(MAX_SIZE);
+
   // Get the integers to reverse
   Stack reverse(k);
   for(int i = 0; i < k; i++) {
@@ -64,16 +66,19 @@ void reverseIntgers(Queue& intQueue, int k)
 
   // making a copy of original queue
   Queue orignalVals(intQueue);
-  intQueue.clear();
 
-  // putting reverse val back into intQueue and original values
-  // while(!reverse.isEmpty()) {
-    intQueue.enqueue(reverse.pop());
-  //}
-
-  // while(!orignalVals.isEmpty()) {
-  //   intQueue.enqueue(orignalVals.dequeue());
+  // putting reverse vals and original vals final
+  while(!reverse.isEmpty()) {
+    temp = reverse.pop();
+    final.enqueue(temp);
+  }
+  //
+  //  while(!orignalVals.isEmpty()) {
+  //   temp = orignalVals.dequeue();
+  //   final.enqueue(temp);
   // }
+  cout << "final queue: " << endl;
+  printQueue(final);
 }
 
 void printQueue(Queue queueToPrint)
