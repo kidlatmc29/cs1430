@@ -51,7 +51,6 @@ int Queue::dequeue()
 {
   int num;
   if((isEmpty())){
-    cout << numElements << " ";
     cout << "Queue is empty" << endl;
     exit(1);
   } else {
@@ -77,5 +76,5 @@ bool Queue::isEmpty()
 
 bool Queue::isFull()
 {
-  return numElements >= queueSize;
+  return numElements == queueSize;
 }

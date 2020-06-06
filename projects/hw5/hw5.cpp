@@ -31,19 +31,22 @@ void printStack(Stack stackToPrint);
 
 int main()
 {
-  cout << endl << endl << "- Welcome to hw5 -" << endl;
-  Stack myStack(MAX_SIZE);
-  Queue myQueue(MAX_SIZE);
-  myStack.push(1);
-  myStack.push(2);
-  myStack.push(3);
+  int k = 3;
+  Queue integers(MAX_SIZE);
 
-  myQueue.enqueue(1);
-  myQueue.enqueue(2);
-  myQueue.enqueue(3);
+  cout << endl << endl << "- Welcome to hw5 -" << endl << endl;
 
-  printStack(myStack);
-  printQueue(myQueue);
+  cout << "Testing for queue: [0 1 2 3 4 5 6 7 8 9]" << endl
+       << "k = " << k << endl;
+
+  for(int count = 0; count < MAX_SIZE; count++) {
+    integers.enqueue(count);
+  }
+
+  reverseIntgers(integers, k);
+
+  cout << "Reversed integers: ";
+  printQueue(integers);
 
   cout << "Terminating programing... Goodbye" << endl;
   return 0;
@@ -52,19 +55,31 @@ int main()
 void reverseIntgers(Queue& intQueue, int k)
 {
   // Get the integers to reverse
-  Stack reverse(MAX_SIZE);
-  //for(int i = 0; i < k; i++) {
-    //reverse.push(intQueue.dequeue());
+  Stack reverse(k);
+  for(int i = 0; i < k; i++) {
+    reverse.push(intQueue.dequeue());
+  }
+
+  printStack(reverse);
+
+  // making a copy of original queue
+  Queue orignalVals(intQueue);
+  intQueue.clear();
+
+  // putting reverse val back into intQueue and original values
+  // while(!reverse.isEmpty()) {
+    intQueue.enqueue(reverse.pop());
   //}
 
-  //cout << "printing the reverse stack: " << endl;
-  printStack(reverse);
+  // while(!orignalVals.isEmpty()) {
+  //   intQueue.enqueue(orignalVals.dequeue());
+  // }
 }
 
 void printQueue(Queue queueToPrint)
 {
   Queue temp(queueToPrint);
-  
+
   cout << "[ ";
   while(!temp.isEmpty()) {
     cout << temp.dequeue() << " ";
@@ -79,5 +94,5 @@ void printStack(Stack stackToPrint)
   while(!temp.isEmpty()) {
     cout << temp.pop() << " ";
   }
-  cout << " ]" << endl;
+  cout << "]" << endl;
 }

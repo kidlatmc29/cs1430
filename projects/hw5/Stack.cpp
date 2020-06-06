@@ -42,6 +42,11 @@ void Stack::push(int num)
 
 int Stack::pop()
 {
+
+  if(isEmpty()) {
+    return 0;
+  }
+  
   int poppedInt = stackArray[top];
   top--;
   return poppedInt;
