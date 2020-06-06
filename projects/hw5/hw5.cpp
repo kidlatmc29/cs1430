@@ -22,15 +22,28 @@ using namespace std;
 const int MAX_SIZE = 10;
 
 void reverseIntgers(Queue& intQueue, int k);
+
 void printQueue(Queue intQueue);
+// takes in a queue object and creates a copy of it to dequeue values to print
+
 void printStack(Stack stackToPrint);
+// takes in a stack object and creates a copy of it to pop values to print
 
 int main()
 {
   cout << endl << endl << "- Welcome to hw5 -" << endl;
   Stack myStack(MAX_SIZE);
+  Queue myQueue(MAX_SIZE);
+  myStack.push(1);
+  myStack.push(2);
+  myStack.push(3);
+
+  myQueue.enqueue(1);
+  myQueue.enqueue(2);
+  myQueue.enqueue(3);
 
   printStack(myStack);
+  printQueue(myQueue);
 
   cout << "Terminating programing... Goodbye" << endl;
   return 0;
@@ -50,18 +63,21 @@ void reverseIntgers(Queue& intQueue, int k)
 
 void printQueue(Queue queueToPrint)
 {
+  Queue temp(queueToPrint);
+  
   cout << "[ ";
-  while(!queueToPrint.isEmpty()) {
-    cout << queueToPrint.dequeue() << " ";
+  while(!temp.isEmpty()) {
+    cout << temp.dequeue() << " ";
   }
   cout << "]" << endl;
 }
 
 void printStack(Stack stackToPrint)
 {
+  Stack temp(stackToPrint);
   cout << "[ ";
-  while(!stackToPrint.isEmpty()) {
-    cout << stackToPrint.pop() << " ";
+  while(!temp.isEmpty()) {
+    cout << temp.pop() << " ";
   }
   cout << " ]" << endl;
 }

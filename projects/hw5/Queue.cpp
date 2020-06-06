@@ -28,13 +28,14 @@ Queue::Queue(const Queue& original)
   rear = original.rear;
   numElements = original.numElements;
 
-  for(int index = 0; index < original.queueSize; index++) {
+  for(int index = 0; index < original.numElements; index++) {
     queueArray[index] = original.queueArray[index];
   }
 }
 
 void Queue::enqueue(int num)
 {
+
   if((isFull())) {
     cout << "Queue is full!" << endl;
     exit(1);
@@ -59,7 +60,6 @@ int Queue::dequeue()
     num = queueArray[front];
     numElements--;
   }
-
   return num;
 }
 

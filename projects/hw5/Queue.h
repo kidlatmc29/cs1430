@@ -13,7 +13,7 @@ class Queue {
     // constructor
     Queue(int size);
     //copy constructor
-    Queue(const Queue&);
+    Queue(const Queue& original);
     // deconstructor
     ~Queue();
 
