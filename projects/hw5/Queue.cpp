@@ -22,15 +22,16 @@ Queue::~Queue()
 
 Queue::Queue(const Queue& original)
 {
-  queueArray = new int[original.queueSize];
+  queueArray = new int[original.numElements];
 
   front = original.front;
   rear = original.rear;
   numElements = original.numElements;
 
-  for(int index = 0; index < original.numElements; index++) {
+  for(int index = front; index <= rear; index++) {
     queueArray[index] = original.queueArray[index];
   }
+  queueSize = numElements;
 }
 
 void Queue::enqueue(int num)

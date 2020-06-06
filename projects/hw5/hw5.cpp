@@ -31,72 +31,73 @@ void printStack(Stack stackToPrint);
 
 int main()
 {
-  int k = 3;
-  Queue integers(MAX_SIZE);
+	int k = 3;
+	Queue integers(5);
 
-  cout << endl << endl << "- Welcome to hw5 -" << endl << endl;
+	cout << endl << endl << "- Welcome to hw5 -" << endl << endl;
 
-  cout << "Testing for queue: [0 1 2 3 4 5 6 7 8 9]" << endl
-       << "k = " << k << endl;
+	cout << "Testing for queue: [1 2 3 4 5]" << endl
+		<< "k = " << k << endl;
 
-  for(int count = 0; count < MAX_SIZE; count++) {
-    integers.enqueue(count);
-  }
+	for (int count = 1; count <= 5; count++) {
+		integers.enqueue(count);
+	}
 
-  reverseIntgers(integers, k);
+	reverseIntgers(integers, k);
 
-  cout << "Reversed integers: ";
 
-  cout << "Terminating programing... Goodbye" << endl;
-  return 0;
+	cout << "Terminating programing... Goodbye" << endl;
+	return 0;
 }
 
 void reverseIntgers(Queue& intQueue, int k)
 {
-  int temp;
-  Queue final(MAX_SIZE);
+	int temp;
+	Queue final(MAX_SIZE);
 
-  // Get the integers to reverse
-  Stack reverse(k);
-  for(int i = 0; i < k; i++) {
-    reverse.push(intQueue.dequeue());
-  }
+	// Get the integers to reverse
+	Stack reverse(k);
+	for (int i = 0; i < k; i++) {
+		reverse.push(intQueue.dequeue());
+	}
 
-  // making a copy of original queue
-  Queue orignalVals(intQueue);
+	// making a copy of original queue
+	Queue originalVals(intQueue);
+  printQueue(originalVals);
 
-  // putting reverse vals and original vals final
-  while(!reverse.isEmpty()) {
-    temp = reverse.pop();
-    final.enqueue(temp);
-  }
+	// putting reverse vals and original vals final
+	while (!reverse.isEmpty()) {
+		temp = reverse.pop();
+		final.enqueue(temp);
+	}
 
+	printQueue(final);
 
-  //  while(!orignalVals.isEmpty()) {
-  //   temp = orignalVals.dequeue();
-  //   final.enqueue(temp);
-  // }
-  cout << "final queue: " << endl;
-  printQueue(final);
+	while(!originalVals.isEmpty()) {
+		temp = originalVals.dequeue();
+		final.enqueue(temp);
+	 }
+	cout << "final queue: " << endl;
+	printQueue(final);
 }
 
 void printQueue(Queue queueToPrint)
 {
-  Queue temp(queueToPrint);
+	Queue temp(queueToPrint);
 
-  cout << "[ ";
-  while(!temp.isEmpty()) {
-    cout << temp.dequeue() << " ";
-  }
-  cout << "]" << endl;
+	cout << "[ ";
+	while (!temp.isEmpty()) {
+		cout << temp.dequeue() << " ";
+	}
+	cout << "]" << endl;
 }
 
 void printStack(Stack stackToPrint)
 {
-  Stack temp(stackToPrint);
-  cout << "[ ";
-  while(!temp.isEmpty()) {
-    cout << temp.pop() << " ";
-  }
-  cout << "]" << endl;
+	Stack temp(stackToPrint);
+	cout << "[ ";
+	while (!temp.isEmpty()) {
+		cout << temp.pop() << " ";
+	}
+	cout << "]" << endl;
 }

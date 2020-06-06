@@ -46,7 +46,7 @@ int Stack::pop()
   if(isEmpty()) {
     return 0;
   }
-  
+
   int poppedInt = stackArray[top];
   top--;
   return poppedInt;
