@@ -35,7 +35,6 @@ int main()
 	Queue a(MAX_SIZE);
   Queue b(3);
 	Queue c(6);
-	Queue d(MAX_SIZE);
 
 	cout << endl << endl << "- Welcome to hw5 -" << endl << endl;
 
@@ -47,7 +46,7 @@ int main()
 	reverseIntegers(a, k);
   cout << endl;
 
-	k = 3;
+	k = 4;
 	cout << "Testing queue [12 13 14 15 16 17] - k = " << k << endl;
 	for(int i = 12; i <= 17; i++) {
 		c.enqueue(i);
@@ -63,6 +62,14 @@ int main()
   reverseIntegers(b, k);
   cout << endl;
 
+	k = 2;
+  cout << "Testing queue [1 2 3] - k = " << k << endl;
+	for(int count = 1; count <= 3; count++) {
+    b.enqueue(count);
+  }
+	reverseIntegers(b, k);
+  cout << endl;
+
   k = -1;
   cout << "Testing queue [1 2 3] - k = " << k << endl;
   reverseIntegers(b, k);
@@ -73,14 +80,7 @@ int main()
   reverseIntegers(a, k);
   cout << endl;
 
-	k = 9;
-	cout << "Testing queue: [10 30 40 50 60 70 80 90 100] - k = " << k << endl;
-	for(int count = 1; count <= MAX_SIZE; count++) {
-		d.enqueue(count * 10);
-	}
-	reverseIntegers(d, k);
-
-	cout << endl << "Terminating programing... Goodbye" << endl << endl << endl;
+	cout << endl << "Terminating programing... Goodbye!" << endl << endl << endl;
 	return 0;
 }
 
