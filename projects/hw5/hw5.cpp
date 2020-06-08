@@ -80,7 +80,7 @@ int main()
   reverseIntegers(a, k);
   cout << endl;
 
-	cout << endl << "Terminating programing... Goodbye!" << endl << endl << endl;
+	cout << endl << "Terminating program... Goodbye!" << endl << endl << endl;
 	return 0;
 }
 
