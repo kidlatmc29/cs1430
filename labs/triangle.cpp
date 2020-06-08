@@ -7,21 +7,19 @@
 // 'n' : Not a triangle
 char triangleType(int side1, int side2, int side3)
 {
-  char choice = 's';  //default scalene 
+  char choice = 's';  //default scalene
   // Check for invalid triangle
-  if (side1 + side2 < side3) {
-    choice = 'n';
+  if(side1 + side2 <= side3 || side1 + side3 <= side2
+    || side2 + side3 <= side1) {
+      choice = 'n';
   }
 
   // Check for equilateral triangle
-  if ((side1 == side2) && (side2 == side3)) {
+  if ((side1 + side2 + side3 > 0) && (side1 == side3 && side2 == side3)) {
     choice = 'e';
-  }
-
-  // Check for isosceles triangle
-  if ((side1 == side2) || (side2 == side3)) {
+  } else if ((side1 + side2 + side3 > 0) && ((side1 == side2)
+    || (side2 == side3) || (side1 == side3))) {   // Check for isosceles triangle
     choice = 'i';
   }
   return choice;
 }
-
